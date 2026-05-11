@@ -209,10 +209,18 @@
     </div>
   </div>
 
-  <!-- Topic Suggestions -->
+  <!-- Topic Suggestions: Category -->
   <div class="section">
-    <div class="section-title"><div class="dot" style="background:var(--success)"></div>추천 블로그 주제 <span style="font-size:12px;color:var(--text-dim);font-weight:400;">DataForSEO 카테고리 gap 분석 · 🔥 시즈널 트렌딩</span></div>
-    <div class="topic-grid" id="topic-grid">
+    <div class="section-title"><div class="dot" style="background:var(--success)"></div>추천 블로그 주제 — 카테고리 트렌딩 <span style="font-size:12px;color:var(--text-dim);font-weight:400;">렌터카·여행 업종 gap 분석 · 쏘카 비브랜드 키워드 🔥</span></div>
+    <div class="topic-grid" id="topic-grid-category">
+      <div class="empty">로딩 중...</div>
+    </div>
+  </div>
+
+  <!-- Topic Suggestions: Brand -->
+  <div class="section">
+    <div class="section-title"><div class="dot" style="background:var(--primary)"></div>추천 블로그 주제 — 쏘카 브랜드 <span style="font-size:12px;color:var(--text-dim);font-weight:400;">쏘카 서비스 안내·팁 기회 키워드</span></div>
+    <div class="topic-grid" id="topic-grid-brand">
       <div class="empty">로딩 중...</div>
     </div>
   </div>
@@ -323,12 +331,15 @@
       }).join('');
     }
 
-    // Topics
-    const topicGrid = document.getElementById('topic-grid');
-    if (!d.topics || d.topics.length === 0) {
-      topicGrid.innerHTML = '<div class="empty">추천 주제 데이터 없음</div>';
-    } else {
-      topicGrid.innerHTML = d.topics.map(t => {
+    // Topics (두 섹션 공통 렌더 함수)
+    function renderTopics(containerId, topics) {
+      const el = document.getElementById(containerId);
+      if (!el) return;
+      if (!topics || topics.length === 0) {
+        el.innerHTML = '<div class="empty">추천 주제 데이터 없음</div>';
+        return;
+      }
+      el.innerHTML = topics.map(t => {
         const qTags = (t.queries || []).slice(0, 4).map(q => `<span class="query-tag">${q}</span>`).join('');
         const trendingBadge = t.is_trending
           ? `<span class="trending-badge">🔥 트렌딩 ${t.seasonal_index ? `×${t.seasonal_index}` : ''}</span>`
@@ -348,6 +359,8 @@
           </div>`;
       }).join('');
     }
+    renderTopics('topic-grid-category', d.topics_category || d.topics);
+    renderTopics('topic-grid-brand', d.topics_brand);
   }
 
   function toggleCard(i) {
