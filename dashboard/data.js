@@ -71,74 +71,74 @@ const SEO_DATA = {
         "4월 31일",
         "4월 축제"
       ],
-      "analysis": "[T1] 리드문: ✅\n- 적절한 리드문으로 시작하여 글의 주제와 내용을 잘 소개하고 있습니다.\n\n[T2] H2 개수: ✅ \n- 5개의 H2 제목을 사용하여 적절한 구조를 갖추고 있습니다.\n\n[T3] 질문형 H2: ⚠️\n- H2 제목을 질문 형식으로 바꾸면 더 나은 SEO 효과를 볼 수 있습니다. 예: \"황금연휴 기간 부산·경남·울산에서 어떤 축제가 열리나요?\"\n\n[T4] 키워드 배치: ⚠️\n- \"봄 축제\", \"황금연휴\", \"드라이브\" 등 주요 키워드를 H2, H3 제목과 첫 문장에 더 자주 사용하면 좋습니다.\n\n[T5] 분량: ✅\n- 충분한 분량으로 각 축제에 대해 상세히 설명하고 있습니다.\n\n[T7] 구조: ✅\n- 표, 리스트, 이미지 등을 적절히 활용하여 읽기 쉬운 구조를 가지고 있습니다.\n\n보강 제안:\n1. H2 제목을 질문 형식으로 변경\n2. 주요 키워드를 제목과 첫 문장에 더 자주 사용\n3. 각 축제 설명 후 \"쏘카로 이동하기 좋은 코스\" 등의 소제목 추가하여 키워드 강화"
+      "analysis": "[T1] 리드문: ✅\n- 현재 리드문이 잘 작성되어 있습니다.\n\n[T2] H2 개수: ✅ \n- 5개의 H2가 사용되어 적절합니다.\n\n[T3] 질문형 H2: ⚠️\n- 첫 번째 H2를 제외하고 질문형이 아닙니다. 일부 H2를 질문형으로 변경하면 좋겠습니다.\n\n[T4] 키워드 배치: ⚠️\n- \"봄 축제\", \"부산 축제\" 등 주요 키워드를 H2와 본문에 더 자주 사용하면 좋겠습니다.\n\n[T5] 분량: ✅\n- 충분한 분량으로 작성되어 있습니다.\n\n[T7] 구조: ✅\n- 표, 이미지, 목록 등을 활용해 구조화가 잘 되어 있습니다.\n\n보강 제안:\n1. 일부 H2를 질문형으로 변경 (예: \"김해 가야문화축제는 어떤 행사인가요?\")\n2. 주요 키워드를 H2와 본문에 더 자주 사용\n3. FAQ 섹션 추가로 관련 키워드 보강\n4. 각 축제 소개 마지막에 \"쏘카로 가는 방법\" 등의 소제목 추가"
     }
   ],
   "topics": [
     {
-      "title": "쏘카로 떠나는 봄 여행: 벚꽃 명소 & 드라이브 코스 추천",
-      "slug_suggestion": "socar-spring-cherry-blossom-drive",
+      "title": "쏘카 핸들러 완벽 가이드: 이용 요금부터 꿀팁까지",
+      "slug_suggestion": "socar-handler-guide",
       "queries": [
-        "벚꽃 명소",
-        "봄 드라이브 코스",
-        "쏘카 여행"
+        "쏘카 핸들러",
+        "쏘카 이용 요금",
+        "쏘카 핸들러 디시"
       ],
-      "total_impressions": 15000,
+      "total_impressions": 1360,
       "seasonal_index": 1.5,
       "is_trending": true,
-      "rationale": "봄 시즌 트렌딩 키워드와 쏘카 이용을 결합한 시의성 있는 주제"
+      "rationale": "트렌딩 키워드 3개를 결합하여 높은 검색량과 시즈널리티 활용"
     },
     {
-      "title": "쏘카 이용 꿀팁: 주유비 절약부터 할인 혜택까지",
-      "slug_suggestion": "socar-money-saving-tips",
+      "title": "쏘카 이용방법 총정리: 첫 이용자를 위한 A to Z",
+      "slug_suggestion": "socar-usage-guide",
       "queries": [
-        "쏘카 주유",
-        "카셰어링 할인",
-        "쏘카 쿠폰"
+        "쏘카 이용 방법",
+        "쏘카 이용방법",
+        "쏘카 고객센터"
       ],
-      "total_impressions": 12000,
-      "seasonal_index": 1.1,
+      "total_impressions": 2030,
+      "seasonal_index": 0.81,
       "is_trending": false,
-      "rationale": "비용 절감에 관심 높은 사용자들을 위한 실용적인 정보 제공"
+      "rationale": "초보 이용자들을 위한 종합적인 가이드 제공"
     },
     {
-      "title": "쏘카로 즐기는 캠핑 & 피크닉: 차박 꿀팁 대공개",
-      "slug_suggestion": "socar-camping-picnic-guide",
+      "title": "쏘카 플랜 & 쿠폰: 알뜰하게 이용하는 방법",
+      "slug_suggestion": "socar-plan-coupon-tips",
       "queries": [
-        "차박",
-        "캠핑카",
-        "피크닉"
+        "쏘카 플랜",
+        "쏘카 쿠폰",
+        "쏘카 이용 요금"
       ],
-      "total_impressions": 18000,
-      "seasonal_index": 1.3,
+      "total_impressions": 1300,
+      "seasonal_index": 1.26,
       "is_trending": true,
-      "rationale": "봄/여름 시즌 인기 활동과 쏘카 이용을 연계한 트렌디한 주제"
+      "rationale": "비용 절감에 관심 있는 사용자들을 위한 유용한 정보 제공"
     },
     {
-      "title": "쏘카 차종별 특징 & 장단점: 어떤 차를 선택해야 할까?",
-      "slug_suggestion": "socar-car-model-comparison",
+      "title": "제주도에서 쏘카 vs 렌트카: 어떤 게 더 좋을까?",
+      "slug_suggestion": "jeju-socar-vs-rentcar",
       "queries": [
-        "쏘카 차종",
-        "카셰어링 차량 비교",
-        "렌트카 선택"
+        "제주도 쏘카",
+        "제주도 쏘카 vs 렌트카 디시",
+        "쏘카 제주"
       ],
-      "total_impressions": 10000,
-      "seasonal_index": 1.0,
+      "total_impressions": 1460,
+      "seasonal_index": 0.83,
       "is_trending": false,
-      "rationale": "차량 선택에 도움을 주는 실용적인 정보로 사용자 만족도 향상 기대"
+      "rationale": "제주도 여행객들을 위한 실용적인 비교 정보 제공"
     },
     {
-      "title": "쏘카로 떠나는 여름 휴가: 해수욕장 & 워터파크 추천",
-      "slug_suggestion": "socar-summer-vacation-destinations",
+      "title": "쏘카 보험 & 긁힘 처리: 알아두면 유용한 팁",
+      "slug_suggestion": "socar-insurance-scratch-tips",
       "queries": [
-        "여름 휴가지",
-        "해수욕장",
-        "워터파크"
+        "쏘카 보험 디시",
+        "쏘카 긁힘 미신고 디시",
+        "쏘카 이용 요금"
       ],
-      "total_impressions": 20000,
-      "seasonal_index": 1.4,
+      "total_impressions": 960,
+      "seasonal_index": 1.29,
       "is_trending": true,
-      "rationale": "다가오는 여름 시즌을 겨냥한 트렌딩 키워드와 쏘카 이용 연계"
+      "rationale": "사용자들의 불안요소를 해소하는 실질적인 정보 제공"
     }
   ]
 };
