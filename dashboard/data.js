@@ -22,7 +22,14 @@ const SEO_DATA = {
         "position": 3.9,
         "impressions": 1342,
         "clicks": 20,
-        "ctr": 1.5
+        "ctr": 1.5,
+        "queries": [
+          "쏘카 1박 2일 비용",
+          "쏘카 가격표",
+          "쏘카 suv 1시간 요금",
+          "쏘카 전기차 주행요금",
+          "쏘카 비용"
+        ]
       },
       {
         "url": "https://www.socar.kr/blog/socar-travel-busan-gyeongnam-ulsan-festival-2026",
@@ -30,7 +37,14 @@ const SEO_DATA = {
         "position": 14.7,
         "impressions": 307,
         "clicks": 6,
-        "ctr": 2.0
+        "ctr": 2.0,
+        "queries": [
+          "봄에 하는 축제",
+          "부산 여행",
+          "4월 축제",
+          "게임 로고를 만드는 방법",
+          "더 스카우트 인 부산"
+        ]
       },
       {
         "url": "https://www.socar.kr/blog/socar-9900won-commute-tip",
@@ -38,7 +52,14 @@ const SEO_DATA = {
         "position": 4.7,
         "impressions": 152,
         "clicks": 10,
-        "ctr": 6.6
+        "ctr": 6.6,
+        "queries": [
+          "쏘카 기름값",
+          "쏘카 실속보장",
+          "쏘카 당일최저가",
+          "쏘카 퇴출근 쿠폰",
+          "쏘카 6시간 가격"
+        ]
       },
       {
         "url": "https://www.socar.kr/blog/socar-delivery-complete-guide",
@@ -46,7 +67,14 @@ const SEO_DATA = {
         "position": 3.7,
         "impressions": 108,
         "clicks": 9,
-        "ctr": 8.3
+        "ctr": 8.3,
+        "queries": [
+          "쏘카 배달",
+          "쏘카 24시간 무료 쿠폰",
+          "쏘카 배달 요청사항",
+          "쏘카 예약 시간보다 일찍",
+          "쏘카 예약시간보다 일찍"
+        ]
       }
     ],
     "history": [
@@ -71,52 +99,39 @@ const SEO_DATA = {
         "4월 31일",
         "4월 축제"
       ],
-      "analysis": "[T1] 리드문: ✅\n- 현재 리드문이 잘 작성되어 있습니다.\n\n[T2] H2 개수: ✅ \n- 5개의 H2가 사용되어 적절합니다.\n\n[T3] 질문형 H2: ⚠️\n- 첫 번째 H2를 제외하고 질문형이 아닙니다. 일부 H2를 질문형으로 변경하면 좋겠습니다.\n\n[T4] 키워드 배치: ⚠️\n- \"봄 축제\", \"부산 축제\" 등 주요 키워드를 H2와 본문에 더 자주 사용하면 좋겠습니다.\n\n[T5] 분량: ✅\n- 충분한 분량으로 작성되어 있습니다.\n\n[T7] 구조: ✅\n- 표, 이미지, 목록 등을 활용해 구조화가 잘 되어 있습니다.\n\n보강 제안:\n1. 일부 H2를 질문형으로 변경 (예: \"김해 가야문화축제는 어떤 행사인가요?\")\n2. 주요 키워드를 H2와 본문에 더 자주 사용\n3. FAQ 섹션 추가로 관련 키워드 보강\n4. 각 축제 소개 마지막에 \"쏘카로 가는 방법\" 등의 소제목 추가"
+      "analysis": "[T1] 리드문: ✅\n- 적절한 리드문으로 시작합니다.\n\n[T2] H2 개수: ✅ \n- 4개의 H2 제목을 사용하여 적절히 구조화되어 있습니다.\n\n[T3] 질문형 H2: ⚠️\n- H2 제목을 질문 형태로 바꾸면 더 효과적일 수 있습니다. 예: \"김해 가야문화축제에서 무엇을 즐길 수 있나요?\"\n\n[T4] 키워드 배치: ⚠️\n- \"봄 축제\", \"4월 축제\", \"5월 축제\" 등의 키워드를 더 자주 사용하면 좋습니다.\n- 각 축제 소개에 \"2026년\" 연도를 추가하여 시의성을 높이세요.\n\n[T5] 분량: ✅\n- 충분한 분량으로 각 축제에 대해 상세히 설명하고 있습니다.\n\n[T7] 구조: ✅\n- 표, 리스트, 이미지 등을 적절히 사용하여 가독성이 좋습니다.\n\n추가 제안:\n- FAQ 섹션을 추가하여 자주 묻는 질문에 답하면 SEO에 도움이 될 수 있습니다.\n- 각 축제별로 쏘카 이용 팁(주차 정보, 추천 경로 등)을 추가하면 좋겠습니다."
     }
   ],
   "topics": [
     {
-      "title": "쏘카 핸들러 완벽 가이드: 이용 요금부터 꿀팁까지",
-      "slug_suggestion": "socar-handler-guide",
+      "title": "쏘카 핸들러 되는 방법: 초보자도 쉽게 따라하는 꿀팁",
+      "slug_suggestion": "socar-handler-guide-for-beginners",
       "queries": [
         "쏘카 핸들러",
-        "쏘카 이용 요금",
-        "쏘카 핸들러 디시"
+        "쏘카 핸들러 디시",
+        "쏘카 이용 방법"
       ],
       "total_impressions": 1360,
-      "seasonal_index": 1.5,
+      "seasonal_index": 1.36,
       "is_trending": true,
-      "rationale": "트렌딩 키워드 3개를 결합하여 높은 검색량과 시즈널리티 활용"
+      "rationale": "트렌딩 키워드인 '쏘카 핸들러'에 대한 상세 가이드로 사용자 유입 증가 예상"
     },
     {
-      "title": "쏘카 이용방법 총정리: 첫 이용자를 위한 A to Z",
-      "slug_suggestion": "socar-usage-guide",
+      "title": "쏘카 이용 요금 완벽 가이드: 돈 아끼는 스마트한 방법",
+      "slug_suggestion": "socar-usage-fee-smart-saving-tips",
       "queries": [
-        "쏘카 이용 방법",
-        "쏘카 이용방법",
-        "쏘카 고객센터"
-      ],
-      "total_impressions": 2030,
-      "seasonal_index": 0.81,
-      "is_trending": false,
-      "rationale": "초보 이용자들을 위한 종합적인 가이드 제공"
-    },
-    {
-      "title": "쏘카 플랜 & 쿠폰: 알뜰하게 이용하는 방법",
-      "slug_suggestion": "socar-plan-coupon-tips",
-      "queries": [
-        "쏘카 플랜",
+        "쏘카 이용 요금",
         "쏘카 쿠폰",
-        "쏘카 이용 요금"
+        "쏘카 플랜"
       ],
       "total_impressions": 1300,
-      "seasonal_index": 1.26,
+      "seasonal_index": 1.78,
       "is_trending": true,
-      "rationale": "비용 절감에 관심 있는 사용자들을 위한 유용한 정보 제공"
+      "rationale": "높은 시즈널 지수를 보이는 '쏘카 이용 요금' 키워드로 사용자 관심 유도"
     },
     {
-      "title": "제주도에서 쏘카 vs 렌트카: 어떤 게 더 좋을까?",
-      "slug_suggestion": "jeju-socar-vs-rentcar",
+      "title": "제주도 여행, 쏘카로 더 즐겁게: 렌트카 vs 쏘카 비교 분석",
+      "slug_suggestion": "jeju-travel-socar-vs-rentcar-comparison",
       "queries": [
         "제주도 쏘카",
         "제주도 쏘카 vs 렌트카 디시",
@@ -125,20 +140,33 @@ const SEO_DATA = {
       "total_impressions": 1460,
       "seasonal_index": 0.83,
       "is_trending": false,
-      "rationale": "제주도 여행객들을 위한 실용적인 비교 정보 제공"
+      "rationale": "제주도 여행 시즌에 맞춰 쏘카의 장점을 부각시킬 수 있는 콘텐츠"
     },
     {
-      "title": "쏘카 보험 & 긁힘 처리: 알아두면 유용한 팁",
-      "slug_suggestion": "socar-insurance-scratch-tips",
+      "title": "쏘카 하이패스 이용 가이드: 톨게이트 빠르게 통과하는 방법",
+      "slug_suggestion": "socar-hipass-usage-guide",
       "queries": [
-        "쏘카 보험 디시",
-        "쏘카 긁힘 미신고 디시",
-        "쏘카 이용 요금"
+        "쏘카 하이 패스",
+        "쏘카 하이패스",
+        "쏘카 이용방법"
       ],
-      "total_impressions": 960,
-      "seasonal_index": 1.29,
-      "is_trending": true,
-      "rationale": "사용자들의 불안요소를 해소하는 실질적인 정보 제공"
+      "total_impressions": 1680,
+      "seasonal_index": 0.78,
+      "is_trending": false,
+      "rationale": "사용자들이 자주 묻는 하이패스 관련 정보를 제공하여 서비스 만족도 향상"
+    },
+    {
+      "title": "쏘카로 즐기는 편도 여행: 새로운 여행 트렌드와 꿀팁",
+      "slug_suggestion": "socar-one-way-trip-trend-and-tips",
+      "queries": [
+        "쏘카 편도",
+        "쏘카 이용 방법",
+        "쏘카 쿠폰"
+      ],
+      "total_impressions": 1500,
+      "seasonal_index": 0.84,
+      "is_trending": false,
+      "rationale": "편도 여행이라는 새로운 트렌드를 소개하며 쏘카의 편리성 강조"
     }
   ]
 };
