@@ -163,11 +163,19 @@
       </div>
     </div>
 
-    <div class="chart-wrap">
-      <div class="chart-header">
-        <div class="chart-title">주차별 노출 추이</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px;">
+      <div class="chart-wrap" style="margin-top:0">
+        <div class="chart-header">
+          <div class="chart-title">노출 추이 <span style="color:var(--primary);font-weight:600;">Impressions</span></div>
+        </div>
+        <canvas id="impChart"></canvas>
       </div>
-      <canvas id="trendChart"></canvas>
+      <div class="chart-wrap" style="margin-top:0">
+        <div class="chart-header">
+          <div class="chart-title">클릭 추이 <span style="color:var(--success);font-weight:600;">Clicks</span></div>
+        </div>
+        <canvas id="clickChart"></canvas>
+      </div>
     </div>
   </div>
 
@@ -231,39 +239,31 @@
     document.getElementById('avg-pos').innerHTML = `${s.avgPosition}<span>위</span>`;
     document.getElementById('avg-ctr').innerHTML = `${s.avgCTR}<span>%</span>`;
 
-    // Trend chart
+    // Trend charts (분리)
     const hist = d.performance.history;
-    new Chart(document.getElementById('trendChart'), {
+    const chartOpts = (color, bgColor) => ({
+      responsive: true, maintainAspectRatio: true,
+      plugins: { legend: { display: false } },
+      scales: {
+        x: { ticks: { color: '#64748B', font: { size: 11 } }, grid: { color: '#1E2D42' } },
+        y: { ticks: { color: '#64748B', font: { size: 11 } }, grid: { color: '#1E2D42' }, beginAtZero: false },
+      }
+    });
+    new Chart(document.getElementById('impChart'), {
       type: 'line',
       data: {
         labels: hist.map(h => h.week),
-        datasets: [
-          {
-            label: '노출',
-            data: hist.map(h => h.totalImpressions),
-            borderColor: '#3B82F6',
-            backgroundColor: 'rgba(59,130,246,0.08)',
-            tension: 0.3, fill: true, pointRadius: 4,
-          },
-          {
-            label: '클릭',
-            data: hist.map(h => h.totalClicks),
-            borderColor: '#22C55E',
-            backgroundColor: 'rgba(34,197,94,0.08)',
-            tension: 0.3, fill: true, pointRadius: 4,
-            yAxisID: 'y2',
-          }
-        ]
+        datasets: [{ data: hist.map(h => h.totalImpressions), borderColor: '#3B82F6', backgroundColor: 'rgba(59,130,246,0.08)', tension: 0.3, fill: true, pointRadius: 4 }]
       },
-      options: {
-        responsive: true, maintainAspectRatio: true,
-        plugins: { legend: { labels: { color: '#94A3B8', font: { size: 12 } } } },
-        scales: {
-          x: { ticks: { color: '#64748B', font: { size: 11 } }, grid: { color: '#1E2D42' } },
-          y: { ticks: { color: '#64748B', font: { size: 11 } }, grid: { color: '#1E2D42' } },
-          y2: { position: 'right', ticks: { color: '#64748B', font: { size: 11 } }, grid: { display: false } },
-        }
-      }
+      options: chartOpts('#3B82F6', 'rgba(59,130,246,0.08)'),
+    });
+    new Chart(document.getElementById('clickChart'), {
+      type: 'line',
+      data: {
+        labels: hist.map(h => h.week),
+        datasets: [{ data: hist.map(h => h.totalClicks), borderColor: '#22C55E', backgroundColor: 'rgba(34,197,94,0.08)', tension: 0.3, fill: true, pointRadius: 4 }]
+      },
+      options: chartOpts('#22C55E', 'rgba(34,197,94,0.08)'),
     });
 
     // Performance table
