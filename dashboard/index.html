@@ -75,7 +75,9 @@
     thead th { background: var(--surface2); padding: 10px 14px; text-align: left; font-size: 12px; color: var(--text-muted); font-weight: 600; border-bottom: 1px solid var(--border); white-space: nowrap; }
     tbody td { padding: 10px 14px; border-bottom: 1px solid var(--border); font-size: 13px; }
     tbody tr:last-child td { border-bottom: none; }
-    tbody tr:hover { background: var(--surface2); }
+    tbody tr.expandable { cursor: pointer; }
+    tbody tr.expandable:hover td { background: var(--surface2); }
+    tbody tr.query-row td { border-bottom: 1px solid var(--border); padding: 8px 14px 12px; background: var(--surface2); }
     .url-cell { max-width: 320px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
     .url-cell a { color: var(--primary); text-decoration: none; }
     .url-cell a:hover { text-decoration: underline; }
@@ -83,6 +85,7 @@
     .pos-top { background: var(--success-dim); color: var(--success); }
     .pos-mid { background: var(--warning-dim); color: var(--warning); }
     .pos-low { background: var(--danger-dim); color: var(--danger); }
+    .expand-hint { font-size: 11px; color: var(--text-dim); }
 
     /* Refresh cards */
     .refresh-list { display: flex; flex-direction: column; gap: 10px; margin-top: 14px; }
@@ -176,7 +179,7 @@
         <thead>
           <tr>
             <th>#</th>
-            <th>페이지</th>
+            <th>페이지 <span class="expand-hint">(클릭 → 유입 키워드)</span></th>
             <th>순위</th>
             <th>노출</th>
             <th>클릭</th>
@@ -271,14 +274,20 @@
       tbody.innerHTML = d.performance.pages.map((p, i) => {
         const posCls = p.position <= 10 ? 'pos-top' : p.position <= 20 ? 'pos-mid' : 'pos-low';
         const slug = p.url.replace('https://www.socar.kr/blog/', '');
-        return `<tr>
+        const hasQ = p.queries && p.queries.length > 0;
+        const qTags = hasQ ? p.queries.map(q => `<span class="query-tag">${q}</span>`).join('') : '';
+        const mainRow = `<tr class="${hasQ ? 'expandable' : ''}" onclick="${hasQ ? `togglePerf(${i})` : ''}">
           <td style="color:var(--text-dim)">${i + 1}</td>
-          <td class="url-cell"><a href="${p.url}" target="_blank">${slug}</a></td>
+          <td class="url-cell"><a href="${p.url}" target="_blank" onclick="event.stopPropagation()">${slug}</a></td>
           <td><span class="pos-badge ${posCls}">${p.position}위</span></td>
           <td>${p.impressions.toLocaleString()}</td>
           <td>${p.clicks.toLocaleString()}</td>
           <td>${p.ctr}%</td>
         </tr>`;
+        const qRow = hasQ
+          ? `<tr class="query-row" id="qrow-${i}" style="display:none"><td colspan="6"><div class="queries-row" style="padding:2px 0">${qTags}</div></td></tr>`
+          : '';
+        return mainRow + qRow;
       }).join('');
     }
 
@@ -346,6 +355,11 @@
     const btn = document.getElementById(`btn-${i}`);
     const isOpen = body.classList.toggle('open');
     btn.style.transform = isOpen ? 'rotate(90deg)' : '';
+  }
+
+  function togglePerf(i) {
+    const row = document.getElementById(`qrow-${i}`);
+    if (row) row.style.display = row.style.display === 'none' ? 'table-row' : 'none';
   }
 </script>
 </body>
