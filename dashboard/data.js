@@ -99,74 +99,74 @@ const SEO_DATA = {
         "4월 31일",
         "4월 축제"
       ],
-      "analysis": "[T1] 리드문: ✅ \n- 현재 리드문이 잘 작성되어 있습니다.\n\n[T2] H2 개수: ✅ \n- 5개의 H2가 사용되어 적절합니다.\n\n[T3] 질문형 H2: ⚠️\n- 첫 번째 H2를 제외하고는 질문형이 아닙니다. 일부 H2를 질문형으로 변경하면 좋겠습니다.\n\n[T4] 키워드 배치: ⚠️\n- \"봄 축제\", \"황금연휴\" 등 주요 키워드를 더 자주 사용하면 좋겠습니다.\n- 각 축제명을 H3로 강조하면 좋겠습니다.\n\n[T5] 분량: ✅\n- 충분한 분량으로 작성되어 있습니다.\n\n[T7] 구조: ✅\n- 전체적인 구조가 잘 잡혀있습니다.\n\n보강 제안:\n1. 일부 H2를 질문형으로 변경 (예: \"김해 가야문화축제는 어떤 행사인가요?\")\n2. 주요 키워드를 더 자주 사용\n3. 각 축제명을 H3로 강조\n4. 마지막에 결론 또는 요약 섹션 추가"
+      "analysis": "[T1] 리드문: ✅ \n적절한 리드문으로 시작합니다.\n\n[T2] H2 개수: ✅ \n5개의 H2를 사용하여 적절한 구조를 갖추고 있습니다.\n\n[T3] 질문형 H2: ⚠️\n질문형 H2가 부족합니다. \"어떤 축제가 열리나요?\", \"부산에서 즐길 수 있는 봄 행사는?\" 등의 질문형 H2를 추가하면 좋겠습니다.\n\n[T4] 키워드 배치: ⚠️ \n주요 키워드인 \"봄 축제\", \"4월 축제\", \"5월 축제\" 등의 사용 빈도를 높이고, H2나 H3에 더 자주 포함시키면 좋겠습니다.\n\n[T5] 분량: ✅\n약 1,500단어로 충분한 분량입니다.\n\n[T7] 구조: ⚠️\nFAQ 섹션을 본문 끝에 추가하여 사용자 질문에 대한 직접적인 답변을 제공하면 좋겠습니다.\n\n보강 제안:\n1. 질문형 H2 추가\n2. 주요 키워드를 헤딩에 더 자주 포함\n3. FAQ 섹션 추가 (예: \"부산 봄 축제 관련 자주 묻는 질문\")"
     }
   ],
   "topics": [
     {
-      "title": "쏘카 핸들러 되기: 초보자를 위한 완벽 가이드",
-      "slug_suggestion": "socar-handler-guide-for-beginners",
+      "title": "쏘카 핸들러의 모든 것: 신규 고객을 위한 완벽 가이드",
+      "slug_suggestion": "socar-handler-guide",
       "queries": [
         "쏘카 핸들러",
-        "쏘카 이용 방법",
-        "쏘카 이용 요금"
-      ],
-      "total_impressions": 1760,
-      "seasonal_index": 1.33,
-      "is_trending": true,
-      "rationale": "트렌딩 키워드인 '쏘카 핸들러'와 '쏘카 이용 요금'을 다루며 서비스 이용 팁 제공"
-    },
-    {
-      "title": "쏘카로 즐기는 제주도 여행: 핵심 팁과 추천 코스",
-      "slug_suggestion": "jeju-travel-tips-with-socar",
-      "queries": [
-        "제주도 쏘카",
-        "쏘카 제주",
-        "쏘카 이용 요금"
-      ],
-      "total_impressions": 1300,
-      "seasonal_index": 1.17,
-      "is_trending": true,
-      "rationale": "제주도 여행 정보와 쏘카 서비스를 연결하며 트렌딩 키워드 '쏘카 이용 요금' 포함"
-    },
-    {
-      "title": "쏘카 플랜 200% 활용하기: 알뜰 이용 꿀팁",
-      "slug_suggestion": "socar-plan-money-saving-tips",
-      "queries": [
-        "쏘카 플랜",
-        "쏘카 이용 요금",
-        "쏘카 쿠폰"
-      ],
-      "total_impressions": 1300,
-      "seasonal_index": 1.26,
-      "is_trending": true,
-      "rationale": "트렌딩 키워드 '쏘카 이용 요금'을 중심으로 비용 절감 팁 제공"
-    },
-    {
-      "title": "쏘카 핸들러 디시인들의 리얼 후기와 꿀팁 모음",
-      "slug_suggestion": "socar-handler-dcinside-reviews-tips",
-      "queries": [
         "쏘카 핸들러 디시",
-        "쏘카 디시",
         "쏘카 이용 방법"
       ],
-      "total_impressions": 1630,
-      "seasonal_index": 0.99,
+      "total_impressions": 1360,
+      "seasonal_index": 1.36,
       "is_trending": true,
-      "rationale": "트렌딩 키워드 '쏘카 핸들러 디시'를 활용해 실제 사용자 경험 공유"
+      "rationale": "핫 트렌드인 '쏘카 핸들러' 관련 정보 수요를 충족시키는 종합 가이드"
     },
     {
-      "title": "쏘카로 떠나는 가을 드라이브 코스 TOP 5",
-      "slug_suggestion": "top-5-autumn-drive-courses-with-socar",
+      "title": "제주도 가족 여행 완벽 코스: 쏘카로 즐기는 특별한 추억",
+      "slug_suggestion": "jeju-family-travel-socar",
       "queries": [
-        "쏘카",
-        "쏘카 이용 요금",
-        "쏘카 쿠폰"
+        "제주도 가족 여행",
+        "제주도 여행 코스",
+        "쏘카 제주"
       ],
-      "total_impressions": 27810,
-      "seasonal_index": 0.94,
-      "is_trending": false,
-      "rationale": "가을 시즌에 맞춘 여행 정보와 쏘카 서비스를 연결하며 트렌딩 키워드 포함"
+      "total_impressions": 6000,
+      "seasonal_index": 1.2,
+      "is_trending": true,
+      "rationale": "트렌딩 중인 '제주도 가족 여행'과 쏘카 서비스를 연계한 실용적 콘텐츠"
+    },
+    {
+      "title": "쏘카 이용 요금 완벽 정복: 알뜰 여행자를 위한 꿀팁",
+      "slug_suggestion": "socar-pricing-tips",
+      "queries": [
+        "쏘카 이용 요금",
+        "쏘카 쿠폰",
+        "쏘카 플랜"
+      ],
+      "total_impressions": 1300,
+      "seasonal_index": 1.78,
+      "is_trending": true,
+      "rationale": "급상승 중인 '쏘카 이용 요금' 관련 정보와 할인 팁을 제공하는 유용한 가이드"
+    },
+    {
+      "title": "제주도 혼자 여행 완벽 가이드: 쏘카로 즐기는 자유 여행",
+      "slug_suggestion": "jeju-solo-travel-socar",
+      "queries": [
+        "제주도 혼자 여행 헌팅 디시",
+        "제주도 혼자 여행",
+        "쏘카 제주도"
+      ],
+      "total_impressions": 1150,
+      "seasonal_index": 1.53,
+      "is_trending": true,
+      "rationale": "트렌딩 키워드인 '제주도 혼자 여행 헌팅'과 쏘카 서비스를 연계한 독특한 콘텐츠"
+    },
+    {
+      "title": "쏘카로 떠나는 제주도 수학여행: 안전하고 즐거운 단체 여행 팁",
+      "slug_suggestion": "jeju-school-trip-socar",
+      "queries": [
+        "제주도 수학 여행 숙소",
+        "제주도 수학 여행",
+        "쏘카 이용 방법"
+      ],
+      "total_impressions": 1150,
+      "seasonal_index": 1.39,
+      "is_trending": true,
+      "rationale": "트렌딩 중인 '제주도 수학 여행' 관련 정보와 쏘카 서비스를 연계한 특화 콘텐츠"
     }
   ]
 };
