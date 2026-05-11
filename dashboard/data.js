@@ -99,74 +99,74 @@ const SEO_DATA = {
         "4월 31일",
         "4월 축제"
       ],
-      "analysis": "[T1] 리드문: ✅\n- 적절한 리드문으로 시작합니다.\n\n[T2] H2 개수: ✅ \n- 4개의 H2 제목을 사용하여 적절히 구조화되어 있습니다.\n\n[T3] 질문형 H2: ⚠️\n- H2 제목을 질문 형태로 바꾸면 더 효과적일 수 있습니다. 예: \"김해 가야문화축제에서 무엇을 즐길 수 있나요?\"\n\n[T4] 키워드 배치: ⚠️\n- \"봄 축제\", \"4월 축제\", \"5월 축제\" 등의 키워드를 더 자주 사용하면 좋습니다.\n- 각 축제 소개에 \"2026년\" 연도를 추가하여 시의성을 높이세요.\n\n[T5] 분량: ✅\n- 충분한 분량으로 각 축제에 대해 상세히 설명하고 있습니다.\n\n[T7] 구조: ✅\n- 표, 리스트, 이미지 등을 적절히 사용하여 가독성이 좋습니다.\n\n추가 제안:\n- FAQ 섹션을 추가하여 자주 묻는 질문에 답하면 SEO에 도움이 될 수 있습니다.\n- 각 축제별로 쏘카 이용 팁(주차 정보, 추천 경로 등)을 추가하면 좋겠습니다."
+      "analysis": "[T1] 리드문: ✅ \n- 현재 리드문이 잘 작성되어 있습니다.\n\n[T2] H2 개수: ✅ \n- 5개의 H2가 사용되어 적절합니다.\n\n[T3] 질문형 H2: ⚠️\n- 첫 번째 H2를 제외하고는 질문형이 아닙니다. 일부 H2를 질문형으로 변경하면 좋겠습니다.\n\n[T4] 키워드 배치: ⚠️\n- \"봄 축제\", \"황금연휴\" 등 주요 키워드를 더 자주 사용하면 좋겠습니다.\n- 각 축제명을 H3로 강조하면 좋겠습니다.\n\n[T5] 분량: ✅\n- 충분한 분량으로 작성되어 있습니다.\n\n[T7] 구조: ✅\n- 전체적인 구조가 잘 잡혀있습니다.\n\n보강 제안:\n1. 일부 H2를 질문형으로 변경 (예: \"김해 가야문화축제는 어떤 행사인가요?\")\n2. 주요 키워드를 더 자주 사용\n3. 각 축제명을 H3로 강조\n4. 마지막에 결론 또는 요약 섹션 추가"
     }
   ],
   "topics": [
     {
-      "title": "쏘카 핸들러 되는 방법: 초보자도 쉽게 따라하는 꿀팁",
+      "title": "쏘카 핸들러 되기: 초보자를 위한 완벽 가이드",
       "slug_suggestion": "socar-handler-guide-for-beginners",
       "queries": [
         "쏘카 핸들러",
-        "쏘카 핸들러 디시",
-        "쏘카 이용 방법"
+        "쏘카 이용 방법",
+        "쏘카 이용 요금"
       ],
-      "total_impressions": 1360,
-      "seasonal_index": 1.36,
+      "total_impressions": 1760,
+      "seasonal_index": 1.33,
       "is_trending": true,
-      "rationale": "트렌딩 키워드인 '쏘카 핸들러'에 대한 상세 가이드로 사용자 유입 증가 예상"
+      "rationale": "트렌딩 키워드인 '쏘카 핸들러'와 '쏘카 이용 요금'을 다루며 서비스 이용 팁 제공"
     },
     {
-      "title": "쏘카 이용 요금 완벽 가이드: 돈 아끼는 스마트한 방법",
-      "slug_suggestion": "socar-usage-fee-smart-saving-tips",
-      "queries": [
-        "쏘카 이용 요금",
-        "쏘카 쿠폰",
-        "쏘카 플랜"
-      ],
-      "total_impressions": 1300,
-      "seasonal_index": 1.78,
-      "is_trending": true,
-      "rationale": "높은 시즈널 지수를 보이는 '쏘카 이용 요금' 키워드로 사용자 관심 유도"
-    },
-    {
-      "title": "제주도 여행, 쏘카로 더 즐겁게: 렌트카 vs 쏘카 비교 분석",
-      "slug_suggestion": "jeju-travel-socar-vs-rentcar-comparison",
+      "title": "쏘카로 즐기는 제주도 여행: 핵심 팁과 추천 코스",
+      "slug_suggestion": "jeju-travel-tips-with-socar",
       "queries": [
         "제주도 쏘카",
-        "제주도 쏘카 vs 렌트카 디시",
-        "쏘카 제주"
+        "쏘카 제주",
+        "쏘카 이용 요금"
       ],
-      "total_impressions": 1460,
-      "seasonal_index": 0.83,
-      "is_trending": false,
-      "rationale": "제주도 여행 시즌에 맞춰 쏘카의 장점을 부각시킬 수 있는 콘텐츠"
+      "total_impressions": 1300,
+      "seasonal_index": 1.17,
+      "is_trending": true,
+      "rationale": "제주도 여행 정보와 쏘카 서비스를 연결하며 트렌딩 키워드 '쏘카 이용 요금' 포함"
     },
     {
-      "title": "쏘카 하이패스 이용 가이드: 톨게이트 빠르게 통과하는 방법",
-      "slug_suggestion": "socar-hipass-usage-guide",
+      "title": "쏘카 플랜 200% 활용하기: 알뜰 이용 꿀팁",
+      "slug_suggestion": "socar-plan-money-saving-tips",
       "queries": [
-        "쏘카 하이 패스",
-        "쏘카 하이패스",
-        "쏘카 이용방법"
-      ],
-      "total_impressions": 1680,
-      "seasonal_index": 0.78,
-      "is_trending": false,
-      "rationale": "사용자들이 자주 묻는 하이패스 관련 정보를 제공하여 서비스 만족도 향상"
-    },
-    {
-      "title": "쏘카로 즐기는 편도 여행: 새로운 여행 트렌드와 꿀팁",
-      "slug_suggestion": "socar-one-way-trip-trend-and-tips",
-      "queries": [
-        "쏘카 편도",
-        "쏘카 이용 방법",
+        "쏘카 플랜",
+        "쏘카 이용 요금",
         "쏘카 쿠폰"
       ],
-      "total_impressions": 1500,
-      "seasonal_index": 0.84,
+      "total_impressions": 1300,
+      "seasonal_index": 1.26,
+      "is_trending": true,
+      "rationale": "트렌딩 키워드 '쏘카 이용 요금'을 중심으로 비용 절감 팁 제공"
+    },
+    {
+      "title": "쏘카 핸들러 디시인들의 리얼 후기와 꿀팁 모음",
+      "slug_suggestion": "socar-handler-dcinside-reviews-tips",
+      "queries": [
+        "쏘카 핸들러 디시",
+        "쏘카 디시",
+        "쏘카 이용 방법"
+      ],
+      "total_impressions": 1630,
+      "seasonal_index": 0.99,
+      "is_trending": true,
+      "rationale": "트렌딩 키워드 '쏘카 핸들러 디시'를 활용해 실제 사용자 경험 공유"
+    },
+    {
+      "title": "쏘카로 떠나는 가을 드라이브 코스 TOP 5",
+      "slug_suggestion": "top-5-autumn-drive-courses-with-socar",
+      "queries": [
+        "쏘카",
+        "쏘카 이용 요금",
+        "쏘카 쿠폰"
+      ],
+      "total_impressions": 27810,
+      "seasonal_index": 0.94,
       "is_trending": false,
-      "rationale": "편도 여행이라는 새로운 트렌드를 소개하며 쏘카의 편리성 강조"
+      "rationale": "가을 시즌에 맞춘 여행 정보와 쏘카 서비스를 연결하며 트렌딩 키워드 포함"
     }
   ]
 };
