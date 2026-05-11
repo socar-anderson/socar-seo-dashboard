@@ -103,7 +103,10 @@
     /* Topic cards */
     .topic-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 12px; margin-top: 14px; }
     .topic-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 16px; }
-    .topic-title { font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 8px; }
+    .topic-card.trending { border-color: rgba(245,158,11,0.4); }
+    .topic-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; margin-bottom: 8px; }
+    .topic-title { font-size: 14px; font-weight: 700; color: var(--text); }
+    .trending-badge { flex-shrink: 0; background: var(--warning-dim); color: var(--warning); border: 1px solid rgba(245,158,11,0.3); border-radius: 4px; padding: 2px 7px; font-size: 11px; font-weight: 600; white-space: nowrap; }
     .topic-rationale { font-size: 12px; color: var(--text-muted); margin-bottom: 10px; line-height: 1.5; }
     .topic-queries { display: flex; gap: 5px; flex-wrap: wrap; margin-bottom: 10px; }
     .topic-footer { display: flex; justify-content: space-between; align-items: center; }
@@ -129,6 +132,7 @@
   <div class="header-right">
     <div class="badge" id="period-badge">기간 로딩 중...</div>
     <div class="badge">업데이트 <strong id="last-updated">-</strong></div>
+    <a href="https://search.google.com/search-console" target="_blank" class="badge" style="text-decoration:none;color:var(--text-muted);">GSC ↗</a>
   </div>
 </header>
 
@@ -136,7 +140,7 @@
 
   <!-- Summary -->
   <div class="section">
-    <div class="section-title"><div class="dot"></div>블로그 성과 요약</div>
+    <div class="section-title"><div class="dot"></div>블로그 성과 요약 <span style="font-size:12px;color:var(--text-dim);font-weight:400;" id="period-7d-label"></span></div>
     <div class="cards">
       <div class="card blue">
         <div class="card-label">총 노출수</div>
@@ -166,7 +170,7 @@
 
   <!-- Blog Performance Table -->
   <div class="section">
-    <div class="section-title"><div class="dot"></div>블로그 성과 현황 <span style="font-size:12px;color:var(--text-dim);font-weight:400;">노출 상위 20개</span></div>
+    <div class="section-title"><div class="dot"></div>블로그 성과 현황 <span style="font-size:12px;color:var(--text-dim);font-weight:400;">최근 7일 · 노출 상위 20개</span></div>
     <div class="table-wrap">
       <table>
         <thead>
@@ -188,7 +192,7 @@
 
   <!-- Refresh Targets -->
   <div class="section">
-    <div class="section-title"><div class="dot" style="background:var(--warning)"></div>SEO 리프레시 대상 <span style="font-size:12px;color:var(--text-dim);font-weight:400;">11~30위 · 노출 상위 5개</span></div>
+    <div class="section-title"><div class="dot" style="background:var(--warning)"></div>SEO 리프레시 대상 <span style="font-size:12px;color:var(--text-dim);font-weight:400;">최근 28일 · 11~30위 · 노출 상위 5개</span></div>
     <div class="refresh-list" id="refresh-list">
       <div class="empty">로딩 중...</div>
     </div>
@@ -196,7 +200,7 @@
 
   <!-- Topic Suggestions -->
   <div class="section">
-    <div class="section-title"><div class="dot" style="background:var(--success)"></div>추천 블로그 주제 <span style="font-size:12px;color:var(--text-dim);font-weight:400;">블로그 글 없는 유입 키워드 기반</span></div>
+    <div class="section-title"><div class="dot" style="background:var(--success)"></div>추천 블로그 주제 <span style="font-size:12px;color:var(--text-dim);font-weight:400;">DataForSEO 카테고리 gap 분석 · 🔥 시즈널 트렌딩</span></div>
     <div class="topic-grid" id="topic-grid">
       <div class="empty">로딩 중...</div>
     </div>
@@ -212,7 +216,10 @@
   } else {
     // Meta
     document.getElementById('last-updated').textContent = d.meta.lastUpdated;
-    document.getElementById('period-badge').innerHTML = `기간 <strong>${d.meta.period}</strong>`;
+    const period = d.meta.period7d || d.meta.period || '';
+    document.getElementById('period-badge').innerHTML = `성과 기준 <strong>${period}</strong>`;
+    const p7dLabel = document.getElementById('period-7d-label');
+    if (p7dLabel) p7dLabel.textContent = period;
 
     // Summary cards
     const s = d.performance.summary;
@@ -314,14 +321,20 @@
     } else {
       topicGrid.innerHTML = d.topics.map(t => {
         const qTags = (t.queries || []).slice(0, 4).map(q => `<span class="query-tag">${q}</span>`).join('');
+        const trendingBadge = t.is_trending
+          ? `<span class="trending-badge">🔥 트렌딩 ${t.seasonal_index ? `×${t.seasonal_index}` : ''}</span>`
+          : (t.seasonal_index ? `<span class="trending-badge" style="background:var(--surface2);color:var(--text-muted);border-color:var(--border2)">시즈널 ×${t.seasonal_index}</span>` : '');
         return `
-          <div class="topic-card">
-            <div class="topic-title">${t.title}</div>
+          <div class="topic-card${t.is_trending ? ' trending' : ''}">
+            <div class="topic-header">
+              <div class="topic-title">${t.title}</div>
+              ${trendingBadge}
+            </div>
             <div class="topic-rationale">${t.rationale || ''}</div>
             <div class="topic-queries">${qTags}</div>
             <div class="topic-footer">
               <div class="topic-slug">${t.slug_suggestion || ''}</div>
-              <div class="topic-imp">노출 ${(t.total_impressions || 0).toLocaleString()}</div>
+              <div class="topic-imp">검색량 ${(t.total_impressions || 0).toLocaleString()}</div>
             </div>
           </div>`;
       }).join('');
