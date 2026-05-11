@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>쏘카 블로그 SEO 대시보드</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <script src="data.js"></script>
+  <style>
+    :root {
+      --bg: #0B1120;
+      --surface: #151F30;
+      --surface2: #1C2A40;
+      --surface3: #243048;
+      --primary: #3B82F6;
+      --primary-dim: rgba(59,130,246,0.15);
+      --success: #22C55E;
+      --success-dim: rgba(34,197,94,0.12);
+      --warning: #F59E0B;
+      --warning-dim: rgba(245,158,11,0.12);
+      --danger: #EF4444;
+      --danger-dim: rgba(239,68,68,0.12);
+      --text: #E2E8F0;
+      --text-muted: #94A3B8;
+      --text-dim: #64748B;
+      --border: #1E2D42;
+      --border2: #2D3F58;
+      --socar-blue: #1E56D6;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: 'Pretendard', -apple-system, 'Apple SD Gothic Neo', sans-serif; font-size: 14px; line-height: 1.5; }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, #0F1C2E 0%, #0B1120 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 20px 24px;
+      display: flex; align-items: center; justify-content: space-between;
+      position: sticky; top: 0; z-index: 100;
+    }
+    .header-left { display: flex; align-items: center; gap: 12px; }
+    .logo { width: 28px; height: 28px; background: var(--socar-blue); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 11px; color: #fff; }
+    header h1 { font-size: 16px; font-weight: 700; }
+    header h1 span { color: var(--primary); }
+    .header-right { display: flex; gap: 8px; align-items: center; }
+    .badge { background: var(--surface2); border: 1px solid var(--border2); border-radius: 6px; padding: 4px 10px; font-size: 12px; color: var(--text-muted); }
+    .badge strong { color: var(--text); }
+
+    /* Layout */
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 24px 60px; }
+    .section { margin-top: 32px; }
+    .section-title { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+    .section-title .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--primary); }
+
+    /* Summary cards */
+    .cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 20px; }
+    .card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 16px 20px; }
+    .card-label { font-size: 12px; color: var(--text-muted); margin-bottom: 6px; }
+    .card-value { font-size: 24px; font-weight: 700; color: var(--text); }
+    .card-value span { font-size: 13px; font-weight: 400; color: var(--text-muted); margin-left: 4px; }
+    .card.blue { border-color: rgba(59,130,246,0.3); }
+    .card.blue .card-value { color: var(--primary); }
+    .card.green { border-color: rgba(34,197,94,0.3); }
+    .card.green .card-value { color: var(--success); }
+
+    /* Chart */
+    .chart-wrap { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 20px; margin-top: 14px; }
+    .chart-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+    .chart-title { font-size: 13px; font-weight: 600; color: var(--text-muted); }
+    canvas { max-height: 180px; }
+
+    /* Table */
+    .table-wrap { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; margin-top: 14px; }
+    table { width: 100%; border-collapse: collapse; }
+    thead th { background: var(--surface2); padding: 10px 14px; text-align: left; font-size: 12px; color: var(--text-muted); font-weight: 600; border-bottom: 1px solid var(--border); white-space: nowrap; }
+    tbody td { padding: 10px 14px; border-bottom: 1px solid var(--border); font-size: 13px; }
+    tbody tr:last-child td { border-bottom: none; }
+    tbody tr:hover { background: var(--surface2); }
+    .url-cell { max-width: 320px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .url-cell a { color: var(--primary); text-decoration: none; }
+    .url-cell a:hover { text-decoration: underline; }
+    .pos-badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 12px; font-weight: 600; }
+    .pos-top { background: var(--success-dim); color: var(--success); }
+    .pos-mid { background: var(--warning-dim); color: var(--warning); }
+    .pos-low { background: var(--danger-dim); color: var(--danger); }
+
+    /* Refresh cards */
+    .refresh-list { display: flex; flex-direction: column; gap: 10px; margin-top: 14px; }
+    .refresh-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+    .refresh-card-header { padding: 14px 16px; display: flex; justify-content: space-between; align-items: flex-start; cursor: pointer; }
+    .refresh-card-header:hover { background: var(--surface2); }
+    .refresh-url { color: var(--primary); font-size: 13px; font-weight: 600; word-break: break-all; }
+    .refresh-meta { display: flex; gap: 12px; margin-top: 6px; flex-wrap: wrap; }
+    .meta-item { font-size: 12px; color: var(--text-muted); }
+    .meta-item strong { color: var(--text); }
+    .expand-btn { flex-shrink: 0; color: var(--text-dim); font-size: 18px; margin-left: 12px; transition: transform 0.2s; }
+    .refresh-card-body { padding: 0 16px 14px; display: none; border-top: 1px solid var(--border); padding-top: 14px; }
+    .refresh-card-body.open { display: block; }
+    .queries-row { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 12px; }
+    .query-tag { background: var(--primary-dim); color: var(--primary); border: 1px solid rgba(59,130,246,0.3); border-radius: 4px; padding: 2px 8px; font-size: 12px; }
+    .analysis-text { font-size: 13px; color: var(--text-muted); line-height: 1.7; white-space: pre-wrap; }
+
+    /* Topic cards */
+    .topic-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 12px; margin-top: 14px; }
+    .topic-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 16px; }
+    .topic-title { font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 8px; }
+    .topic-rationale { font-size: 12px; color: var(--text-muted); margin-bottom: 10px; line-height: 1.5; }
+    .topic-queries { display: flex; gap: 5px; flex-wrap: wrap; margin-bottom: 10px; }
+    .topic-footer { display: flex; justify-content: space-between; align-items: center; }
+    .topic-slug { font-size: 11px; color: var(--text-dim); font-family: monospace; }
+    .topic-imp { font-size: 12px; color: var(--warning); font-weight: 600; }
+
+    /* No data */
+    .empty { text-align: center; padding: 40px; color: var(--text-dim); font-size: 13px; }
+
+    @media (max-width: 768px) {
+      .cards { grid-template-columns: repeat(2, 1fr); }
+      .topic-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-left">
+    <div class="logo">S</div>
+    <h1>쏘카 블로그 <span>SEO 대시보드</span></h1>
+  </div>
+  <div class="header-right">
+    <div class="badge" id="period-badge">기간 로딩 중...</div>
+    <div class="badge">업데이트 <strong id="last-updated">-</strong></div>
+  </div>
+</header>
+
+<div class="container">
+
+  <!-- Summary -->
+  <div class="section">
+    <div class="section-title"><div class="dot"></div>블로그 성과 요약</div>
+    <div class="cards">
+      <div class="card blue">
+        <div class="card-label">총 노출수</div>
+        <div class="card-value" id="total-imp">-</div>
+      </div>
+      <div class="card green">
+        <div class="card-label">총 클릭수</div>
+        <div class="card-value" id="total-clicks">-</div>
+      </div>
+      <div class="card">
+        <div class="card-label">평균 순위</div>
+        <div class="card-value" id="avg-pos">-<span>위</span></div>
+      </div>
+      <div class="card">
+        <div class="card-label">평균 CTR</div>
+        <div class="card-value" id="avg-ctr">-<span>%</span></div>
+      </div>
+    </div>
+
+    <div class="chart-wrap">
+      <div class="chart-header">
+        <div class="chart-title">주차별 노출 추이</div>
+      </div>
+      <canvas id="trendChart"></canvas>
+    </div>
+  </div>
+
+  <!-- Blog Performance Table -->
+  <div class="section">
+    <div class="section-title"><div class="dot"></div>블로그 성과 현황 <span style="font-size:12px;color:var(--text-dim);font-weight:400;">노출 상위 20개</span></div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>페이지</th>
+            <th>순위</th>
+            <th>노출</th>
+            <th>클릭</th>
+            <th>CTR</th>
+          </tr>
+        </thead>
+        <tbody id="perf-table-body">
+          <tr><td colspan="6" class="empty">로딩 중...</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Refresh Targets -->
+  <div class="section">
+    <div class="section-title"><div class="dot" style="background:var(--warning)"></div>SEO 리프레시 대상 <span style="font-size:12px;color:var(--text-dim);font-weight:400;">11~30위 · 노출 상위 5개</span></div>
+    <div class="refresh-list" id="refresh-list">
+      <div class="empty">로딩 중...</div>
+    </div>
+  </div>
+
+  <!-- Topic Suggestions -->
+  <div class="section">
+    <div class="section-title"><div class="dot" style="background:var(--success)"></div>추천 블로그 주제 <span style="font-size:12px;color:var(--text-dim);font-weight:400;">블로그 글 없는 유입 키워드 기반</span></div>
+    <div class="topic-grid" id="topic-grid">
+      <div class="empty">로딩 중...</div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  const d = typeof SEO_DATA !== 'undefined' ? SEO_DATA : null;
+
+  if (!d) {
+    document.body.innerHTML = '<div style="text-align:center;padding:80px;color:#94A3B8;">data.js 파일을 찾을 수 없습니다.</div>';
+  } else {
+    // Meta
+    document.getElementById('last-updated').textContent = d.meta.lastUpdated;
+    document.getElementById('period-badge').innerHTML = `기간 <strong>${d.meta.period}</strong>`;
+
+    // Summary cards
+    const s = d.performance.summary;
+    document.getElementById('total-imp').innerHTML = s.totalImpressions.toLocaleString();
+    document.getElementById('total-clicks').innerHTML = s.totalClicks.toLocaleString();
+    document.getElementById('avg-pos').innerHTML = `${s.avgPosition}<span>위</span>`;
+    document.getElementById('avg-ctr').innerHTML = `${s.avgCTR}<span>%</span>`;
+
+    // Trend chart
+    const hist = d.performance.history;
+    new Chart(document.getElementById('trendChart'), {
+      type: 'line',
+      data: {
+        labels: hist.map(h => h.week),
+        datasets: [
+          {
+            label: '노출',
+            data: hist.map(h => h.totalImpressions),
+            borderColor: '#3B82F6',
+            backgroundColor: 'rgba(59,130,246,0.08)',
+            tension: 0.3, fill: true, pointRadius: 4,
+          },
+          {
+            label: '클릭',
+            data: hist.map(h => h.totalClicks),
+            borderColor: '#22C55E',
+            backgroundColor: 'rgba(34,197,94,0.08)',
+            tension: 0.3, fill: true, pointRadius: 4,
+            yAxisID: 'y2',
+          }
+        ]
+      },
+      options: {
+        responsive: true, maintainAspectRatio: true,
+        plugins: { legend: { labels: { color: '#94A3B8', font: { size: 12 } } } },
+        scales: {
+          x: { ticks: { color: '#64748B', font: { size: 11 } }, grid: { color: '#1E2D42' } },
+          y: { ticks: { color: '#64748B', font: { size: 11 } }, grid: { color: '#1E2D42' } },
+          y2: { position: 'right', ticks: { color: '#64748B', font: { size: 11 } }, grid: { display: false } },
+        }
+      }
+    });
+
+    // Performance table
+    const tbody = document.getElementById('perf-table-body');
+    if (d.performance.pages.length === 0) {
+      tbody.innerHTML = '<tr><td colspan="6" class="empty">데이터 없음</td></tr>';
+    } else {
+      tbody.innerHTML = d.performance.pages.map((p, i) => {
+        const posCls = p.position <= 10 ? 'pos-top' : p.position <= 20 ? 'pos-mid' : 'pos-low';
+        const slug = p.url.replace('https://www.socar.kr/blog/', '');
+        return `<tr>
+          <td style="color:var(--text-dim)">${i + 1}</td>
+          <td class="url-cell"><a href="${p.url}" target="_blank">${slug}</a></td>
+          <td><span class="pos-badge ${posCls}">${p.position}위</span></td>
+          <td>${p.impressions.toLocaleString()}</td>
+          <td>${p.clicks.toLocaleString()}</td>
+          <td>${p.ctr}%</td>
+        </tr>`;
+      }).join('');
+    }
+
+    // Refresh targets
+    const refreshList = document.getElementById('refresh-list');
+    if (!d.refresh || d.refresh.length === 0) {
+      refreshList.innerHTML = '<div class="empty">리프레시 대상 없음 (11~30위 페이지 없음)</div>';
+    } else {
+      refreshList.innerHTML = d.refresh.map((r, i) => {
+        const slug = r.url.replace('https://www.socar.kr/blog/', '');
+        const queries = (r.queries || []).map(q => `<span class="query-tag">${q}</span>`).join('');
+        const analysis = r.analysis
+          ? `<div class="queries-row">${queries}</div><div class="analysis-text">${r.analysis}</div>`
+          : `<div class="queries-row">${queries}</div><div style="color:var(--text-dim);font-size:12px;">파일을 찾을 수 없어 분석을 수행하지 못했습니다.</div>`;
+        return `
+          <div class="refresh-card">
+            <div class="refresh-card-header" onclick="toggleCard(${i})">
+              <div>
+                <div class="refresh-url">${slug}</div>
+                <div class="refresh-meta">
+                  <span class="meta-item">순위 <strong>${r.position}위</strong></span>
+                  <span class="meta-item">노출 <strong>${r.impressions.toLocaleString()}</strong></span>
+                  <span class="meta-item">클릭 <strong>${r.clicks.toLocaleString()}</strong></span>
+                  <span class="meta-item">CTR <strong>${r.ctr}%</strong></span>
+                </div>
+              </div>
+              <div class="expand-btn" id="btn-${i}">›</div>
+            </div>
+            <div class="refresh-card-body" id="body-${i}">
+              ${analysis}
+            </div>
+          </div>`;
+      }).join('');
+    }
+
+    // Topics
+    const topicGrid = document.getElementById('topic-grid');
+    if (!d.topics || d.topics.length === 0) {
+      topicGrid.innerHTML = '<div class="empty">추천 주제 데이터 없음</div>';
+    } else {
+      topicGrid.innerHTML = d.topics.map(t => {
+        const qTags = (t.queries || []).slice(0, 4).map(q => `<span class="query-tag">${q}</span>`).join('');
+        return `
+          <div class="topic-card">
+            <div class="topic-title">${t.title}</div>
+            <div class="topic-rationale">${t.rationale || ''}</div>
+            <div class="topic-queries">${qTags}</div>
+            <div class="topic-footer">
+              <div class="topic-slug">${t.slug_suggestion || ''}</div>
+              <div class="topic-imp">노출 ${(t.total_impressions || 0).toLocaleString()}</div>
+            </div>
+          </div>`;
+      }).join('');
+    }
+  }
+
+  function toggleCard(i) {
+    const body = document.getElementById(`body-${i}`);
+    const btn = document.getElementById(`btn-${i}`);
+    const isOpen = body.classList.toggle('open');
+    btn.style.transform = isOpen ? 'rotate(90deg)' : '';
+  }
+</script>
+</body>
+</html>
