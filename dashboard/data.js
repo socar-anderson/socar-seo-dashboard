@@ -4,40 +4,25 @@
 const SEO_DATA = {
   "meta": {
     "lastUpdated": "2026-05-11",
-    "period": "2026-04-13 ~ 2026-05-11",
-    "totalBlogPages": 6
+    "period7d": "2026-05-04 ~ 2026-05-11",
+    "period28d": "2026-04-13 ~ 2026-05-11",
+    "totalBlogPages": 4
   },
   "performance": {
     "summary": {
-      "totalImpressions": 4610,
-      "totalClicks": 136,
-      "avgPosition": 6.6,
-      "avgCTR": 3.9
+      "totalImpressions": 1909,
+      "totalClicks": 45,
+      "avgPosition": 6.8,
+      "avgCTR": 4.6
     },
     "pages": [
       {
         "url": "https://www.socar.kr/blog/socar-tip-2daysdriving",
         "slug": "socar-tip-2daysdriving",
-        "position": 4.2,
-        "impressions": 3191,
-        "clicks": 75,
-        "ctr": 2.4
-      },
-      {
-        "url": "https://www.socar.kr/blog/socar-tip-insuranceguide",
-        "slug": "socar-tip-insuranceguide",
-        "position": 5.2,
-        "impressions": 507,
-        "clicks": 14,
-        "ctr": 2.8
-      },
-      {
-        "url": "https://www.socar.kr/blog/socar-9900won-commute-tip",
-        "slug": "socar-9900won-commute-tip",
-        "position": 4.7,
-        "impressions": 315,
-        "clicks": 26,
-        "ctr": 8.3
+        "position": 3.9,
+        "impressions": 1342,
+        "clicks": 20,
+        "ctr": 1.5
       },
       {
         "url": "https://www.socar.kr/blog/socar-travel-busan-gyeongnam-ulsan-festival-2026",
@@ -48,20 +33,20 @@ const SEO_DATA = {
         "ctr": 2.0
       },
       {
-        "url": "https://www.socar.kr/blog/socar-delivery-complete-guide",
-        "slug": "socar-delivery-complete-guide",
-        "position": 3.8,
-        "impressions": 190,
-        "clicks": 14,
-        "ctr": 7.4
+        "url": "https://www.socar.kr/blog/socar-9900won-commute-tip",
+        "slug": "socar-9900won-commute-tip",
+        "position": 4.7,
+        "impressions": 152,
+        "clicks": 10,
+        "ctr": 6.6
       },
       {
-        "url": "https://www.socar.kr/blog/socar-concert-tip",
-        "slug": "socar-concert-tip",
-        "position": 7.0,
-        "impressions": 100,
-        "clicks": 1,
-        "ctr": 1.0
+        "url": "https://www.socar.kr/blog/socar-delivery-complete-guide",
+        "slug": "socar-delivery-complete-guide",
+        "position": 3.7,
+        "impressions": 108,
+        "clicks": 9,
+        "ctr": 8.3
       }
     ],
     "history": [
@@ -86,71 +71,74 @@ const SEO_DATA = {
         "4월 31일",
         "4월 축제"
       ],
-      "analysis": "[T1] 리드문: ✅\n- 현재 리드문이 잘 작성되어 있습니다.\n\n[T2] H2 개수: ✅ \n- 5개의 H2가 사용되어 적절합니다.\n\n[T3] 질문형 H2: ⚠️\n- 첫 번째 H2를 제외하고는 질문형이 아닙니다. 일부 H2를 질문형으로 변경하면 좋겠습니다.\n\n[T4] 키워드 배치: ⚠️\n- '봄 축제', '부산 축제' 등 주요 키워드를 더 자주 사용하면 좋겠습니다.\n\n[T5] 분량: ✅\n- 약 1,500단어로 충분한 분량입니다.\n\n[T7] 구조: ✅\n- 표, 리스트, 이미지 등을 활용해 구조화가 잘 되어 있습니다.\n\n보강 제안:\n1. 일부 H2를 질문형으로 변경 (예: \"김해 가야문화축제에서 무엇을 즐길 수 있나요?\")\n2. 본문에 주요 키워드를 더 자주 사용\n3. 각 축제별로 '쏘카로 이동하기' 팁 추가\n4. 축제 일정을 한눈에 볼 수 있는 타임라인 이미지 추가"
+      "analysis": "[T1] 리드문: ✅\n- 적절한 리드문으로 시작하여 글의 주제와 내용을 잘 소개하고 있습니다.\n\n[T2] H2 개수: ✅ \n- 5개의 H2 제목을 사용하여 적절한 구조를 갖추고 있습니다.\n\n[T3] 질문형 H2: ⚠️\n- H2 제목을 질문 형식으로 바꾸면 더 나은 SEO 효과를 볼 수 있습니다. 예: \"황금연휴 기간 부산·경남·울산에서 어떤 축제가 열리나요?\"\n\n[T4] 키워드 배치: ⚠️\n- \"봄 축제\", \"황금연휴\", \"드라이브\" 등 주요 키워드를 H2, H3 제목과 첫 문장에 더 자주 사용하면 좋습니다.\n\n[T5] 분량: ✅\n- 충분한 분량으로 각 축제에 대해 상세히 설명하고 있습니다.\n\n[T7] 구조: ✅\n- 표, 리스트, 이미지 등을 적절히 활용하여 읽기 쉬운 구조를 가지고 있습니다.\n\n보강 제안:\n1. H2 제목을 질문 형식으로 변경\n2. 주요 키워드를 제목과 첫 문장에 더 자주 사용\n3. 각 축제 설명 후 \"쏘카로 이동하기 좋은 코스\" 등의 소제목 추가하여 키워드 강화"
     }
   ],
   "topics": [
     {
-      "title": "쏘카 이용 가격 가이드: 요금 체계와 비용 절감 팁",
-      "slug_suggestion": "socar-pricing-guide",
+      "title": "쏘카로 떠나는 봄 여행: 벚꽃 명소 & 드라이브 코스 추천",
+      "slug_suggestion": "socar-spring-cherry-blossom-drive",
       "queries": [
-        "쏘카 가격",
-        "쏘카 이용요금",
-        "쏘카 비용",
-        "쏘카 하루 가격",
-        "쏘카 6시간 가격"
+        "벚꽃 명소",
+        "봄 드라이브 코스",
+        "쏘카 여행"
       ],
-      "total_impressions": 5975,
-      "rationale": "가격 관련 검색이 많아 상세한 요금 안내가 필요함"
+      "total_impressions": 15000,
+      "seasonal_index": 1.5,
+      "is_trending": true,
+      "rationale": "봄 시즌 트렌딩 키워드와 쏘카 이용을 결합한 시의성 있는 주제"
     },
     {
-      "title": "쏘카 이용 방법: 초보자를 위한 단계별 가이드",
-      "slug_suggestion": "socar-usage-guide-for-beginners",
+      "title": "쏘카 이용 꿀팁: 주유비 절약부터 할인 혜택까지",
+      "slug_suggestion": "socar-money-saving-tips",
       "queries": [
-        "쏘카 이용방법",
-        "쏘카 예약",
-        "쏘카 동승자 등록",
-        "쏘카 하이패스",
-        "쏘카 나이제한"
+        "쏘카 주유",
+        "카셰어링 할인",
+        "쏘카 쿠폰"
       ],
-      "total_impressions": 1786,
-      "rationale": "이용 방법에 대한 종합적인 안내로 신규 고객 유치 가능"
+      "total_impressions": 12000,
+      "seasonal_index": 1.1,
+      "is_trending": false,
+      "rationale": "비용 절감에 관심 높은 사용자들을 위한 실용적인 정보 제공"
     },
     {
-      "title": "쏘카 제주도 여행: 렌트카 이용 팁과 주의사항",
-      "slug_suggestion": "socar-jeju-travel-guide",
+      "title": "쏘카로 즐기는 캠핑 & 피크닉: 차박 꿀팁 대공개",
+      "slug_suggestion": "socar-camping-picnic-guide",
       "queries": [
-        "제주도 쏘카",
-        "제주 쏘카",
-        "쏘카 제주도",
-        "쏘카 제주"
+        "차박",
+        "캠핑카",
+        "피크닉"
       ],
-      "total_impressions": 1960,
-      "rationale": "제주도 여행객을 위한 특화된 정보 제공 필요"
+      "total_impressions": 18000,
+      "seasonal_index": 1.3,
+      "is_trending": true,
+      "rationale": "봄/여름 시즌 인기 활동과 쏘카 이용을 연계한 트렌디한 주제"
     },
     {
-      "title": "쏘카 장기 이용 옵션: 구독 서비스와 장기렌트 비교",
-      "slug_suggestion": "socar-long-term-options",
+      "title": "쏘카 차종별 특징 & 장단점: 어떤 차를 선택해야 할까?",
+      "slug_suggestion": "socar-car-model-comparison",
       "queries": [
-        "쏘카 구독",
-        "쏘카구독",
-        "쏘카 장기렌트",
-        "쏘카플랜",
-        "쏘카 비즈니스"
+        "쏘카 차종",
+        "카셰어링 차량 비교",
+        "렌트카 선택"
       ],
-      "total_impressions": 2849,
-      "rationale": "장기 이용 옵션에 대한 관심이 높아 상세 비교 정보 필요"
+      "total_impressions": 10000,
+      "seasonal_index": 1.0,
+      "is_trending": false,
+      "rationale": "차량 선택에 도움을 주는 실용적인 정보로 사용자 만족도 향상 기대"
     },
     {
-      "title": "쏘카 특수 차량: 전기차와 테슬라 이용 가이드",
-      "slug_suggestion": "socar-special-vehicles",
+      "title": "쏘카로 떠나는 여름 휴가: 해수욕장 & 워터파크 추천",
+      "slug_suggestion": "socar-summer-vacation-destinations",
       "queries": [
-        "쏘카 테슬라",
-        "쏘카 전기차",
-        "쏘카 엔터프라이즈"
+        "여름 휴가지",
+        "해수욕장",
+        "워터파크"
       ],
-      "total_impressions": 1470,
-      "rationale": "특수 차량에 대한 관심이 높아 상세 정보 제공 필요"
+      "total_impressions": 20000,
+      "seasonal_index": 1.4,
+      "is_trending": true,
+      "rationale": "다가오는 여름 시즌을 겨냥한 트렌딩 키워드와 쏘카 이용 연계"
     }
   ]
 };
