@@ -104,126 +104,131 @@ const SEO_DATA = {
         "4월 31일",
         "4월 축제"
       ],
-      "analysis": "[T1] 리드문: ✅\n- 리드문이 잘 작성되어 있습니다.\n\n[T2] H2 개수: ✅ \n- 5개의 H2가 사용되어 적절합니다.\n\n[T3] 질문형 H2: ⚠️\n- 첫 번째 H2만 질문형입니다. 다른 H2도 질문형으로 변경하면 좋겠습니다.\n\n[T4] 키워드 배치: ⚠️\n- \"봄 축제\", \"4월 축제\", \"5월 축제\" 등의 키워드를 더 자주 사용하면 좋겠습니다.\n- 각 축제명을 H3로 강조하면 좋겠습니다.\n\n[T5] 분량: ✅\n- 약 1,500단어로 충분한 분량입니다.\n\n[T7] 구조: ⚠️\n- 축제별로 FAQ를 추가하면 좋겠습니다.\n- 각 축제 소개 끝에 CTA(Call-to-Action)를 추가하면 좋겠습니다.\n\n추가 제안:\n- 메타 설명을 더 구체적으로 작성하세요.\n- 이미지 alt 텍스트를 더 상세히 작성하세요.\n- 내부 링크를 추가하여 연관 콘텐츠로 연결하세요."
+      "analysis": "[T1] 리드문: ✅ \n- 리드문이 명확하게 작성되어 있습니다.\n\n[T2] H2 개수: ✅ \n- 5개의 H2 제목이 사용되어 적절합니다.\n\n[T3] 질문형 H2: ⚠️\n- 첫 번째 H2만 질문 형식입니다. 다른 H2도 질문 형식으로 변경하면 좋겠습니다.\n\n[T4] 키워드 배치: ⚠️\n- \"봄 축제\", \"부산 축제\" 등 주요 키워드를 더 자주 사용하면 좋겠습니다.\n- 각 축제명을 H3로 강조하면 좋겠습니다.\n\n[T5] 분량: ✅\n- 충분한 분량으로 작성되어 있습니다.\n\n[T7] 구조: ⚠️\n- 각 축제별로 \"교통 안내\" 섹션을 추가하여 쏘카 이용 팁을 제공하면 좋겠습니다.\n- 축제 일정을 한눈에 볼 수 있는 타임라인 이미지나 표를 추가하면 좋겠습니다.\n\n보강 제안:\n1. H2 제목을 모두 질문 형식으로 변경\n2. 주요 키워드 사용 빈도 증가\n3. 각 축제명을 H3로 강조\n4. 축제별 \"교통 안내\" 섹션 추가\n5. 전체 축제 일정 타임라인 추가"
     }
   ],
   "topics_brand": [
     {
-      "title": "쏘카 이용요금 완벽 가이드: 돈 아끼는 꿀팁 총정리",
-      "slug_suggestion": "socar-pricing-guide-money-saving-tips",
+      "title": "쏘카 이용 요금 완벽 가이드: 알뜰하게 카셰어링 이용하기",
+      "slug_suggestion": "socar-pricing-guide",
       "queries": [
         "쏘카 이용 요금",
         "쏘카 요금",
         "쏘카 쿠폰"
       ],
       "total_impressions": 1100,
-      "seasonal_index": 1.09,
+      "seasonal_index": 1.78,
       "is_trending": true,
-      "rationale": "이용요금에 대한 관심이 높고 시즈널 지수가 높아 트렌딩 주제"
+      "rationale": "이용 요금에 대한 높은 관심도와 시즈널 지수를 반영한 실용적인 주제"
     },
     {
-      "title": "쏘카 첫 이용자를 위한 완벽 가이드: 차량 예약부터 반납까지",
-      "slug_suggestion": "socar-beginner-guide-reservation-to-return",
-      "queries": [
-        "쏘카 이용 방법",
-        "쏘카 이용방법",
-        "쏘카"
-      ],
-      "total_impressions": 28540,
-      "seasonal_index": 0.79,
-      "is_trending": false,
-      "rationale": "신규 이용자를 위한 종합 가이드로 높은 검색량 활용 가능"
-    },
-    {
-      "title": "쏘카 핸들러 되는 방법: 부업의 신세계",
-      "slug_suggestion": "how-to-become-socar-handler-side-job",
+      "title": "쏘카 핸들러 되는 방법: 부업으로 돈 벌기",
+      "slug_suggestion": "become-socar-handler",
       "queries": [
         "쏘카 핸들러",
         "쏘카 핸들러 디시"
       ],
       "total_impressions": 1040,
-      "seasonal_index": 1.36,
+      "seasonal_index": 1.45,
       "is_trending": true,
-      "rationale": "핸들러에 대한 관심이 높고 시즈널 지수가 높아 트렌딩 주제"
+      "rationale": "핸들러에 대한 높은 관심과 시즈널 지수를 반영한 수익 창출 주제"
     },
     {
-      "title": "쏘카 플랜 vs 일반 이용: 어떤 게 더 이득일까?",
-      "slug_suggestion": "socar-plan-vs-regular-use-comparison",
-      "queries": [
-        "쏘카 플랜",
-        "쏘카 이용 요금"
-      ],
-      "total_impressions": 910,
-      "seasonal_index": 1.38,
-      "is_trending": true,
-      "rationale": "플랜과 일반 이용의 비교로 이용자의 의사결정에 도움"
-    },
-    {
-      "title": "제주도 여행, 쏘카 vs 렌트카 완벽 비교 분석",
-      "slug_suggestion": "jeju-travel-socar-vs-rentcar-comparison",
+      "title": "쏘카로 제주도 여행하기: 렌트카 vs 카셰어링 비교",
+      "slug_suggestion": "jeju-travel-socar-vs-rentcar",
       "queries": [
         "제주도 쏘카",
         "제주도 쏘카 vs 렌트카 디시",
         "쏘카 제주"
       ],
       "total_impressions": 1460,
-      "seasonal_index": 0.83,
+      "seasonal_index": 0.82,
       "is_trending": false,
-      "rationale": "제주도 여행객을 위한 실용적인 정보 제공"
+      "rationale": "제주도 여행 시 카셰어링 이용에 대한 실질적인 가이드 제공"
     },
     {
-      "title": "쏘카 하이패스 사용법: 톨게이트 빠르게 통과하기",
-      "slug_suggestion": "socar-hi-pass-usage-guide",
+      "title": "쏘카 이용 방법 A to Z: 초보자를 위한 완벽 가이드",
+      "slug_suggestion": "socar-usage-guide-for-beginners",
       "queries": [
-        "쏘카 하이 패스",
+        "쏘카 이용 방법",
+        "쏘카 이용방법",
         "쏘카 하이패스"
       ],
-      "total_impressions": 960,
-      "seasonal_index": 0.79,
+      "total_impressions": 1920,
+      "seasonal_index": 0.77,
       "is_trending": false,
-      "rationale": "하이패스 이용에 대한 실용적인 정보로 이용자 편의성 증대"
+      "rationale": "카셰어링 초보자를 위한 종합적인 이용 가이드 제공"
     },
     {
-      "title": "쏘카 편도 서비스 완벽 가이드: 여행의 자유를 더하다",
-      "slug_suggestion": "socar-one-way-service-complete-guide",
+      "title": "쏘카 플랜 활용법: 장기 렌트부터 패스포트까지",
+      "slug_suggestion": "socar-plan-utilization",
+      "queries": [
+        "쏘카 플랜",
+        "쏘카 장기렌트",
+        "쏘카 패스포트"
+      ],
+      "total_impressions": 1230,
+      "seasonal_index": 0.98,
+      "is_trending": false,
+      "rationale": "다양한 쏘카 이용 플랜에 대한 종합적인 정보 제공"
+    },
+    {
+      "title": "쏘카 편도 이용 꿀팁: 효율적인 여행 계획하기",
+      "slug_suggestion": "socar-one-way-travel-tips",
       "queries": [
         "쏘카 편도",
-        "쏘카 이용 방법"
+        "쏘카 이용 방법",
+        "쏘카 요금"
       ],
-      "total_impressions": 1110,
-      "seasonal_index": 0.76,
+      "total_impressions": 1500,
+      "seasonal_index": 0.74,
       "is_trending": false,
-      "rationale": "편도 서비스에 대한 정보로 여행의 유연성을 높이는 방법 제공"
+      "rationale": "편도 이용에 대한 관심을 반영한 실용적인 여행 팁 제공"
     },
     {
-      "title": "쏘카 비즈니스: 기업 출장에 최적화된 서비스 활용법",
-      "slug_suggestion": "socar-business-service-optimization-guide",
+      "title": "쏘카 비즈니스: 기업 출장 및 업무용 차량 관리 솔루션",
+      "slug_suggestion": "socar-business-solutions",
       "queries": [
         "쏘카 비즈니스",
-        "쏘카 이용 요금"
-      ],
-      "total_impressions": 710,
-      "seasonal_index": 1.15,
-      "is_trending": false,
-      "rationale": "기업 고객을 위한 특화 서비스 정보로 비즈니스 사용자 유치"
-    },
-    {
-      "title": "쏘카 장기렌트 vs 리스: 어떤 게 더 이득일까?",
-      "slug_suggestion": "socar-long-term-rent-vs-lease-comparison",
-      "queries": [
-        "쏘카 장기렌트",
+        "쏘카 이용 요금",
         "쏘카 장기 렌트"
       ],
-      "total_impressions": 640,
-      "seasonal_index": 0.96,
+      "total_impressions": 1030,
+      "seasonal_index": 0.51,
       "is_trending": false,
-      "rationale": "장기 이용자를 위한 비용 효율적인 선택 안내"
+      "rationale": "기업 고객을 위한 쏘카 비즈니스 서비스 소개 및 활용법 제시"
+    },
+    {
+      "title": "쏘카 보험 가이드: 안전한 카셰어링을 위한 필수 정보",
+      "slug_suggestion": "socar-insurance-guide",
+      "queries": [
+        "쏘카 보험 디시",
+        "쏘카 이용 요금",
+        "쏘카 고객센터"
+      ],
+      "total_impressions": 1230,
+      "seasonal_index": 1.04,
+      "is_trending": false,
+      "rationale": "카셰어링 이용 시 중요한 보험 정보에 대한 상세한 가이드 제공"
+    },
+    {
+      "title": "쏘카로 즐기는 특별한 드라이브: 아반떼N부터 포르쉐까지",
+      "slug_suggestion": "socar-special-cars-guide",
+      "queries": [
+        "쏘카 아반떼n",
+        "쏘카 포르쉐",
+        "쏘카 이용 요금"
+      ],
+      "total_impressions": 1710,
+      "seasonal_index": 0.84,
+      "is_trending": false,
+      "rationale": "특별한 차량 경험을 원하는 사용자들을 위한 고급 카셰어링 가이드"
     }
   ],
   "topics_category": [
     {
-      "title": "제주도 여행, 렌터카 대신 쏘카로 즐기는 2박 3일 필수 코스",
-      "slug_suggestion": "jeju-2-night-3-day-course-with-socar",
+      "title": "제주도 2박 3일 렌터카 여행 필수코스 총정리",
+      "slug_suggestion": "jeju-2-nights-3-days-rental-car-itinerary",
       "queries": [
         "제주도 여행 코스 2박3일",
         "제주도 여행 필수코스",
@@ -232,111 +237,111 @@ const SEO_DATA = {
       "total_impressions": 3480,
       "seasonal_index": 0.85,
       "is_trending": false,
-      "rationale": "제주도 여행 수요가 높고 쏘카 이용이 적합한 주제"
+      "rationale": "제주도 여행 수요가 높고 렌터카 이용과 직결되는 주제"
     },
     {
-      "title": "부산 당일치기 드라이브 코스 TOP 5, 쏘카로 떠나는 완벽한 여행",
-      "slug_suggestion": "busan-one-day-drive-course-top-5",
+      "title": "부산 해운대 당일치기 드라이브 코스 추천",
+      "slug_suggestion": "busan-haeundae-day-trip-drive-course",
       "queries": [
         "부산 당일치기",
-        "부산 드라이브 코스",
-        "부산 여행"
+        "해운대 드라이브",
+        "부산 드라이브 코스"
       ],
-      "total_impressions": 2200,
-      "seasonal_index": 1.1,
-      "is_trending": false,
-      "rationale": "부산 여행 수요 증가와 당일치기 트렌드에 부합"
-    },
-    {
-      "title": "강원도 6월 여행 추천, 쏘카로 떠나는 초여름 드라이브 코스",
-      "slug_suggestion": "gangwon-june-travel-recommendation",
-      "queries": [
-        "강원도 여행",
-        "6월 여행지 추천",
-        "강원도 드라이브 코스"
-      ],
-      "total_impressions": 3100,
-      "seasonal_index": 1.25,
-      "is_trending": true,
-      "rationale": "초여름 시즌에 맞는 강원도 여행 수요 증가 예상"
-    },
-    {
-      "title": "경주 1박 2일 여행 완벽 가이드, 쏘카로 편하게 즐기기",
-      "slug_suggestion": "gyeongju-1-night-2-day-travel-guide",
-      "queries": [
-        "경주 여행",
-        "경주 1박 2일",
-        "경주 가볼만한 곳"
-      ],
-      "total_impressions": 2800,
-      "seasonal_index": 1.05,
-      "is_trending": false,
-      "rationale": "역사 도시 경주의 지속적인 인기와 쏘카 이용 적합성"
-    },
-    {
-      "title": "전주 한옥마을 주변 드라이브 코스, 쏘카로 즐기는 맛집 투어",
-      "slug_suggestion": "jeonju-hanok-village-drive-course",
-      "queries": [
-        "전주 여행",
-        "전주 한옥마을",
-        "전주 맛집"
-      ],
-      "total_impressions": 4200,
-      "seasonal_index": 1.15,
-      "is_trending": false,
-      "rationale": "전주의 문화·맛집 여행 트렌드와 쏘카 이용 시너지"
-    },
-    {
-      "title": "서울 근교 드라이브 코스 TOP 10, 쏘카로 떠나는 주말 여행",
-      "slug_suggestion": "seoul-nearby-drive-course-top-10",
-      "queries": [
-        "서울 근교 드라이브",
-        "주말 여행지 추천",
-        "당일치기 여행"
-      ],
-      "total_impressions": 5500,
-      "seasonal_index": 1.3,
-      "is_trending": true,
-      "rationale": "주말 근거리 여행 수요 증가와 쏘카 이용 적합성"
-    },
-    {
-      "title": "초보 차박러를 위한 완벽 가이드, 쏘카로 떠나는 첫 차박 여행",
-      "slug_suggestion": "beginners-guide-to-car-camping",
-      "queries": [
-        "차박",
-        "차박 초보",
-        "차박 꿀팁"
-      ],
-      "total_impressions": 3800,
-      "seasonal_index": 1.4,
-      "is_trending": true,
-      "rationale": "차박 트렌드 급증과 쏘카 차량 다양성 활용 가능"
-    },
-    {
-      "title": "제주 오름 투어, 쏘카로 떠나는 초여름 힐링 여행",
-      "slug_suggestion": "jeju-oreum-tour-healing-trip",
-      "queries": [
-        "제주 오름",
-        "제주도 여행",
-        "제주 드라이브 코스"
-      ],
-      "total_impressions": 2900,
+      "total_impressions": 2100,
       "seasonal_index": 1.2,
       "is_trending": true,
-      "rationale": "초여름 제주 오름 인기와 쏘카 이용 적합성"
+      "rationale": "여름 성수기 앞두고 부산 해운대 드라이브 수요 증가 예상"
     },
     {
-      "title": "전국 해안도로 드라이브 코스 TOP 5, 쏘카와 함께하는 초여름 바다 여행",
-      "slug_suggestion": "top-5-coastal-road-drive-courses",
+      "title": "강원도 동해안 드라이브 코스 BEST 5",
+      "slug_suggestion": "gangwon-east-coast-drive-course-top-5",
       "queries": [
-        "해안도로 드라이브",
-        "바다 여행",
-        "6월 여행지 추천"
+        "강원도 드라이브",
+        "동해안 드라이브",
+        "강원도 여행"
       ],
-      "total_impressions": 3600,
-      "seasonal_index": 1.35,
+      "total_impressions": 2500,
+      "seasonal_index": 1.1,
+      "is_trending": false,
+      "rationale": "초여름 강원도 여행 수요 증가와 드라이브 코스 관심 반영"
+    },
+    {
+      "title": "경주 1박 2일 역사 탐방 자동차 여행 코스",
+      "slug_suggestion": "gyeongju-1-night-2-days-historical-car-trip",
+      "queries": [
+        "경주 여행",
+        "경주 1박2일",
+        "경주 자동차 여행"
+      ],
+      "total_impressions": 1800,
+      "seasonal_index": 1.05,
+      "is_trending": false,
+      "rationale": "역사 도시 경주의 자동차 여행 수요 반영"
+    },
+    {
+      "title": "전주 한옥마을 근교 드라이브 스팟 모음",
+      "slug_suggestion": "jeonju-hanok-village-nearby-drive-spots",
+      "queries": [
+        "전주 여행",
+        "전주 근교 드라이브",
+        "전주 한옥마을"
+      ],
+      "total_impressions": 2200,
+      "seasonal_index": 1.15,
+      "is_trending": false,
+      "rationale": "전주 한옥마을 방문객 대상 인근 드라이브 정보 수요 반영"
+    },
+    {
+      "title": "서울 근교 반나절 드라이브 코스 TOP 10",
+      "slug_suggestion": "seoul-nearby-half-day-drive-courses",
+      "queries": [
+        "서울 근교 드라이브",
+        "서울 당일치기",
+        "서울 근교 여행"
+      ],
+      "total_impressions": 3000,
+      "seasonal_index": 1.25,
       "is_trending": true,
-      "rationale": "초여름 바다 여행 수요 증가와 쏘카 드라이브 연계성"
+      "rationale": "주말 서울 근교 당일치기 드라이브 수요 증가 반영"
+    },
+    {
+      "title": "초보 캠퍼를 위한 차박 필수품 체크리스트",
+      "slug_suggestion": "car-camping-essentials-checklist-for-beginners",
+      "queries": [
+        "차박 필수품",
+        "차박 준비물",
+        "초보 캠핑"
+      ],
+      "total_impressions": 2800,
+      "seasonal_index": 1.3,
+      "is_trending": true,
+      "rationale": "봄~여름 시즌 차박 캠핑 인기 급상승 반영"
+    },
+    {
+      "title": "제주도 혼자 여행 렌터카 활용 팁",
+      "slug_suggestion": "jeju-solo-travel-rental-car-tips",
+      "queries": [
+        "제주도 혼자 여행",
+        "제주도 렌터카",
+        "제주도 여행 팁"
+      ],
+      "total_impressions": 1500,
+      "seasonal_index": 1.0,
+      "is_trending": false,
+      "rationale": "제주도 개인 여행 트렌드와 렌터카 수요 반영"
+    },
+    {
+      "title": "초여름 충청도 힐링 드라이브 코스 추천",
+      "slug_suggestion": "early-summer-chungcheong-healing-drive-courses",
+      "queries": [
+        "충청도 드라이브",
+        "초여름 여행",
+        "충청도 여행"
+      ],
+      "total_impressions": 1700,
+      "seasonal_index": 1.2,
+      "is_trending": true,
+      "rationale": "초여름 시즌 충청도 드라이브 여행 수요 증가 예상"
     }
   ]
 };
