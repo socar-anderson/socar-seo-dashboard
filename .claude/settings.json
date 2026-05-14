@@ -1,0 +1,10 @@
+{
+  "sandbox": {
+    "network": {
+      "allowedDomains": [
+        "litellm.ai.socarcorp.co.kr",
+        "api.github.com"
+      ]
+    }
+  }
+}
