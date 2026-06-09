@@ -141,29 +141,52 @@
 
 <div class="container">
 
-  <!-- Summary -->
+  <!-- Summary (전일 기준) -->
   <div class="section">
-    <div class="section-title"><div class="dot"></div>블로그 성과 요약 <span style="font-size:12px;color:var(--text-dim);font-weight:400;" id="period-7d-label"></span></div>
+    <div class="section-title"><div class="dot"></div>블로그 성과 요약 <span style="font-size:12px;color:var(--text-dim);font-weight:400;" id="yesterday-label"></span></div>
     <div class="cards">
       <div class="card blue">
-        <div class="card-label">총 노출수</div>
+        <div class="card-label">총 노출수 (전일)</div>
         <div class="card-value" id="total-imp">-</div>
       </div>
       <div class="card green">
-        <div class="card-label">총 클릭수</div>
+        <div class="card-label">총 클릭수 (전일)</div>
         <div class="card-value" id="total-clicks">-</div>
       </div>
       <div class="card">
-        <div class="card-label">평균 순위</div>
+        <div class="card-label">평균 순위 (전일)</div>
         <div class="card-value" id="avg-pos">-<span>위</span></div>
       </div>
       <div class="card">
-        <div class="card-label">평균 CTR</div>
+        <div class="card-label">평균 CTR (전일)</div>
         <div class="card-value" id="avg-ctr">-<span>%</span></div>
       </div>
     </div>
+  </div>
 
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px;">
+  <!-- 일별 추이 (최근 7일, 막대) -->
+  <div class="section">
+    <div class="section-title"><div class="dot"></div>일별 성과 추이 <span style="font-size:12px;color:var(--text-dim);font-weight:400;">최근 7일 일별</span></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+      <div class="chart-wrap" style="margin-top:0">
+        <div class="chart-header">
+          <div class="chart-title">일별 노출 <span style="color:var(--primary);font-weight:600;">Daily Impressions</span></div>
+        </div>
+        <canvas id="dailyImpChart"></canvas>
+      </div>
+      <div class="chart-wrap" style="margin-top:0">
+        <div class="chart-header">
+          <div class="chart-title">일별 클릭 <span style="color:var(--success);font-weight:600;">Daily Clicks</span></div>
+        </div>
+        <canvas id="dailyClickChart"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <!-- 7일 롤링 추이 (선 차트, 누적 12회) -->
+  <div class="section">
+    <div class="section-title"><div class="dot"></div>7일 롤링 추이 <span style="font-size:12px;color:var(--text-dim);font-weight:400;">매일 측정한 7일 합계의 12일 추이</span></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
       <div class="chart-wrap" style="margin-top:0">
         <div class="chart-header">
           <div class="chart-title">노출 추이 <span style="color:var(--primary);font-weight:600;">Impressions</span></div>
@@ -179,9 +202,9 @@
     </div>
   </div>
 
-  <!-- Blog Performance Table -->
+  <!-- Blog Performance Table — 7일 롤링 -->
   <div class="section">
-    <div class="section-title"><div class="dot"></div>블로그 성과 현황 <span style="font-size:12px;color:var(--text-dim);font-weight:400;">최근 7일 · 노출 상위 20개</span></div>
+    <div class="section-title"><div class="dot"></div>블로그 성과 현황 — 7일 롤링 <span style="font-size:12px;color:var(--text-dim);font-weight:400;">최근 7일 · 노출 상위 10개</span></div>
     <div class="table-wrap">
       <table>
         <thead>
@@ -195,6 +218,28 @@
           </tr>
         </thead>
         <tbody id="perf-table-body">
+          <tr><td colspan="6" class="empty">로딩 중...</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Blog Performance Table — 전일 -->
+  <div class="section">
+    <div class="section-title"><div class="dot"></div>블로그 성과 현황 — 전일 <span style="font-size:12px;color:var(--text-dim);font-weight:400;" id="yesterday-table-label">전일 · 노출 상위 10개</span></div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>페이지</th>
+            <th>순위</th>
+            <th>노출</th>
+            <th>클릭</th>
+            <th>CTR</th>
+          </tr>
+        </thead>
+        <tbody id="yesterday-table-body">
           <tr><td colspan="6" class="empty">로딩 중...</td></tr>
         </tbody>
       </table>
@@ -237,19 +282,25 @@
     document.getElementById('last-updated').textContent = d.meta.lastUpdated;
     const period = d.meta.period7d || d.meta.period || '';
     document.getElementById('period-badge').innerHTML = `성과 기준 <strong>${period}</strong>`;
-    const p7dLabel = document.getElementById('period-7d-label');
-    if (p7dLabel) p7dLabel.textContent = period;
 
-    // Summary cards
+    // 전일 라벨 (요약 섹션 부제 + 전일 테이블 부제)
+    const yLabel = d.meta.yesterdayDate ? `(${d.meta.yesterdayDate} 기준)` : '';
+    const yLabelEl = document.getElementById('yesterday-label');
+    if (yLabelEl) yLabelEl.textContent = yLabel;
+    const yTableLabelEl = document.getElementById('yesterday-table-label');
+    if (yTableLabelEl && d.meta.yesterdayDate) {
+      yTableLabelEl.textContent = `${d.meta.yesterdayDate} · 노출 상위 10개`;
+    }
+
+    // Summary cards (전일 기준)
     const s = d.performance.summary;
-    document.getElementById('total-imp').innerHTML = s.totalImpressions.toLocaleString();
-    document.getElementById('total-clicks').innerHTML = s.totalClicks.toLocaleString();
-    document.getElementById('avg-pos').innerHTML = `${s.avgPosition}<span>위</span>`;
-    document.getElementById('avg-ctr').innerHTML = `${s.avgCTR}<span>%</span>`;
+    document.getElementById('total-imp').innerHTML = (s.totalImpressions || 0).toLocaleString();
+    document.getElementById('total-clicks').innerHTML = (s.totalClicks || 0).toLocaleString();
+    document.getElementById('avg-pos').innerHTML = `${s.avgPosition || 0}<span>위</span>`;
+    document.getElementById('avg-ctr').innerHTML = `${s.avgCTR || 0}<span>%</span>`;
 
-    // Trend charts (분리)
-    const hist = d.performance.history;
-    const chartOpts = (color, bgColor) => ({
+    // 차트 공통 옵션
+    const chartOpts = () => ({
       responsive: true, maintainAspectRatio: true,
       plugins: { legend: { display: false } },
       scales: {
@@ -257,13 +308,36 @@
         y: { ticks: { color: '#64748B', font: { size: 11 } }, grid: { color: '#1E2D42' }, beginAtZero: false },
       }
     });
+
+    // 일별 추이 (막대) — 신규
+    const daily = d.performance.dailyHistory || [];
+    const dayLabels = daily.map(d2 => d2.date.slice(5));  // MM-DD
+    new Chart(document.getElementById('dailyImpChart'), {
+      type: 'bar',
+      data: {
+        labels: dayLabels,
+        datasets: [{ data: daily.map(d2 => d2.impressions), backgroundColor: '#3B82F6', borderRadius: 4 }]
+      },
+      options: chartOpts(),
+    });
+    new Chart(document.getElementById('dailyClickChart'), {
+      type: 'bar',
+      data: {
+        labels: dayLabels,
+        datasets: [{ data: daily.map(d2 => d2.clicks), backgroundColor: '#22C55E', borderRadius: 4 }]
+      },
+      options: chartOpts(),
+    });
+
+    // 7일 롤링 추이 (선) — 기존 유지
+    const hist = d.performance.history;
     new Chart(document.getElementById('impChart'), {
       type: 'line',
       data: {
         labels: hist.map(h => h.week),
         datasets: [{ data: hist.map(h => h.totalImpressions), borderColor: '#3B82F6', backgroundColor: 'rgba(59,130,246,0.08)', tension: 0.3, fill: true, pointRadius: 4 }]
       },
-      options: chartOpts('#3B82F6', 'rgba(59,130,246,0.08)'),
+      options: chartOpts(),
     });
     new Chart(document.getElementById('clickChart'), {
       type: 'line',
@@ -271,15 +345,16 @@
         labels: hist.map(h => h.week),
         datasets: [{ data: hist.map(h => h.totalClicks), borderColor: '#22C55E', backgroundColor: 'rgba(34,197,94,0.08)', tension: 0.3, fill: true, pointRadius: 4 }]
       },
-      options: chartOpts('#22C55E', 'rgba(34,197,94,0.08)'),
+      options: chartOpts(),
     });
 
-    // Performance table
+    // Performance table — 7일 롤링 (기존 키 호환: pagesRolling7d || pages)
+    const rollingPages = d.performance.pagesRolling7d || d.performance.pages || [];
     const tbody = document.getElementById('perf-table-body');
-    if (d.performance.pages.length === 0) {
+    if (rollingPages.length === 0) {
       tbody.innerHTML = '<tr><td colspan="6" class="empty">데이터 없음</td></tr>';
     } else {
-      tbody.innerHTML = d.performance.pages.map((p, i) => {
+      tbody.innerHTML = rollingPages.map((p, i) => {
         const posCls = p.position <= 10 ? 'pos-top' : p.position <= 20 ? 'pos-mid' : 'pos-low';
         const slug = p.url.replace('https://www.socar.kr/blog/', '');
         const hasQ = p.queries && p.queries.length > 0;
@@ -296,6 +371,26 @@
           ? `<tr class="query-row" id="qrow-${i}" style="display:none"><td colspan="6"><div class="queries-row" style="padding:2px 0">${qTags}</div></td></tr>`
           : '';
         return mainRow + qRow;
+      }).join('');
+    }
+
+    // Performance table — 전일 (신규)
+    const yPages = d.performance.pagesYesterday || [];
+    const ytbody = document.getElementById('yesterday-table-body');
+    if (yPages.length === 0) {
+      ytbody.innerHTML = '<tr><td colspan="6" class="empty">전일 데이터 없음 (GSC 지연 또는 노출 없음)</td></tr>';
+    } else {
+      ytbody.innerHTML = yPages.map((p, i) => {
+        const posCls = p.position <= 10 ? 'pos-top' : p.position <= 20 ? 'pos-mid' : 'pos-low';
+        const slug = p.url.replace('https://www.socar.kr/blog/', '');
+        return `<tr>
+          <td style="color:var(--text-dim)">${i + 1}</td>
+          <td class="url-cell"><a href="${p.url}" target="_blank">${slug}</a></td>
+          <td><span class="pos-badge ${posCls}">${p.position}위</span></td>
+          <td>${p.impressions.toLocaleString()}</td>
+          <td>${p.clicks.toLocaleString()}</td>
+          <td>${p.ctr}%</td>
+        </tr>`;
       }).join('');
     }
 
