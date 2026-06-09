@@ -309,22 +309,22 @@
       }
     });
 
-    // 일별 추이 (막대) — 신규
+    // 일별 추이 (선) — 7일 롤링과 동일 스타일
     const daily = d.performance.dailyHistory || [];
     const dayLabels = daily.map(d2 => d2.date.slice(5));  // MM-DD
     new Chart(document.getElementById('dailyImpChart'), {
-      type: 'bar',
+      type: 'line',
       data: {
         labels: dayLabels,
-        datasets: [{ data: daily.map(d2 => d2.impressions), backgroundColor: '#3B82F6', borderRadius: 4 }]
+        datasets: [{ data: daily.map(d2 => d2.impressions), borderColor: '#3B82F6', backgroundColor: 'rgba(59,130,246,0.08)', tension: 0.3, fill: true, pointRadius: 4 }]
       },
       options: chartOpts(),
     });
     new Chart(document.getElementById('dailyClickChart'), {
-      type: 'bar',
+      type: 'line',
       data: {
         labels: dayLabels,
-        datasets: [{ data: daily.map(d2 => d2.clicks), backgroundColor: '#22C55E', borderRadius: 4 }]
+        datasets: [{ data: daily.map(d2 => d2.clicks), borderColor: '#22C55E', backgroundColor: 'rgba(34,197,94,0.08)', tension: 0.3, fill: true, pointRadius: 4 }]
       },
       options: chartOpts(),
     });
