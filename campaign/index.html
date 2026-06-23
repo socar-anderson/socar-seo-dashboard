@@ -163,10 +163,11 @@ canvas{display:block;width:100%}
   <div class="two-col">
     <div class="ccard">
       <div class="ccard-title">
-        광고비 (막대) + ROAS (선) <span>회색=P2 / 파랑=P3 OKR기간 / 어두운=주말</span>
+        광고비 (막대) + ROAS (선, d7_return 기준) <span>회색=P2 / 파랑=P3 OKR기간 / 어두운=주말</span>
       </div>
       <canvas id="trendChart" height="200"></canvas>
-      <div style="display:flex;gap:16px;margin-top:10px;font-size:10px;color:var(--sub)">
+      <div style="font-size:10px;color:#E67E22;margin-top:4px;padding:0 4px">⚠️ 6/16~ ROAS 누적 중 (점선) — d7 반납 윈도우 미완성. 6/15까지만 확정값</div>
+      <div style="display:flex;gap:16px;margin-top:6px;font-size:10px;color:var(--sub)">
         <span>■ <span style="color:rgba(46,134,222,0.5)">■</span> 광고비 (OKR기간)</span>
         <span style="color:var(--red)">— ROAS(%)</span>
         <span style="color:#aaa">-- 800% 기준선</span>
@@ -719,9 +720,10 @@ canvas{display:block;width:100%}
 const D = {
   labels: ['6/8월','6/9화','6/10수','6/11목','6/12금','6/13토','6/14일','6/15월','6/16화','6/17수','6/18목','6/19금','6/20토','6/21일'],
   costs:  [1828,1830,1727,1779,1787,1814,1861,1936,1948,1799,1828,2031,2097,2057],
-  roas:   [901,855,948,940,978,786,714,897,786,873,842,903,722,707],
+  roas:   [827,764,864,777,682,535,570,532,500,458,381,274,160,42],
   isWe:   [0,0,0,0,0,1,1,0,0,0,0,0,1,1],
-  isOkr:  [0,0,0,0,0,0,0,0,0,1,1,1,1,1]
+  isOkr:  [0,0,0,0,0,0,0,0,0,1,1,1,1,1],
+  roasPartial: [0,0,0,0,0,0,0,0,1,1,1,1,1,1]
 };
 
 // d = Perf DLUV D1~D5 avg (airbridge), cpd = c3*10000/d (원/명)
@@ -844,23 +846,33 @@ function drawChart(){
     ctx.fillRect(x-barW/2,pT+cH-bh,barW,bh);
   });
 
-  // ROAS line
+  // ROAS line — solid for complete, dashed for partial
+  const splitIdx = D.roasPartial.indexOf(1);
+  // solid segment
   ctx.beginPath();
-  ctx.strokeStyle='#E74C3C';
-  ctx.lineWidth=2.5;
-  ctx.lineJoin='round';
-  D.roas.forEach((r,i)=>{
+  ctx.strokeStyle='#E74C3C'; ctx.lineWidth=2.5; ctx.lineJoin='round';
+  ctx.setLineDash([]);
+  D.roas.slice(0, splitIdx+1).forEach((r,i)=>{
     const x=getX(i), y=getY(r);
     i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);
   });
   ctx.stroke();
+  // dashed segment (partial window)
+  ctx.beginPath();
+  ctx.strokeStyle='#E74C3C'; ctx.lineWidth=2; ctx.setLineDash([4,4]);
+  D.roas.slice(splitIdx).forEach((r,i)=>{
+    const x=getX(splitIdx+i), y=getY(r);
+    i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);
+  });
+  ctx.stroke();
+  ctx.setLineDash([]);
 
   // ROAS dots
   D.roas.forEach((r,i)=>{
     const x=getX(i), y=getY(r);
     ctx.beginPath();
     ctx.arc(x,y,3,0,Math.PI*2);
-    ctx.fillStyle=D.isOkr[i]?'#C0392B':'#E74C3C';
+    ctx.fillStyle=D.roasPartial[i]?'#F1948A':(D.isOkr[i]?'#C0392B':'#E74C3C');
     ctx.fill();
     ctx.strokeStyle='white'; ctx.lineWidth=1.5; ctx.stroke();
   });
