@@ -1,0 +1,885 @@
+
+<title>6월 여행 캠페인 대시보드</title>
+<style>
+:root{--navy:#1E3A5F;--blue:#2E86DE;--green:#27AE60;--orange:#E67E22;--red:#E74C3C;--muted:#95A5A6;--bg:#F0F2F5;--card:#fff;--border:#E1E8ED;--text:#2C3E50;--sub:#5D6D7E}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif;background:var(--bg);color:var(--text);font-size:14px;min-width:320px}
+
+/* HEADER */
+.hdr{background:linear-gradient(135deg,#1E3A5F 0%,#2C5282 100%);color:#fff;padding:16px 24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+.hdr-left h1{font-size:18px;font-weight:700;letter-spacing:-0.3px}
+.hdr-left p{font-size:12px;opacity:.75;margin-top:2px}
+.hdr-right{display:flex;gap:8px;flex-wrap:wrap}
+.chip{padding:4px 10px;border-radius:20px;font-size:11px;font-weight:600;background:rgba(255,255,255,.15)}
+.chip.alert{background:rgba(231,76,60,.75)}
+.chip.ok{background:rgba(39,174,96,.7)}
+
+/* TIMELINE */
+.tl{background:#fff;border-bottom:1px solid var(--border);padding:8px 24px;display:flex;align-items:center;gap:6px;font-size:11px;overflow-x:auto;white-space:nowrap}
+.tl-step{padding:3px 10px;border-radius:4px;font-weight:600}
+.tl-step.done{color:var(--muted)}
+.tl-step.curr{background:var(--blue);color:#fff}
+.tl-step.next{background:#FFF3CD;color:#856404;border:1px solid #FFC107}
+.tl-step.up{color:#aaa;border:1px dashed #ddd}
+.tl-sep{color:#ccc}
+
+/* LAYOUT */
+.wrap{max-width:1140px;margin:0 auto;padding:16px 20px}
+.sec-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--sub);margin:20px 0 10px}
+
+/* KR CARDS */
+.kr-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:4px}
+.kr{background:var(--card);border-radius:10px;padding:14px 16px;border:1px solid var(--border);box-shadow:0 1px 3px rgba(0,0,0,.05)}
+.kr-name{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--sub);margin-bottom:6px}
+.kr-val{font-size:22px;font-weight:800;color:var(--navy);line-height:1}
+.kr-val.na{font-size:14px;color:var(--muted);font-weight:500;margin-top:4px}
+.kr-tgt{font-size:11px;color:var(--sub);margin-top:4px}
+.kr-prog{height:3px;background:var(--border);border-radius:2px;margin-top:10px;overflow:hidden}
+.kr-prog-fill{height:100%;border-radius:2px}
+.fill-g{background:var(--green)}.fill-y{background:#F39C12}.fill-r{background:var(--red)}.fill-n{background:#ddd}
+.kr-sub{font-size:10px;color:var(--muted);margin-top:5px}
+
+/* TWO COL */
+.two-col{display:grid;grid-template-columns:1.6fr 1fr;gap:14px;margin-bottom:4px}
+
+/* CHART CARD */
+.ccard{background:var(--card);border-radius:10px;padding:16px;border:1px solid var(--border);box-shadow:0 1px 3px rgba(0,0,0,.05)}
+.ccard-title{font-size:12px;font-weight:700;color:var(--text);margin-bottom:12px;display:flex;justify-content:space-between;align-items:center}
+.ccard-title span{font-size:10px;color:var(--muted);font-weight:400}
+canvas{display:block;width:100%}
+
+/* W2 ACTION */
+.w2-list{display:flex;flex-direction:column;gap:8px}
+.w2-item{border-radius:8px;padding:11px 13px;border:1px solid}
+.w2-item.red{background:#FFF5F5;border-color:#FEB2B2}
+.w2-item.org{background:#FFFAF0;border-color:#FBD38D}
+.w2-item.blue{background:#EBF8FF;border-color:#90CDF4}
+.w2-ttl{font-size:11px;font-weight:700;margin-bottom:3px}
+.w2-item.red .w2-ttl{color:var(--red)}
+.w2-item.org .w2-ttl{color:#B45309}
+.w2-item.blue .w2-ttl{color:var(--blue)}
+.w2-body{font-size:11px;line-height:1.5;color:var(--text)}
+
+/* SOGU CARDS */
+.sg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:4px}
+.sg{background:var(--card);border-radius:10px;padding:14px 16px;border:1px solid var(--border);border-top:3px solid var(--blue)}
+.sg-head{font-size:11px;font-weight:700;color:var(--blue);margin-bottom:8px}
+.sg-obj{font-size:12px;font-weight:600;color:var(--navy);margin-bottom:8px;line-height:1.4}
+.sg-kr{font-size:11px;color:var(--sub);line-height:1.8}
+.sg-kr b{color:var(--text);font-weight:600}
+.sg-status{margin-top:10px;background:#F8F9FA;border-radius:6px;padding:7px 10px;font-size:10px;color:var(--muted);display:flex;align-items:center;gap:5px}
+.dot-gray{width:6px;height:6px;border-radius:50%;background:#ccc;flex-shrink:0}
+
+/* TABLE */
+.tbl-card{background:var(--card);border-radius:10px;border:1px solid var(--border);overflow:hidden;margin-bottom:4px}
+.tbl-card table{width:100%;border-collapse:collapse}
+.tbl-card th{background:#F8F9FA;padding:9px 12px;text-align:left;font-size:10px;font-weight:700;color:var(--sub);text-transform:uppercase;letter-spacing:.04em;border-bottom:1px solid var(--border)}
+.tbl-card td{padding:10px 12px;border-bottom:1px solid #F1F3F5;font-size:12px;vertical-align:middle}
+.tbl-card tr:last-child td{border-bottom:none}
+.tbl-card tr:hover td{background:#FAFBFC}
+.rb{display:inline-block;padding:2px 7px;border-radius:4px;font-weight:700;font-size:11px}
+.rb.g{background:#D4EDDA;color:#155724}
+.rb.y{background:#FFF3CD;color:#856404}
+.rb.o{background:#FFE5B4;color:#B45309}
+.rb.r{background:#F8D7DA;color:#721C24}
+.sig{display:inline-block;padding:2px 7px;border-radius:4px;font-size:10px;font-weight:700}
+.sig.hold{background:#E3F2FD;color:#1565C0}
+.sig.ok{background:#D4EDDA;color:#155724}
+.sig.chk{background:#FFF3CD;color:#856404}
+.sig.cut{background:#F8D7DA;color:#721C24}
+.arr.up{color:var(--green)}.arr.dn{color:var(--red)}.arr.fl{color:var(--muted)}
+
+/* FOOTER NOTE */
+.fnote{font-size:10px;color:var(--muted);background:#fff;border-radius:8px;padding:10px 14px;border:1px solid var(--border);line-height:1.7}
+
+@media(max-width:700px){.kr-grid{grid-template-columns:repeat(2,1fr)}.two-col{grid-template-columns:1fr}.sg-grid{grid-template-columns:1fr}}
+</style>
+
+<!-- HEADER -->
+<div class="hdr">
+  <div class="hdr-left">
+    <h1>6월 여행 캠페인 대시보드</h1>
+    <p>Paid 성과 분석 · 데이터 기준: 2026-06-21 (어제)</p>
+  </div>
+  <div class="hdr-right">
+    <span class="chip">📅 D5 / 25일 남음</span>
+    <span class="chip">P3 지역위크</span>
+    <span class="chip alert">⚠️ W2 조정 내일 시작</span>
+    <span class="chip ok">✅ Attribution v7 완료 (airbridge 기준)</span>
+  </div>
+</div>
+
+<!-- TIMELINE -->
+<div class="tl">
+  <span class="tl-step done">Pre 5/13</span><span class="tl-sep">→</span>
+  <span class="tl-step done">P1 티징 5/27</span><span class="tl-sep">→</span>
+  <span class="tl-step done">P2 붐업 6/8</span><span class="tl-sep">→</span>
+  <span class="tl-step curr">P3 지역위크 6/15 ◀ D7</span><span class="tl-sep">→</span>
+  <span class="tl-step up">P4 라스트 6/29</span>
+  &nbsp;&nbsp;|&nbsp;&nbsp;
+  <span class="tl-step done">W1 안정화 6/17~23</span><span class="tl-sep">→</span>
+  <span class="tl-step next">W2 1차조정 6/24 ← 내일</span><span class="tl-sep">→</span>
+  <span class="tl-step up">W3 7/1</span><span class="tl-sep">→</span>
+  <span class="tl-step up">W4 7/8</span>
+</div>
+
+<div class="wrap">
+
+  <!-- KR CARDS -->
+  <div class="sec-label">캠페인 최상위 OKR (기간: 6/17~7/17) · D1~D4 실적 (6/17~6/20)</div>
+  <div class="kr-grid">
+    <div class="kr">
+      <div class="kr-name">KR1 · 일 평균 DLUV</div>
+      <div class="kr-val" style="color:#E67E22">109,572<span style="font-size:13px;font-weight:500;color:var(--sub)"> 명/일</span></div>
+      <div class="kr-tgt">목표 119,738명 · <b style="color:#E67E22">91.5% 달성</b></div>
+      <div class="kr-prog"><div class="kr-prog-fill fill-y" style="width:91.5%"></div></div>
+      <div class="kr-sub">D1 119,597 → D5 106,763 · Perf 30,807명(28.2%) · CRM 14,362명(13.1%) · Organic 64,493명(58.8%)<br><span style="color:#E67E22">⚠️ D1 CRM spike(22.5%) → D2~D5 안정화(8~13%) · D1~D5 avg 109,662명</span></div>
+    </div>
+    <div class="kr">
+      <div class="kr-name">KR2 · 전환율 CVR</div>
+      <div class="kr-val" style="color:#27AE60">10.4<span style="font-size:13px;font-weight:500;color:var(--sub)">%</span></div>
+      <div class="kr-tgt">목표 10.1% · <b style="color:#27AE60">✅ 103% 달성</b></div>
+      <div class="kr-prog"><div class="kr-prog-fill fill-g" style="width:100%"></div></div>
+      <div class="kr-sub">생성 11.9% × 완료율 87% = <b style="color:#27AE60">완료추산 10.4%</b> · 기준 9.08% 대비 +1.32%p<br><span style="color:var(--muted)">반납 완료 기준 단독 시 8.3% (시차 효과) — 생성×87% 이 OKR 측정 기준에 부합</span></div>
+    </div>
+    <div class="kr">
+      <div class="kr-name">KR3 · 일 평균 예약</div>
+      <div class="kr-val" style="color:#E67E22">11,368<span style="font-size:13px;font-weight:500;color:var(--sub)"> 건/일</span></div>
+      <div class="kr-tgt">목표 12,094건 · <b style="color:#E67E22">94.0% 달성</b></div>
+      <div class="kr-prog"><div class="kr-prog-fill fill-y" style="width:94%"></div></div>
+      <div class="kr-sub">생성 13,066건/일 × 완료율 87% = <b>완료추산 11,368건</b><br><span style="color:var(--muted)">반납 완료 기준 단독 시 9,398건 (시차) — tianjin_replica.reservation_info 생성 기준 실시간 트래킹</span></div>
+    </div>
+    <div class="kr">
+      <div class="kr-name">KR4 · 건당 평균 매출</div>
+      <div class="kr-val">74,123<span style="font-size:13px;font-weight:500;color:var(--sub)"> 원/건</span></div>
+      <div class="kr-tgt">목표 74,750원/건 · <b>99.2%</b></div>
+      <div class="kr-prog"><div class="kr-prog-fill fill-g" style="width:99.2%"></div></div>
+      <div class="kr-sub">6/1~6/16 베이스라인 기준 · 캠페인 기간 반납 완료 후 업데이트</div>
+    </div>
+  </div>
+
+  <!-- TREND CHART + W2 ACTIONS -->
+  <div class="sec-label">일별 광고비 · ROAS 추이 (6/8~6/21)</div>
+  <div class="two-col">
+    <div class="ccard">
+      <div class="ccard-title">
+        광고비 (막대) + ROAS (선) <span>회색=P2 / 파랑=P3 OKR기간 / 어두운=주말</span>
+      </div>
+      <canvas id="trendChart" height="200"></canvas>
+      <div style="display:flex;gap:16px;margin-top:10px;font-size:10px;color:var(--sub)">
+        <span>■ <span style="color:rgba(46,134,222,0.5)">■</span> 광고비 (OKR기간)</span>
+        <span style="color:var(--red)">— ROAS(%)</span>
+        <span style="color:#aaa">-- 800% 기준선</span>
+        <span style="color:#aaa">주말 = 토·일 (ROAS 낮음)</span>
+      </div>
+    </div>
+    <div class="ccard">
+      <div class="ccard-title">W2 조정 액션 (6/24 기준)</div>
+      <div class="w2-list">
+        <div class="w2-item org">
+          <div class="w2-ttl">⚠️ 네이버BSA — 7일 연속 하락 (276~495%) · 실제 성과 붕괴</div>
+          <div class="w2-body">ROAS 1,029%(P2) → <b>276~495%(P3 7일, 집계 오류 아님)</b><br>mmp_cnt 24건(6/15) → 9건(6/21) 감소 추세 · 예산 동결(46만/일)<br>→ 입찰·타겟 구조 점검 후 예산 조정 판단<br><span style="color:#E67E22;font-weight:600">⏰ W2 D3(6/26)까지 원인 규명 완료 — 미해결 시 -50% 삭감 전환</span></div>
+        </div>
+        <div class="w2-item org">
+          <div class="w2-ttl">⚠️ 구글AC — CPD 2,540원 · -30% 삭감 + 소재 최적화</div>
+          <div class="w2-body">ROAS 874%(P2) → <b>649%(P3)</b> — ROAS는 600% 기준 <b>통과</b>하나 CPD 2,540원으로 극비효율<br>CPD 단독 신호: -50% 아닌 <b>-30% 삭감</b> (492만 → 344만/일) + 소재·타겟 최적화 병행</div>
+        </div>
+        <div class="w2-item red">
+          <div class="w2-ttl">🔴 네이버SA — 감액 미이행 · D3~D5 오히려 증액됨</div>
+          <div class="w2-body">D1~D5 avg <b>141.8만/일</b> (목표 100만/일) · 5일간 초과 집행 ~209만원<br>D3~D5는 149만/일로 증가 · ROAS 144~395% (전 기간 극비효율)<br>→ 즉시 100만/일 환원 실행 필요</div>
+        </div>
+        <div class="w2-item red">
+          <div class="w2-ttl">🔴 카카오 — CPD 1,931원 · 삭감 대상</div>
+          <div class="w2-body">ROAS 747%(P2) → 791%(P3) · CPD 1,931원 (<b>기준 1,200원 초과</b>)<br>Perf DLUV 471명/일 · 광고비 91만/일 → 삭감 후 ROAS·CPD 동시 재확인</div>
+        </div>
+        <div class="w2-item blue">
+          <div class="w2-ttl">✅ 틱톡·페이스북 — 양호</div>
+          <div class="w2-body">틱톡 988% ↑, 페이스북 1,113% 유지<br>현 예산 유지, 소재 계속 운용</div>
+        </div>
+        <div class="w2-item blue" style="border-color:#BEE3F8">
+          <div class="w2-ttl" style="color:#2B6CB0">📐 W2 조정 트리거 기준</div>
+          <div class="w2-body">CPD ≤500원 → 증액 +30~50% &nbsp;|&nbsp; 500~900원 → 유지<br>CPD ≥1,200원 → 삭감 -50% &nbsp;|&nbsp; CTR -30% 2주 연속 → 중단<br><span style="color:var(--muted)">※ Attribution v7 완료 · 채널별 CPD 반영 완료 (airbridge D1~D5 avg 기준)</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ATTRIBUTION SOURCE -->
+  <div class="sec-label">KR1 DLUV 소스별 Attribution v7 완료 (airbridge × Braze 기준)</div>
+  <div class="tbl-card" style="margin-bottom:4px">
+    <table>
+      <thead>
+        <tr>
+          <th>날짜</th>
+          <th>총 DLUV</th>
+          <th>Perf 유입 <span style="font-weight:400;font-size:9px">(airbridge 우선순위)</span></th>
+          <th>Perf %</th>
+          <th>CRM 유입 <span style="font-weight:400;font-size:9px">(Braze 3h 터치)</span></th>
+          <th>CRM %</th>
+          <th>Organic+미식별</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="background:#F5F5F5;color:var(--muted);font-size:10px">
+          <td><b style="color:var(--sub)">OKR 목표</b></td>
+          <td><b style="color:var(--sub)">119,738명</b></td>
+          <td><b style="color:var(--sub)">37,445명</b></td>
+          <td><span style="color:var(--muted)">31.3%</span></td>
+          <td><b style="color:var(--sub)">12,500명</b></td>
+          <td><span style="color:var(--muted)">10.4%</span></td>
+          <td><b style="color:var(--sub)">69,793명</b></td>
+        </tr>
+        <tr>
+          <td><b>6/17 D1 수</b></td>
+          <td>119,597명</td>
+          <td><b>29,695명</b></td>
+          <td><span class="rb y">24.8%</span></td>
+          <td>26,883명</td>
+          <td><span class="rb y">22.5%</span> <span style="color:var(--muted);font-size:9px">⚠️론칭spike</span></td>
+          <td>63,019명</td>
+        </tr>
+        <tr>
+          <td><b>6/18 D2 목</b></td>
+          <td>107,484명</td>
+          <td><b>30,163명</b></td>
+          <td><span class="rb y">28.1%</span></td>
+          <td>8,836명</td>
+          <td><span class="rb g">8.2%</span></td>
+          <td>68,485명</td>
+        </tr>
+        <tr>
+          <td><b>6/19 D3 금</b></td>
+          <td>110,085명</td>
+          <td><b>31,575명</b></td>
+          <td><span class="rb y">28.7%</span></td>
+          <td>11,044명</td>
+          <td><span class="rb g">10.0%</span></td>
+          <td>67,466명</td>
+        </tr>
+        <tr>
+          <td><b>6/20 D4 토</b></td>
+          <td>104,380명</td>
+          <td><b>31,081명</b></td>
+          <td><span class="rb y">29.8%</span></td>
+          <td>11,481명</td>
+          <td><span class="rb g">11.0%</span></td>
+          <td>61,818명</td>
+        </tr>
+        <tr>
+          <td><b>6/21 D5 일</b></td>
+          <td>106,763명</td>
+          <td><b>31,522명</b></td>
+          <td><span class="rb y">29.5%</span></td>
+          <td>13,564명</td>
+          <td><span class="rb g">12.7%</span></td>
+          <td>61,677명</td>
+        </tr>
+        <tr style="background:#F8F9FA;font-weight:600">
+          <td><b>D1~D5 평균</b></td>
+          <td><b>109,662명</b></td>
+          <td><b style="color:var(--blue)">30,807명</b></td>
+          <td><span class="rb y">28.2%</span></td>
+          <td><b>14,362명</b></td>
+          <td><span class="rb g">13.1%</span></td>
+          <td>64,493명</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 소스별 OKR 목표 달성 현황 -->
+  <div style="background:#fff;border:1px solid #E2E8F0;border-radius:8px;padding:12px 14px;margin-bottom:16px">
+    <div style="font-size:11px;font-weight:700;color:var(--sub);margin-bottom:10px">소스별 OKR 목표 달성 현황 (D1~D5 avg 기준)</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+
+      <!-- 총 DLUV -->
+      <div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:3px">
+          <span style="font-size:11px;font-weight:600">총 DLUV</span>
+          <span style="font-size:11px"><b>109,662</b> <span style="color:var(--muted)">/ 119,738명</span> <span class="rb y">91.6%</span></span>
+        </div>
+        <div style="height:5px;background:#FDE8C8;border-radius:3px;overflow:hidden">
+          <div style="height:100%;background:#E67E22;width:91.6%"></div>
+        </div>
+      </div>
+
+      <!-- Perf -->
+      <div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:3px">
+          <span style="font-size:11px;font-weight:600">Perf (airbridge)</span>
+          <span style="font-size:11px"><b>30,807</b> <span style="color:var(--muted)">/ 37,445명</span> <span class="rb y">82%</span></span>
+        </div>
+        <div style="height:5px;background:#FDE8C8;border-radius:3px;overflow:hidden">
+          <div style="height:100%;background:#E67E22;width:82%"></div>
+        </div>
+        <div style="font-size:10px;color:var(--muted);margin-top:2px">W1 알고리즘 학습 구간 · D2~D5 안정적 (30,163~31,575명)</div>
+      </div>
+
+      <!-- CRM -->
+      <div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:3px">
+          <span style="font-size:11px;font-weight:600">CRM (Braze 3h)</span>
+          <span style="font-size:11px"><b>14,362</b> <span style="color:var(--muted)">/ 12,500명</span> <span class="rb g">115% ✅</span></span>
+        </div>
+        <div style="height:5px;background:#C6F6D5;border-radius:3px;overflow:hidden">
+          <div style="height:100%;background:#27AE60;width:100%"></div>
+        </div>
+        <div style="font-size:10px;color:var(--muted);margin-top:2px">D1 론칭 spike 22.5% → D2~D5 8~13%로 안정화</div>
+      </div>
+
+      <!-- Organic+Viral -->
+      <div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:3px">
+          <span style="font-size:11px;font-weight:600">Organic+Viral</span>
+          <span style="font-size:11px"><b>64,493</b> <span style="color:var(--muted)">/ 69,793명</span> <span class="rb y">92%</span></span>
+        </div>
+        <div style="height:5px;background:#FDE8C8;border-radius:3px;overflow:hidden">
+          <div style="height:100%;background:#E67E22;width:92%"></div>
+        </div>
+        <div style="font-size:10px;color:var(--muted);margin-top:2px">Organic 65,885 + Viral 3,908명 합산 목표 · 미식별 포함</div>
+      </div>
+
+    </div>
+    <div style="margin-top:8px;font-size:10px;color:var(--muted)">※ Perf/CRM 중복 유저는 Perf 우선 귀인 · Organic+미식별에 airbridge 미수집 유저 포함 (~35%)</div>
+  </div>
+
+  <!-- PERF SEG DISTRIBUTION -->
+  <div class="sec-label">Perf 유입 유저 회차 세그 분포 (D1~D4 · airbridge Perf × reservation_v2)</div>
+  <div class="tbl-card" style="margin-bottom:16px">
+    <table>
+      <thead>
+        <tr>
+          <th>회차 세그</th>
+          <th>Perf 유입 예약 (D1~D4 합계)</th>
+          <th>Perf 유입 예약 (일평균)</th>
+          <th>전체 예약 대비 Perf 비중</th>
+          <th>Perf 내 비중</th>
+          <th>소구점</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><b>0회차</b> (신규전환)</td>
+          <td>990건</td>
+          <td>248건/일</td>
+          <td>30.0% (248/829)</td>
+          <td><span class="rb y">9.5%</span></td>
+          <td style="color:#E74C3C">소구점1</td>
+        </tr>
+        <tr>
+          <td><b>1-3회차</b></td>
+          <td>1,469건</td>
+          <td>367건/일</td>
+          <td>26.2% (367/1,402)</td>
+          <td><span class="rb y">14.1%</span></td>
+          <td style="color:#E67E22">소구점2</td>
+        </tr>
+        <tr>
+          <td><b>4-10회차</b></td>
+          <td>1,888건</td>
+          <td>472건/일</td>
+          <td>26.6% (472/1,776)</td>
+          <td><span class="rb y">18.1%</span></td>
+          <td style="color:#E67E22">소구점2</td>
+        </tr>
+        <tr>
+          <td><b>11+회차</b> (헤비유저)</td>
+          <td>6,067건</td>
+          <td>1,517건/일</td>
+          <td>29.5% (1,517/5,142)</td>
+          <td><span class="rb r">58.3%</span></td>
+          <td style="color:#27AE60">소구점3</td>
+        </tr>
+        <tr style="background:#F8F9FA;font-weight:600">
+          <td><b>합계</b></td>
+          <td>10,414건</td>
+          <td>2,604건/일</td>
+          <td>28.4% (2,604/9,149)</td>
+          <td>100%</td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div style="background:#FFF5F5;border:1px solid #FEB2B2;border-radius:8px;padding:10px 14px;font-size:11px;color:#742A2A;margin-bottom:16px">
+    <b>⚠️ Paid 예산의 58.3%가 11+회차(소구점3) 리타겟팅에 집중</b> — 소구점1(신규전환 목표) Paid 기여는 9.5%(248건/일)에 불과<br>
+    11+회차 유저의 KR4 기여도 확인 후 타겟팅 조정 방향 결정 필요 — W2에서 <b>유사타겟(LAL) 또는 비이용자 타겟 비중 확대</b> 검토 (KR4 기여 높으면 현 구조 유지 가능)
+  </div>
+
+  <!-- SOGUJEOM -->
+  <div class="sec-label">소구점별 KR 달성 현황 (D1~D5 avg · DLUV: socar_app.app_logs · 예약: 생성×87% 완료추산)</div>
+  <div class="sg-grid">
+
+    <!-- 소구점 1 -->
+    <div class="sg" style="border-top-color:#E74C3C">
+      <div class="sg-head" style="color:#E74C3C">소구점 1 · 블랙라벨 + EV · 0회차 신규전환</div>
+      <div class="sg-obj">"카셰어링 고정관념을 깨고 신규 첫 예약 전환"</div>
+
+      <div style="margin-top:12px;display:flex;flex-direction:column;gap:10px">
+
+        <!-- KR1 DLUV -->
+        <div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:3px">
+            <span style="font-size:11px;font-weight:700;color:#E74C3C">KR1 · 0회차 DLUV</span>
+            <span style="font-size:11px"><b>25,137명</b> <span style="color:var(--muted)">/ 목표 32,569명</span> <span class="rb r">77%</span></span>
+          </div>
+          <div style="height:5px;background:#FFE8E8;border-radius:3px;overflow:hidden">
+            <div style="height:100%;background:#E74C3C;width:77%"></div>
+          </div>
+          <div style="font-size:10px;color:var(--muted);margin-top:2px">신규 유입 부족 — 캠페인 핵심 리스크 · 전체 DLUV의 22.9%</div>
+        </div>
+
+        <!-- KR2 CVR -->
+        <div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:3px">
+            <span style="font-size:11px;font-weight:700;color:#E67E22">KR2 · 신규전환 CVR <span style="font-weight:400;color:var(--muted)">→ +15억</span></span>
+            <span style="font-size:11px"><b>5.4%</b> <span style="color:var(--muted)">/ 목표 5.67%</span> <span class="rb y">95%</span></span>
+          </div>
+          <div style="height:5px;background:#FDE8C8;border-radius:3px;overflow:hidden">
+            <div style="height:100%;background:#E67E22;width:95%"></div>
+          </div>
+          <div style="font-size:10px;color:var(--muted);margin-top:2px">완료추산 1,346건/일 (생성 1,547건) · 자연추세 3.93% 대비 +1.47%p</div>
+        </div>
+
+
+      </div>
+    </div>
+
+    <!-- 소구점 2 -->
+    <div class="sg" style="border-top-color:#E67E22">
+      <div class="sg-head" style="color:#E67E22">소구점 2 · 편도 + 지역 균일가 · 1~10회차 재유입</div>
+      <div class="sg-obj">"이탈 재유입, CVR Q1 수준 복원"</div>
+
+      <div style="margin-top:12px;display:flex;flex-direction:column;gap:10px">
+
+        <!-- KR1 DLUV -->
+        <div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:3px">
+            <span style="font-size:11px;font-weight:700;color:#E67E22">KR1 · 1-10회차 DLUV</span>
+            <span style="font-size:11px"><b>47,468명</b> <span style="color:var(--muted)">/ 목표 50,768명</span> <span class="rb y">93%</span></span>
+          </div>
+          <div style="height:5px;background:#FDE8C8;border-radius:3px;overflow:hidden">
+            <div style="height:100%;background:#E67E22;width:93%"></div>
+          </div>
+          <div style="font-size:10px;color:var(--muted);margin-top:2px">1-3회차 26,629명 + 4-10회차 20,839명</div>
+        </div>
+
+        <!-- KR2a 1-3회차 CVR -->
+        <div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:3px">
+            <span style="font-size:11px;font-weight:700;color:#27AE60">KR2a · 1-3회차 CVR <span style="font-weight:400;color:var(--muted)">→ +12.6억</span></span>
+            <span style="font-size:11px"><b>7.0%</b> <span style="color:var(--muted)">/ 목표 7.02%</span> <span class="rb g">100%</span></span>
+          </div>
+          <div style="height:5px;background:#C6F6D5;border-radius:3px;overflow:hidden">
+            <div style="height:100%;background:#27AE60;width:100%"></div>
+          </div>
+          <div style="font-size:10px;color:var(--muted);margin-top:2px">완료추산 1,866건/일 (생성 2,145건) · Q1 자연추세 5.41% 대비 +1.59%p</div>
+        </div>
+
+        <!-- KR2b 4-10회차 CVR -->
+        <div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:3px">
+            <span style="font-size:11px;font-weight:700;color:#27AE60">KR2b · 4-10회차 CVR <span style="font-weight:400;color:var(--muted)">→ +6.8억</span></span>
+            <span style="font-size:11px"><b>10.4%</b> <span style="color:var(--muted)">/ 목표 10.23%</span> <span class="rb g">102% ✅</span></span>
+          </div>
+          <div style="height:5px;background:#C6F6D5;border-radius:3px;overflow:hidden">
+            <div style="height:100%;background:#27AE60;width:100%"></div>
+          </div>
+          <div style="font-size:10px;color:var(--muted);margin-top:2px">완료추산 2,168건/일 (생성 2,491건) · Q1 자연추세 8.88% 대비 +1.52%p</div>
+        </div>
+
+
+      </div>
+    </div>
+
+    <!-- 소구점 3 -->
+    <div class="sg" style="border-top-color:#27AE60">
+      <div class="sg-head" style="color:#27AE60">소구점 3 · 성수기 쿠폰 · 11+회차 헤비유저</div>
+      <div class="sg-obj">"11+회차 이탈 복귀 + 외부 바이럴 신규 유입"</div>
+
+      <div style="margin-top:12px;display:flex;flex-direction:column;gap:10px">
+
+        <!-- KR1 DLUV -->
+        <div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:3px">
+            <span style="font-size:11px;font-weight:700;color:#27AE60">KR1 · 11+회차 DLUV</span>
+            <span style="font-size:11px"><b>37,056명</b> <span style="color:var(--muted)">/ 목표 36,400명</span> <span class="rb g">102% ✅</span></span>
+          </div>
+          <div style="height:5px;background:#C6F6D5;border-radius:3px;overflow:hidden">
+            <div style="height:100%;background:#27AE60;width:100%"></div>
+          </div>
+          <div style="font-size:10px;color:var(--muted);margin-top:2px">헤비유저 유입 목표 초과 달성</div>
+        </div>
+
+
+        <!-- KR4 D30 CVR -->
+        <div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:3px">
+            <span style="font-size:11px;font-weight:700;color:#27AE60">KR4 · D30 CVR <span style="font-weight:400;color:var(--muted)">(낙관 15%)</span></span>
+            <span style="font-size:11px"><b>16.2%</b> <span style="color:var(--muted)">/ 낙관 15%</span> <span class="rb g">108% ✅</span></span>
+          </div>
+          <div style="height:5px;background:#C6F6D5;border-radius:3px;overflow:hidden">
+            <div style="height:100%;background:#27AE60;width:100%"></div>
+          </div>
+          <div style="font-size:10px;color:var(--muted);margin-top:2px">완료추산 5,988건/일 (생성 6,883건) · 보수 8% 기준 202%</div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- DLUV BY SEG -->
+  <div class="sec-label">세그별 DLUV 일별 현황 (socar_app.app_logs · D1~D5)</div>
+  <div style="font-size:10px;color:var(--muted);margin-bottom:6px;padding:0 2px">KR1 세그 분해 — 소구점별 유입 목표 달성 여부 · 0회차(신규) DLUV 부족이 캠페인 핵심 리스크</div>
+  <div class="tbl-card">
+    <table>
+      <thead>
+        <tr>
+          <th>날짜</th>
+          <th>0회차 <span style="font-weight:400;font-size:9px">목표 32,569</span></th>
+          <th>1-3회차 <span style="font-weight:400;font-size:9px">목표 29,455</span></th>
+          <th>4-10회차 <span style="font-weight:400;font-size:9px">목표 21,313</span></th>
+          <th>11+회차 <span style="font-weight:400;font-size:9px">목표 36,400</span></th>
+          <th>총 DLUV <span style="font-weight:400;font-size:9px">목표 119,738</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><b>6/17 D1 수</b></td>
+          <td>26,833</td><td>29,297</td><td>22,763</td><td>40,704</td><td><b>119,597</b></td>
+        </tr>
+        <tr>
+          <td><b>6/18 D2 목</b></td>
+          <td>24,391</td><td>26,022</td><td>20,234</td><td>36,837</td><td><b>107,484</b></td>
+        </tr>
+        <tr>
+          <td><b>6/19 D3 금</b></td>
+          <td>24,609</td><td>26,684</td><td>21,192</td><td>37,600</td><td><b>110,085</b></td>
+        </tr>
+        <tr>
+          <td><b>6/20 D4 토</b></td>
+          <td>24,365</td><td>25,567</td><td>19,936</td><td>34,512</td><td><b>104,380</b></td>
+        </tr>
+        <tr>
+          <td><b>6/21 D5 일</b></td>
+          <td>25,488</td><td>25,576</td><td>20,070</td><td>35,629</td><td><b>106,763</b></td>
+        </tr>
+        <tr style="background:#F8F9FA;font-weight:600">
+          <td><b>D1~D5 avg</b></td>
+          <td><span style="color:#E74C3C">25,137</span></td>
+          <td><span style="color:#E67E22">26,629</span></td>
+          <td><span style="color:#E67E22">20,839</span></td>
+          <td><span style="color:#27AE60">37,056</span></td>
+          <td><b><span style="color:#E67E22">109,661</span></b></td>
+        </tr>
+        <tr style="border-top:2px dashed #ddd;color:var(--muted)">
+          <td><b>목표 대비</b></td>
+          <td><span class="rb r">77%</span> ⚠️</td>
+          <td><span class="rb y">90%</span></td>
+          <td><span class="rb y">98%</span></td>
+          <td><span class="rb g">102%</span> ✅</td>
+          <td><span class="rb y">92%</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- COHORT BREAKDOWN -->
+  <div class="sec-label">세그별 예약 일별 현황 (tianjin_replica 생성 기준 · 완료추산=생성×87%)</div>
+  <div style="font-size:10px;color:var(--muted);margin-bottom:6px;padding:0 2px">생성 기준 실시간 트래킹 · 완료추산이 OKR 비교 기준 · CVR = 완료추산 ÷ 세그 DLUV</div>
+  <div class="tbl-card">
+    <table>
+      <thead>
+        <tr>
+          <th>날짜</th>
+          <th>0회차 <span style="font-weight:400;font-size:9px">완료추산 (CVR)</span></th>
+          <th>1-3회차</th>
+          <th>4-10회차</th>
+          <th>11+회차</th>
+          <th>완료추산 합계</th>
+          <th>총CVR</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><b>6/17 D1 수</b></td>
+          <td>1,273 <span class="rb y" style="font-size:9px">4.7%</span></td>
+          <td>1,980 <span class="rb y" style="font-size:9px">6.8%</span></td>
+          <td>2,281 <span class="rb g" style="font-size:9px">10.0%</span></td>
+          <td>6,752 <span class="rb g" style="font-size:9px">16.6%</span></td>
+          <td><b>12,286</b></td>
+          <td><span class="rb g">10.3%</span></td>
+        </tr>
+        <tr>
+          <td><b>6/18 D2 목</b></td>
+          <td>1,343 <span class="rb y" style="font-size:9px">5.5%</span></td>
+          <td>1,897 <span class="rb g" style="font-size:9px">7.3%</span></td>
+          <td>2,245 <span class="rb g" style="font-size:9px">11.1%</span></td>
+          <td>6,590 <span class="rb g" style="font-size:9px">17.9%</span></td>
+          <td><b>12,075</b></td>
+          <td><span class="rb g">11.2%</span></td>
+        </tr>
+        <tr>
+          <td><b>6/19 D3 금</b></td>
+          <td>1,368 <span class="rb y" style="font-size:9px">5.6%</span></td>
+          <td>1,818 <span class="rb y" style="font-size:9px">6.8%</span></td>
+          <td>2,179 <span class="rb g" style="font-size:9px">10.3%</span></td>
+          <td>5,638 <span class="rb g" style="font-size:9px">15.0%</span></td>
+          <td><b>11,003</b></td>
+          <td><span class="rb g">10.0%</span></td>
+        </tr>
+        <tr>
+          <td><b>6/20 D4 토</b></td>
+          <td>1,400 <span class="rb y" style="font-size:9px">5.7%</span></td>
+          <td>1,781 <span class="rb g" style="font-size:9px">7.0%</span></td>
+          <td>2,024 <span class="rb g" style="font-size:9px">10.2%</span></td>
+          <td>5,025 <span class="rb y" style="font-size:9px">14.6%</span></td>
+          <td><b>10,230</b></td>
+          <td><span class="rb y">9.8%</span></td>
+        </tr>
+        <tr>
+          <td><b>6/21 D5 일</b></td>
+          <td>1,348 <span class="rb y" style="font-size:9px">5.3%</span></td>
+          <td>1,857 <span class="rb g" style="font-size:9px">7.3%</span></td>
+          <td>2,109 <span class="rb g" style="font-size:9px">10.5%</span></td>
+          <td>5,935 <span class="rb g" style="font-size:9px">16.7%</span></td>
+          <td><b>11,249</b></td>
+          <td><span class="rb g">10.5%</span></td>
+        </tr>
+        <tr style="background:#F8F9FA;font-weight:600">
+          <td><b>D1~D5 avg</b></td>
+          <td>1,346 <span class="rb y" style="font-size:9px">5.4%</span></td>
+          <td>1,866 <span class="rb g" style="font-size:9px">7.0%</span></td>
+          <td>2,168 <span class="rb g" style="font-size:9px">10.4%</span></td>
+          <td>5,988 <span class="rb g" style="font-size:9px">16.2%</span></td>
+          <td><b>11,368</b></td>
+          <td><span class="rb g"><b>10.4%</b></span></td>
+        </tr>
+        <tr style="border-top:2px dashed #ddd;color:var(--muted)">
+          <td><b>목표</b></td>
+          <td>1,847 <span style="font-size:9px">(5.67%)</span></td>
+          <td>2,069 <span style="font-size:9px">(7.02%)</span></td>
+          <td>2,180 <span style="font-size:9px">(10.23%)</span></td>
+          <td>5,460 <span style="font-size:9px">(낙관 15%)</span></td>
+          <td><b style="color:#E74C3C">12,094</b></td>
+          <td><b style="color:#E74C3C">10.1%</b></td>
+        </tr>
+        <tr style="color:var(--muted)">
+          <td><b>달성률</b></td>
+          <td><span class="rb y">73%</span></td>
+          <td><span class="rb g">90%</span></td>
+          <td><span class="rb g">99%</span></td>
+          <td><span class="rb g">110%</span> ✅</td>
+          <td><span class="rb y">94%</span></td>
+          <td><span class="rb g">103%</span> ✅</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- CHANNEL TABLE -->
+  <div class="sec-label">채널별 성과 — P2(6/8~14) vs P3(6/15~21) 비교</div>
+  <div class="tbl-card">
+    <table>
+      <thead>
+        <tr>
+          <th>채널</th>
+          <th>구분</th>
+          <th>P2 비용/일</th>
+          <th>P3 비용/일</th>
+          <th>P2 ROAS</th>
+          <th>P3 ROAS</th>
+          <th>추이</th>
+          <th>CPD <span style="font-weight:400;font-size:9px">(원/DLUV)</span></th>
+          <th>W2 신호</th>
+        </tr>
+      </thead>
+      <tbody id="chTbody"></tbody>
+    </table>
+  </div>
+
+  <!-- FOOTER NOTE -->
+  <div class="fnote">
+    <b>Paid 성과 데이터</b>: socar-data.temp_team_smkt.paid_daily_report_final_native_w24b (P2 6/8~6/14) · native_w25 (P3 6/15~6/21)<br>
+    <b>KR1 DLUV</b>: socar-data.socar_app.app_logs · member_id IS NOT NULL AND != 0 기준 일별 DISTINCT 집계<br>
+    <b>KR3·소구점 예약 (완료추산)</b>: tianjin_replica.reservation_info 생성 기준 (state NOT IN (7,8) · member_imaginary IN (0,9)) × 완료율 87% (5/17~6/13 기준선) · 회차 분류는 reservation_v2 accumulate_used_count 기준<br>
+    <b>세그별 예약 일별 현황</b>: tianjin_replica.reservation_info 생성 기준 (state NOT IN (7,8)) × 87% = 완료추산 · 세그별 DLUV: socar_app.app_logs · CVR = 완료추산 ÷ DLUV<br>
+    <b>세그별 DLUV 목표</b>: OKR 문서 기준 — 0회차 32,569명 / 1-3회차 29,455명 (119,738×24.6%) / 4-10회차 21,313명 (×17.8%) / 11+회차 36,400명 (×30.4%)<br>
+    <b>회차 정의</b>: 0회차=첫 예약(acc=1) / 1-3회차(acc 2~4) / 4-10회차(acc 5~11) / 11+회차(acc≥12)<br>
+    <b>KR4 매출</b>: socar-data.socar_biz_profit.profit_socar_reservation · created_at_kst 기준 · 건당 avg 65,201원<br>
+    <b>소구점 CVR</b>: socar_app.app_logs D1~D5 avg DLUV 실측 (0회차 25,137 / 1-3회차 26,629 / 4-10회차 20,839 / 11+회차 37,056명) · reservation_v2 accumulate_used_count 기준 회차 분류 (OKR 목표 설정과 동일 방법론)<br>
+    <b>ROAS 기준</b>: ≥1,000% ✅ 우수 / 800~999% 🟡 정상 / 600~799% 🟠 주의 / &lt;600% 🔴 비효율 · 주말 ROAS 구조적 700~790%
+  </div>
+
+</div><!-- /wrap -->
+
+<script>
+// ── DATA ──────────────────────────────────────────────
+const D = {
+  labels: ['6/8월','6/9화','6/10수','6/11목','6/12금','6/13토','6/14일','6/15월','6/16화','6/17수','6/18목','6/19금','6/20토','6/21일'],
+  costs:  [1828,1830,1727,1779,1787,1814,1861,1936,1948,1799,1828,2031,2097,2057],
+  roas:   [901,855,948,940,978,786,714,897,786,873,842,903,722,707],
+  isWe:   [0,0,0,0,0,1,1,0,0,0,0,0,1,1],
+  isOkr:  [0,0,0,0,0,0,0,0,0,1,1,1,1,1]
+};
+
+// d = Perf DLUV D1~D5 avg (airbridge), cpd = c3*10000/d (원/명)
+const CH = [
+  {n:'페이스북',   cat:'DA',  c2:281,c3:337, r2:1224,r3:1113, d:3552, sig:'ok',  st:'증액 가능'},
+  {n:'틱톡',       cat:'DA',  c2:464,c3:533, r2:942, r3:988,  d:5215, sig:'hold',st:'유지'},
+  {n:'구글AC',     cat:'DA',  c2:495,c3:492, r2:874, r3:649,  d:1937, sig:'chk', st:'CPD 2,540원 · ROAS 649% — -30% 삭감 검토'},
+  {n:'몰로코',     cat:'DA',  c2:136,c3:171, r2:875, r3:841,  d:1431, sig:'chk', st:'CPD 경계 모니터링'},
+  {n:'웨어즈',     cat:'DA',  c2:50, c3:58,  r2:938, r3:943,  d:620,  sig:'hold',st:'유지'},
+  {n:'rtbhouse',   cat:'DA',  c2:91, c3:58,  r2:534, r3:809,  d:471,  sig:'chk', st:'CPD 경계 — 원인 확인'},
+  {n:'카카오',     cat:'DA',  c2:93, c3:91,  r2:747, r3:791,  d:471,  sig:'cut', st:'CPD 1,931원 — 삭감'},
+  {n:'네이버BSA',  cat:'BSA', c2:46, c3:46,  r2:1029,r3:357,  d:91,   sig:'chk', st:'원인불명 이상치 — 삭감 전 규명'},
+  {n:'네이버SA',   cat:'SA',  c2:149,c3:139, r2:210, r3:300,  d:188,  sig:'cut', st:'감액 미완료'},
+];
+
+// ── CHANNEL TABLE ──────────────────────────────────────
+function roasBadge(v){
+  const cls = v>=1000?'g':v>=800?'y':v>=600?'o':'r';
+  return `<span class="rb ${cls}">${v.toLocaleString()}%</span>`;
+}
+function sigBadge(sig,st){
+  const labels={ok:'✅ '+st, hold:'🔶 '+st, chk:'⚠️ '+st, cut:'❌ '+st};
+  return `<span class="sig ${sig}">${labels[sig]}</span>`;
+}
+function trendArrow(r2,r3){
+  const d=r3-r2;
+  if(d>50) return '<span class="arr up">↑↑</span>';
+  if(d>0)  return '<span class="arr up">↑</span>';
+  if(d>-50) return '<span class="arr fl">→</span>';
+  if(d>-200) return '<span class="arr dn">↓</span>';
+  return '<span class="arr dn">↓↓</span>';
+}
+
+function cpdBadge(cpd){
+  if(!cpd) return '<span style="color:var(--muted)">-</span>';
+  const cls=cpd<=900?'g':cpd<=1200?'y':cpd<=2000?'o':'r';
+  return `<span class="rb ${cls}">${cpd.toLocaleString()}원</span>`;
+}
+
+const tbody=document.getElementById('chTbody');
+CH.forEach(c=>{
+  const cpd=c.d?Math.round(c.c3*10000/c.d):null;
+  const tr=document.createElement('tr');
+  tr.innerHTML=`
+    <td><b>${c.n}</b></td>
+    <td style="color:var(--sub)">${c.cat}</td>
+    <td>${c.c2}만</td>
+    <td>${c.c3}만</td>
+    <td>${roasBadge(c.r2)}</td>
+    <td>${roasBadge(c.r3)}</td>
+    <td>${trendArrow(c.r2,c.r3)}</td>
+    <td>${cpdBadge(cpd)}</td>
+    <td>${sigBadge(c.sig,c.st)}</td>`;
+  tbody.appendChild(tr);
+});
+
+// ── CANVAS CHART ──────────────────────────────────────
+function drawChart(){
+  const cv=document.getElementById('trendChart');
+  if(!cv) return;
+  const par=cv.parentElement;
+  const W=par.clientWidth-32;
+  const H=200;
+  cv.width=W; cv.height=H;
+  const ctx=cv.getContext('2d');
+
+  const pL=44,pR=16,pT=16,pB=36;
+  const cW=W-pL-pR, cH=H-pT-pB;
+  const n=D.labels.length;
+  const getX=i=>pL+(i/(n-1))*cW;
+
+  // cost scale (secondary, visual only): 0~2400
+  const costMax=2400;
+  const getBarH=c=>(c/costMax)*cH*0.6;
+
+  // ROAS scale: 500~1100
+  const rMin=500, rMax=1150;
+  const getY=r=>pT+cH-((r-rMin)/(rMax-rMin))*cH;
+
+  ctx.clearRect(0,0,W,H);
+
+  // OKR period bg
+  const xOkrStart=getX(9);
+  ctx.fillStyle='rgba(46,134,222,0.07)';
+  ctx.fillRect(xOkrStart,pT,W-pR-xOkrStart,cH);
+
+  // Weekend shade
+  D.isWe.forEach((w,i)=>{
+    if(!w) return;
+    const bw=cW/(n-1);
+    ctx.fillStyle='rgba(0,0,0,0.04)';
+    ctx.fillRect(getX(i)-bw/2,pT,bw,cH);
+  });
+
+  // Gridlines
+  [600,700,800,900,1000,1100].forEach(r=>{
+    const y=getY(r);
+    ctx.beginPath();
+    ctx.strokeStyle=r===800?'rgba(231,76,60,0.25)':r===1000?'rgba(39,174,96,0.2)':'#F0F2F5';
+    ctx.lineWidth=r===800||r===1000?1.5:1;
+    ctx.setLineDash(r===800||r===1000?[4,3]:[]);
+    ctx.moveTo(pL,y); ctx.lineTo(W-pR,y); ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.fillStyle='#BDC3C7'; ctx.font='9px system-ui';
+    ctx.textAlign='right';
+    ctx.fillText(r+'%',pL-5,y+3);
+  });
+
+  // 800% label
+  ctx.fillStyle='rgba(231,76,60,0.5)'; ctx.font='9px system-ui';
+  ctx.textAlign='left';
+  ctx.fillText('800%',pL+4,getY(800)-3);
+
+  // Cost bars
+  const barW=Math.max((cW/(n))*0.6,4);
+  D.costs.forEach((c,i)=>{
+    const x=getX(i);
+    const bh=getBarH(c);
+    ctx.fillStyle=D.isOkr[i]?'rgba(46,134,222,0.22)':'rgba(189,195,199,0.35)';
+    ctx.fillRect(x-barW/2,pT+cH-bh,barW,bh);
+  });
+
+  // ROAS line
+  ctx.beginPath();
+  ctx.strokeStyle='#E74C3C';
+  ctx.lineWidth=2.5;
+  ctx.lineJoin='round';
+  D.roas.forEach((r,i)=>{
+    const x=getX(i), y=getY(r);
+    i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);
+  });
+  ctx.stroke();
+
+  // ROAS dots
+  D.roas.forEach((r,i)=>{
+    const x=getX(i), y=getY(r);
+    ctx.beginPath();
+    ctx.arc(x,y,3,0,Math.PI*2);
+    ctx.fillStyle=D.isOkr[i]?'#C0392B':'#E74C3C';
+    ctx.fill();
+    ctx.strokeStyle='white'; ctx.lineWidth=1.5; ctx.stroke();
+  });
+
+  // X labels
+  ctx.textAlign='center';
+  D.labels.forEach((lb,i)=>{
+    ctx.fillStyle=D.isWe[i]?'#BDC3C7':'#7F8C8D';
+    ctx.font=`${D.isOkr[i]?'bold ':''}9px system-ui`;
+    ctx.fillText(lb,getX(i),pT+cH+13);
+  });
+
+  // OKR label
+  ctx.fillStyle='rgba(46,134,222,0.7)';
+  ctx.font='bold 9px system-ui';
+  ctx.textAlign='left';
+  ctx.fillText('◀ OKR 시작(6/17)',xOkrStart+3,pT+9);
+}
+
+window.addEventListener('load',drawChart);
+window.addEventListener('resize',drawChart);
+</script>
