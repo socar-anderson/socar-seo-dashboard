@@ -99,12 +99,12 @@ canvas{display:block;width:100%}
 <div class="hdr">
   <div class="hdr-left">
     <h1>6월 여행 캠페인 대시보드</h1>
-    <p>Paid 성과 분석 · 데이터 기준: 2026-06-21 (어제)</p>
+    <p>Paid 성과 분석 · 데이터 기준: 2026-06-23 (D7 완료)</p>
   </div>
   <div class="hdr-right">
-    <span class="chip">📅 D5 / 25일 남음</span>
+    <span class="chip">📅 D7 / 23일 남음</span>
     <span class="chip">P3 지역위크</span>
-    <span class="chip alert">⚠️ W2 조정 내일 시작</span>
+    <span class="chip alert">⚠️ W2 조정 진행 중 (6/24~)</span>
     <span class="chip ok">✅ Attribution v7 완료 (airbridge 기준)</span>
   </div>
 </div>
@@ -114,11 +114,11 @@ canvas{display:block;width:100%}
   <span class="tl-step done">Pre 5/13</span><span class="tl-sep">→</span>
   <span class="tl-step done">P1 티징 5/27</span><span class="tl-sep">→</span>
   <span class="tl-step done">P2 붐업 6/8</span><span class="tl-sep">→</span>
-  <span class="tl-step curr">P3 지역위크 6/15 ◀ D7</span><span class="tl-sep">→</span>
+  <span class="tl-step curr">P3 지역위크 6/15 ◀ D8</span><span class="tl-sep">→</span>
   <span class="tl-step up">P4 라스트 6/29</span>
   &nbsp;&nbsp;|&nbsp;&nbsp;
   <span class="tl-step done">W1 안정화 6/17~23</span><span class="tl-sep">→</span>
-  <span class="tl-step next">W2 1차조정 6/24 ← 내일</span><span class="tl-sep">→</span>
+  <span class="tl-step curr">W2 1차조정 6/24 ◀ 오늘</span><span class="tl-sep">→</span>
   <span class="tl-step up">W3 7/1</span><span class="tl-sep">→</span>
   <span class="tl-step up">W4 7/8</span>
 </div>
@@ -126,14 +126,14 @@ canvas{display:block;width:100%}
 <div class="wrap">
 
   <!-- KR CARDS -->
-  <div class="sec-label">캠페인 최상위 OKR (기간: 6/17~7/17) · D1~D4 실적 (6/17~6/20)</div>
+  <div class="sec-label">캠페인 최상위 OKR (기간: 6/17~7/17) · D1~D7 실적 (6/17~6/23)</div>
   <div class="kr-grid">
     <div class="kr">
       <div class="kr-name">KR1 · 일 평균 DLUV</div>
-      <div class="kr-val" style="color:#E67E22">109,572<span style="font-size:13px;font-weight:500;color:var(--sub)"> 명/일</span></div>
-      <div class="kr-tgt">목표 119,738명 · <b style="color:#E67E22">91.5% 달성</b></div>
-      <div class="kr-prog"><div class="kr-prog-fill fill-y" style="width:91.5%"></div></div>
-      <div class="kr-sub">D1 119,597 → D5 106,763 · Perf 30,807명(28.2%) · CRM 14,362명(13.1%) · Organic 64,493명(58.8%)<br><span style="color:#E67E22">⚠️ D1 CRM spike(22.5%) → D2~D5 안정화(8~13%) · D1~D5 avg 109,662명</span></div>
+      <div class="kr-val" style="color:#E67E22">111,086<span style="font-size:13px;font-weight:500;color:var(--sub)"> 명/일</span></div>
+      <div class="kr-tgt">목표 119,738명 · <b style="color:#E67E22">92.8% 달성</b></div>
+      <div class="kr-prog"><div class="kr-prog-fill fill-y" style="width:92.8%"></div></div>
+      <div class="kr-sub">D1 119,597 → D7 110,404 · Perf 32,620명(29.4%) · CRM 13,828명(12.5%) · Organic 64,639명(58.2%)<br><span style="color:#E67E22">⚠️ D6(6/22) Perf 37,589명으로 OKR 목표 근접 · D1~D7 avg 111,086명</span></div>
     </div>
     <div class="kr">
       <div class="kr-name">KR2 · 전환율 CVR</div>
@@ -159,14 +159,14 @@ canvas{display:block;width:100%}
   </div>
 
   <!-- TREND CHART + W2 ACTIONS -->
-  <div class="sec-label">일별 광고비 · ROAS 추이 (6/8~6/21)</div>
+  <div class="sec-label">일별 광고비 · ROAS 추이 (6/8~6/21) · d7_return 기준</div>
   <div class="two-col">
     <div class="ccard">
       <div class="ccard-title">
         광고비 (막대) + ROAS (선, d7_return 기준) <span>회색=P2 / 파랑=P3 OKR기간 / 어두운=주말</span>
       </div>
       <canvas id="trendChart" height="200"></canvas>
-      <div style="font-size:10px;color:#E67E22;margin-top:4px;padding:0 4px">⚠️ 6/16~ ROAS 누적 중 (점선) — d7 반납 윈도우 미완성. 6/15까지만 확정값</div>
+      <div style="font-size:10px;color:#E67E22;margin-top:4px;padding:0 4px">⚠️ 6/16~ ROAS 점선 = d7 윈도우 부분 완성 (w25 테이블 6/21 스냅샷 기준) · 6/17(D1)은 오늘(6/24) 기준 7일 완료되었으나 확인 값은 미반영 · w26 미생성으로 6/22~ 비용 데이터 없음</div>
       <div style="display:flex;gap:16px;margin-top:6px;font-size:10px;color:var(--sub)">
         <span>■ <span style="color:rgba(46,134,222,0.5)">■</span> 광고비 (OKR기간)</span>
         <span style="color:var(--red)">— ROAS(%)</span>
@@ -268,21 +268,39 @@ canvas{display:block;width:100%}
         </tr>
         <tr>
           <td><b>6/21 D5 일</b></td>
-          <td>106,763명</td>
-          <td><b>31,522명</b></td>
-          <td><span class="rb y">29.5%</span></td>
-          <td>13,564명</td>
-          <td><span class="rb g">12.7%</span></td>
-          <td>61,677명</td>
+          <td>107,332명</td>
+          <td><b>31,536명</b></td>
+          <td><span class="rb y">29.4%</span></td>
+          <td>13,689명</td>
+          <td><span class="rb g">12.8%</span></td>
+          <td>62,107명</td>
+        </tr>
+        <tr>
+          <td><b>6/22 D6 월</b></td>
+          <td>118,322명</td>
+          <td><b>37,589명</b></td>
+          <td><span class="rb y">31.8%</span></td>
+          <td>16,010명</td>
+          <td><span class="rb g">13.5%</span></td>
+          <td>64,723명</td>
+        </tr>
+        <tr>
+          <td><b>6/23 D7 화</b></td>
+          <td>110,404명</td>
+          <td><b>36,697명</b></td>
+          <td><span class="rb y">33.2%</span></td>
+          <td>8,854명</td>
+          <td><span class="rb g">8.0%</span> <span style="color:var(--muted);font-size:9px">CRM 소강</span></td>
+          <td>64,853명</td>
         </tr>
         <tr style="background:#F8F9FA;font-weight:600">
-          <td><b>D1~D5 평균</b></td>
-          <td><b>109,662명</b></td>
-          <td><b style="color:var(--blue)">30,807명</b></td>
-          <td><span class="rb y">28.2%</span></td>
-          <td><b>14,362명</b></td>
-          <td><span class="rb g">13.1%</span></td>
-          <td>64,493명</td>
+          <td><b>D1~D7 평균</b></td>
+          <td><b>111,086명</b></td>
+          <td><b style="color:var(--blue)">32,620명</b></td>
+          <td><span class="rb y">29.4%</span></td>
+          <td><b>13,828명</b></td>
+          <td><span class="rb g">12.5%</span></td>
+          <td>64,639명</td>
         </tr>
       </tbody>
     </table>
@@ -290,17 +308,17 @@ canvas{display:block;width:100%}
 
   <!-- 소스별 OKR 목표 달성 현황 -->
   <div style="background:#fff;border:1px solid #E2E8F0;border-radius:8px;padding:12px 14px;margin-bottom:16px">
-    <div style="font-size:11px;font-weight:700;color:var(--sub);margin-bottom:10px">소스별 OKR 목표 달성 현황 (D1~D5 avg 기준)</div>
+    <div style="font-size:11px;font-weight:700;color:var(--sub);margin-bottom:10px">소스별 OKR 목표 달성 현황 (D1~D7 avg 기준)</div>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
 
       <!-- 총 DLUV -->
       <div>
         <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:3px">
           <span style="font-size:11px;font-weight:600">총 DLUV</span>
-          <span style="font-size:11px"><b>109,662</b> <span style="color:var(--muted)">/ 119,738명</span> <span class="rb y">91.6%</span></span>
+          <span style="font-size:11px"><b>111,086</b> <span style="color:var(--muted)">/ 119,738명</span> <span class="rb y">92.8%</span></span>
         </div>
         <div style="height:5px;background:#FDE8C8;border-radius:3px;overflow:hidden">
-          <div style="height:100%;background:#E67E22;width:91.6%"></div>
+          <div style="height:100%;background:#E67E22;width:92.8%"></div>
         </div>
       </div>
 
@@ -308,34 +326,34 @@ canvas{display:block;width:100%}
       <div>
         <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:3px">
           <span style="font-size:11px;font-weight:600">Perf (airbridge)</span>
-          <span style="font-size:11px"><b>30,807</b> <span style="color:var(--muted)">/ 37,445명</span> <span class="rb y">82%</span></span>
+          <span style="font-size:11px"><b>32,620</b> <span style="color:var(--muted)">/ 37,445명</span> <span class="rb y">87%</span></span>
         </div>
         <div style="height:5px;background:#FDE8C8;border-radius:3px;overflow:hidden">
-          <div style="height:100%;background:#E67E22;width:82%"></div>
+          <div style="height:100%;background:#E67E22;width:87%"></div>
         </div>
-        <div style="font-size:10px;color:var(--muted);margin-top:2px">W1 알고리즘 학습 구간 · D2~D5 안정적 (30,163~31,575명)</div>
+        <div style="font-size:10px;color:var(--muted);margin-top:2px">D6(37,589)·D7(36,697) OKR 목표 근접 · W2 학습 효과 반영 중</div>
       </div>
 
       <!-- CRM -->
       <div>
         <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:3px">
           <span style="font-size:11px;font-weight:600">CRM (Braze 3h)</span>
-          <span style="font-size:11px"><b>14,362</b> <span style="color:var(--muted)">/ 12,500명</span> <span class="rb g">115% ✅</span></span>
+          <span style="font-size:11px"><b>13,828</b> <span style="color:var(--muted)">/ 12,500명</span> <span class="rb g">110.6% ✅</span></span>
         </div>
         <div style="height:5px;background:#C6F6D5;border-radius:3px;overflow:hidden">
           <div style="height:100%;background:#27AE60;width:100%"></div>
         </div>
-        <div style="font-size:10px;color:var(--muted);margin-top:2px">D1 론칭 spike 22.5% → D2~D5 8~13%로 안정화</div>
+        <div style="font-size:10px;color:var(--muted);margin-top:2px">D1 spike(22.5%) 이후 안정화 · D7 8.0% (주간 CRM 소강)</div>
       </div>
 
       <!-- Organic+Viral -->
       <div>
         <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:3px">
           <span style="font-size:11px;font-weight:600">Organic+Viral</span>
-          <span style="font-size:11px"><b>64,493</b> <span style="color:var(--muted)">/ 69,793명</span> <span class="rb y">92%</span></span>
+          <span style="font-size:11px"><b>64,639</b> <span style="color:var(--muted)">/ 69,793명</span> <span class="rb y">92.6%</span></span>
         </div>
         <div style="height:5px;background:#FDE8C8;border-radius:3px;overflow:hidden">
-          <div style="height:100%;background:#E67E22;width:92%"></div>
+          <div style="height:100%;background:#E67E22;width:92.6%"></div>
         </div>
         <div style="font-size:10px;color:var(--muted);margin-top:2px">Organic 65,885 + Viral 3,908명 합산 목표 · 미식별 포함</div>
       </div>
@@ -408,7 +426,7 @@ canvas{display:block;width:100%}
   </div>
 
   <!-- SOGUJEOM -->
-  <div class="sec-label">소구점별 KR 달성 현황 (D1~D5 avg · DLUV: socar_app.app_logs · 예약: 생성×87% 완료추산)</div>
+  <div class="sec-label">소구점별 KR 달성 현황 (D1~D7 avg · DLUV: socar_app.app_logs · 예약: 생성×87% 완료추산)</div>
   <div class="sg-grid">
 
     <!-- 소구점 1 -->
@@ -422,12 +440,12 @@ canvas{display:block;width:100%}
         <div>
           <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:3px">
             <span style="font-size:11px;font-weight:700;color:#E74C3C">KR1 · 0회차 DLUV</span>
-            <span style="font-size:11px"><b>25,137명</b> <span style="color:var(--muted)">/ 목표 32,569명</span> <span class="rb r">77%</span></span>
+            <span style="font-size:11px"><b>22,057명</b> <span style="color:var(--muted)">/ 목표 32,569명</span> <span class="rb r">68%</span></span>
           </div>
           <div style="height:5px;background:#FFE8E8;border-radius:3px;overflow:hidden">
-            <div style="height:100%;background:#E74C3C;width:77%"></div>
+            <div style="height:100%;background:#E74C3C;width:68%"></div>
           </div>
-          <div style="font-size:10px;color:var(--muted);margin-top:2px">신규 유입 부족 — 캠페인 핵심 리스크 · 전체 DLUV의 22.9%</div>
+          <div style="font-size:10px;color:var(--muted);margin-top:2px">신규 유입 부족 — 캠페인 핵심 리스크 · D6~D7 신규 유입 감소 (주말→평일 전환)</div>
         </div>
 
         <!-- KR2 CVR -->
@@ -457,12 +475,12 @@ canvas{display:block;width:100%}
         <div>
           <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:3px">
             <span style="font-size:11px;font-weight:700;color:#E67E22">KR1 · 1-10회차 DLUV</span>
-            <span style="font-size:11px"><b>47,468명</b> <span style="color:var(--muted)">/ 목표 50,768명</span> <span class="rb y">93%</span></span>
+            <span style="font-size:11px"><b>44,982명</b> <span style="color:var(--muted)">/ 목표 50,768명</span> <span class="rb y">89%</span></span>
           </div>
           <div style="height:5px;background:#FDE8C8;border-radius:3px;overflow:hidden">
-            <div style="height:100%;background:#E67E22;width:93%"></div>
+            <div style="height:100%;background:#E67E22;width:89%"></div>
           </div>
-          <div style="font-size:10px;color:var(--muted);margin-top:2px">1-3회차 26,629명 + 4-10회차 20,839명</div>
+          <div style="font-size:10px;color:var(--muted);margin-top:2px">1-3회차 24,737명 + 4-10회차 20,245명</div>
         </div>
 
         <!-- KR2a 1-3회차 CVR -->
@@ -504,12 +522,12 @@ canvas{display:block;width:100%}
         <div>
           <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:3px">
             <span style="font-size:11px;font-weight:700;color:#27AE60">KR1 · 11+회차 DLUV</span>
-            <span style="font-size:11px"><b>37,056명</b> <span style="color:var(--muted)">/ 목표 36,400명</span> <span class="rb g">102% ✅</span></span>
+            <span style="font-size:11px"><b>37,001명</b> <span style="color:var(--muted)">/ 목표 36,400명</span> <span class="rb g">102% ✅</span></span>
           </div>
           <div style="height:5px;background:#C6F6D5;border-radius:3px;overflow:hidden">
             <div style="height:100%;background:#27AE60;width:100%"></div>
           </div>
-          <div style="font-size:10px;color:var(--muted);margin-top:2px">헤비유저 유입 목표 초과 달성</div>
+          <div style="font-size:10px;color:var(--muted);margin-top:2px">헤비유저 유입 목표 초과 달성 · D6 38,185명으로 피크</div>
         </div>
 
 
@@ -531,7 +549,7 @@ canvas{display:block;width:100%}
   </div>
 
   <!-- DLUV BY SEG -->
-  <div class="sec-label">세그별 DLUV 일별 현황 (socar_app.app_logs · D1~D5)</div>
+  <div class="sec-label">세그별 DLUV 일별 현황 (socar_app.app_logs · D1~D7)</div>
   <div style="font-size:10px;color:var(--muted);margin-bottom:6px;padding:0 2px">KR1 세그 분해 — 소구점별 유입 목표 달성 여부 · 0회차(신규) DLUV 부족이 캠페인 핵심 리스크</div>
   <div class="tbl-card">
     <table>
@@ -564,31 +582,39 @@ canvas{display:block;width:100%}
         </tr>
         <tr>
           <td><b>6/21 D5 일</b></td>
-          <td>25,488</td><td>25,576</td><td>20,070</td><td>35,629</td><td><b>106,763</b></td>
+          <td>25,488</td><td>25,576</td><td>20,070</td><td>35,629</td><td><b>107,332</b></td>
+        </tr>
+        <tr>
+          <td><b>6/22 D6 월</b></td>
+          <td>15,054</td><td>20,959</td><td>19,640</td><td>38,185</td><td><b>118,322</b> <span style="font-size:9px;color:var(--muted)">(세그합93,838)</span></td>
+        </tr>
+        <tr>
+          <td><b>6/23 D7 화</b></td>
+          <td>13,659</td><td>19,053</td><td>17,880</td><td>35,540</td><td><b>110,404</b> <span style="font-size:9px;color:var(--muted)">(세그합86,132)</span></td>
         </tr>
         <tr style="background:#F8F9FA;font-weight:600">
-          <td><b>D1~D5 avg</b></td>
-          <td><span style="color:#E74C3C">25,137</span></td>
-          <td><span style="color:#E67E22">26,629</span></td>
-          <td><span style="color:#E67E22">20,839</span></td>
-          <td><span style="color:#27AE60">37,056</span></td>
-          <td><b><span style="color:#E67E22">109,661</span></b></td>
+          <td><b>D1~D7 avg</b></td>
+          <td><span style="color:#E74C3C">22,057</span></td>
+          <td><span style="color:#E67E22">24,737</span></td>
+          <td><span style="color:#E67E22">20,245</span></td>
+          <td><span style="color:#27AE60">37,001</span></td>
+          <td><b><span style="color:#E67E22">111,086</span></b></td>
         </tr>
         <tr style="border-top:2px dashed #ddd;color:var(--muted)">
           <td><b>목표 대비</b></td>
-          <td><span class="rb r">77%</span> ⚠️</td>
-          <td><span class="rb y">90%</span></td>
-          <td><span class="rb y">98%</span></td>
+          <td><span class="rb r">68%</span> ⚠️</td>
+          <td><span class="rb y">84%</span></td>
+          <td><span class="rb y">95%</span></td>
           <td><span class="rb g">102%</span> ✅</td>
-          <td><span class="rb y">92%</span></td>
+          <td><span class="rb y">93%</span></td>
         </tr>
       </tbody>
     </table>
   </div>
 
   <!-- COHORT BREAKDOWN -->
-  <div class="sec-label">세그별 예약 일별 현황 (tianjin_replica 생성 기준 · 완료추산=생성×87%)</div>
-  <div style="font-size:10px;color:var(--muted);margin-bottom:6px;padding:0 2px">생성 기준 실시간 트래킹 · 완료추산이 OKR 비교 기준 · CVR = 완료추산 ÷ 세그 DLUV</div>
+  <div class="sec-label">세그별 예약 일별 현황 (tianjin_replica 생성 기준 · D1~D5 · 완료추산=생성×87%)</div>
+  <div style="font-size:10px;color:var(--muted);margin-bottom:6px;padding:0 2px">생성 기준 실시간 트래킹 · 완료추산이 OKR 비교 기준 · CVR = 완료추산 ÷ 세그 DLUV · D6~D7 예약 세그 집계 중 (여행 캠페인 특성상 생성→반납 시차 큼)</div>
   <div class="tbl-card">
     <table>
       <thead>
@@ -799,8 +825,8 @@ function drawChart(){
   const costMax=2400;
   const getBarH=c=>(c/costMax)*cH*0.6;
 
-  // ROAS scale: 500~1100
-  const rMin=500, rMax=1150;
+  // ROAS scale: 0~1200 (확장: 부분 d7 값도 차트 내 표시)
+  const rMin=0, rMax=1200;
   const getY=r=>pT+cH-((r-rMin)/(rMax-rMin))*cH;
 
   ctx.clearRect(0,0,W,H);
@@ -819,7 +845,7 @@ function drawChart(){
   });
 
   // Gridlines
-  [600,700,800,900,1000,1100].forEach(r=>{
+  [200,400,600,800,1000,1200].forEach(r=>{
     const y=getY(r);
     ctx.beginPath();
     ctx.strokeStyle=r===800?'rgba(231,76,60,0.25)':r===1000?'rgba(39,174,96,0.2)':'#F0F2F5';
