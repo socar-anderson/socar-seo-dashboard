@@ -99,10 +99,10 @@ canvas{display:block;width:100%}
 <div class="hdr">
   <div class="hdr-left">
     <h1>6월 여행 캠페인 대시보드</h1>
-    <p>Paid 성과 분석 · 데이터 기준: 2026-06-23 (D7 완료)</p>
+    <p>Paid 성과 분석 · 데이터 기준: 2026-06-24 (D8 완료)</p>
   </div>
   <div class="hdr-right">
-    <span class="chip">📅 D7 / 23일 남음</span>
+    <span class="chip">📅 D9 / 22일 남음</span>
     <span class="chip">P3 지역위크</span>
     <span class="chip alert">⚠️ W2 조정 진행 중 (6/24~)</span>
     <span class="chip ok">✅ Attribution v7 완료 (airbridge 기준)</span>
@@ -114,7 +114,7 @@ canvas{display:block;width:100%}
   <span class="tl-step done">Pre 5/13</span><span class="tl-sep">→</span>
   <span class="tl-step done">P1 티징 5/27</span><span class="tl-sep">→</span>
   <span class="tl-step done">P2 붐업 6/8</span><span class="tl-sep">→</span>
-  <span class="tl-step curr">P3 지역위크 6/15 ◀ D8</span><span class="tl-sep">→</span>
+  <span class="tl-step curr">P3 지역위크 6/15 ◀ D9</span><span class="tl-sep">→</span>
   <span class="tl-step up">P4 라스트 6/29</span>
   &nbsp;&nbsp;|&nbsp;&nbsp;
   <span class="tl-step done">W1 안정화 6/17~23</span><span class="tl-sep">→</span>
@@ -159,14 +159,14 @@ canvas{display:block;width:100%}
   </div>
 
   <!-- TREND CHART + W2 ACTIONS -->
-  <div class="sec-label">일별 광고비 · ROAS 추이 (6/8~6/22) · d7_return 기준</div>
+  <div class="sec-label">일별 광고비 · ROAS 추이 (6/8~6/24) · d7_return 기준</div>
   <div class="two-col">
     <div class="ccard">
       <div class="ccard-title">
         광고비 (막대) + ROAS (선, d7_return 기준) <span>회색=P2 / 파랑=P3 OKR기간 / 어두운=주말</span>
       </div>
       <canvas id="trendChart" height="200"></canvas>
-      <div style="font-size:10px;color:#E67E22;margin-top:4px;padding:0 4px">⚠️ 6/16~ ROAS 점선 = d7 윈도우 부분 완성 · 6/22 ROAS(33%)는 당일 스냅샷 기준 — 시간 경과 시 상승 예정 · w26 테이블 생성 완료 (6/22 cost 반영)</div>
+      <div style="font-size:10px;color:#E67E22;margin-top:4px;padding:0 4px">⚠️ 6/19(D3)~ ROAS 점선 = d7 윈도우 부분 완성 · D1(664%)·D2(588%) 솔리드: 7일 윈도우 완성 · D8(6/24) ROAS 27%는 당일 기준 — 시간 경과 시 상승 예정</div>
       <div style="display:flex;gap:16px;margin-top:6px;font-size:10px;color:var(--sub)">
         <span>■ <span style="color:rgba(46,134,222,0.5)">■</span> 광고비 (OKR기간)</span>
         <span style="color:var(--red)">— ROAS(%)</span>
@@ -183,7 +183,7 @@ canvas{display:block;width:100%}
         </div>
         <div class="w2-item org">
           <div class="w2-ttl">⚠️ 구글AC — CPD 2,540원 · -30% 삭감 + 소재 최적화</div>
-          <div class="w2-body">ROAS 874%(P2) → <b>649%(P3)</b> — ROAS는 600% 기준 <b>통과</b>하나 CPD 2,540원으로 극비효율<br>CPD 단독 신호: -50% 아닌 <b>-30% 삭감</b> (492만 → 344만/일) + 소재·타겟 최적화 병행</div>
+          <div class="w2-body">ROAS 874%(P2) → <b>666%(D1~D8)</b> — ROAS는 600% 기준 <b>통과</b>하나 CPD 11,574원으로 비효율<br>CPD 단독 신호: -50% 아닌 <b>-30% 삭감</b> (492만 → 344만/일) + 소재·타겟 최적화 병행</div>
         </div>
         <div class="w2-item red">
           <div class="w2-ttl">🔴 네이버SA — 감액 미이행 · D3~D5 오히려 증액됨</div>
@@ -194,12 +194,12 @@ canvas{display:block;width:100%}
           <div class="w2-body">ROAS 747%(P2) → 791%(P3) → <b>861%(D1~D6)</b> — 800% 상회로 개선 추세<br>광고비 91만/일 유지 · CPD(비용/예약) 6,124원<br>→ W2 유지 · ROAS 800% 재하회 시 -30% 삭감 전환</div>
         </div>
         <div class="w2-item blue">
-          <div class="w2-ttl">✅ 틱톡·페이스북 — 양호</div>
-          <div class="w2-body">틱톡 988% ↑, 페이스북 1,140% ↑ · rtbhouse 882% 개선<br>현 예산 유지, 소재 계속 운용</div>
+          <div class="w2-ttl">✅ 틱톡·페이스북·몰로코 — 양호</div>
+          <div class="w2-body">틱톡 <b>1,005%</b> ↑↑ 1,000% 돌파, 페이스북 <b>1,164%</b> ↑, 몰로코 <b>805%</b> 800% 회복<br>rtbhouse <b>948%</b> 개선 · 웨어즈 961% 안정<br>현 예산 유지, 소재 계속 운용</div>
         </div>
         <div class="w2-item blue" style="border-color:#BEE3F8">
           <div class="w2-ttl" style="color:#2B6CB0">📐 W2 조정 트리거 기준</div>
-          <div class="w2-body">CPD ≤500원 → 증액 +30~50% &nbsp;|&nbsp; 500~900원 → 유지<br>CPD ≥1,200원 → 삭감 -50% &nbsp;|&nbsp; CTR -30% 2주 연속 → 중단<br><span style="color:var(--muted)">※ Attribution v7 완료 · 채널별 CPD 반영 완료 (airbridge D1~D5 avg 기준)</span></div>
+          <div class="w2-body">CPD ≤500원 → 증액 +30~50% &nbsp;|&nbsp; 500~900원 → 유지<br>CPD ≥1,200원 → 삭감 -50% &nbsp;|&nbsp; CTR -30% 2주 연속 → 중단<br><span style="color:var(--muted)">※ Attribution v7 완료 · 채널별 CPD 반영 완료 (airbridge D1~D8 avg 기준 · 6/25 snapshot)</span></div>
         </div>
       </div>
     </div>
@@ -706,7 +706,7 @@ canvas{display:block;width:100%}
   </div>
 
   <!-- CHANNEL TABLE -->
-  <div class="sec-label">채널별 성과 — P2(6/8~14) vs W1 D1~D6(6/17~22) 비교</div>
+  <div class="sec-label">채널별 성과 — P2(6/8~14) vs D1~D8(6/17~24) 비교</div>
   <div class="tbl-card">
     <table>
       <thead>
@@ -728,7 +728,7 @@ canvas{display:block;width:100%}
 
   <!-- FOOTER NOTE -->
   <div class="fnote">
-    <b>Paid 성과 데이터</b>: socar-data.temp_team_smkt.paid_daily_report_final_native_w24b (P2 6/8~6/14) · native_w25 (P3 6/15~6/21) · native_w26 (D6 6/22)<br>
+    <b>Paid 성과 데이터</b>: socar-data.temp_team_smkt.paid_daily_report_final_native_w24b (P2 6/8~6/14) · native_w25 (P3 6/15~6/21) · native_w26 (D6~D8 6/22~6/24, 6/25 재생성)<br>
     <b>KR1 DLUV</b>: socar-data.socar_app.app_logs · member_id IS NOT NULL AND != 0 기준 일별 DISTINCT 집계<br>
     <b>KR3·소구점 예약 (완료추산)</b>: tianjin_replica.reservation_info 생성 기준 (state NOT IN (7,8) · member_imaginary IN (0,9)) × 완료율 87% (5/17~6/13 기준선) · 회차 분류는 reservation_v2 accumulate_used_count 기준<br>
     <b>세그별 예약 일별 현황</b>: tianjin_replica.reservation_info 생성 기준 (state NOT IN (7,8)) × 87% = 완료추산 · 세그별 DLUV: socar_app.app_logs · CVR = 완료추산 ÷ DLUV<br>
@@ -744,25 +744,25 @@ canvas{display:block;width:100%}
 <script>
 // ── DATA ──────────────────────────────────────────────
 const D = {
-  labels: ['6/8월','6/9화','6/10수','6/11목','6/12금','6/13토','6/14일','6/15월','6/16화','6/17수','6/18목','6/19금','6/20토','6/21일','6/22월'],
-  costs:  [1828,1830,1727,1779,1787,1814,1861,1936,1948,1799,1828,2031,2097,2057,2018],
-  roas:   [827,764,864,777,682,535,570,532,500,458,381,274,160,42,33],
-  isWe:   [0,0,0,0,0,1,1,0,0,0,0,0,1,1,0],
-  isOkr:  [0,0,0,0,0,0,0,0,0,1,1,1,1,1,1],
-  roasPartial: [0,0,0,0,0,0,0,0,1,1,1,1,1,1,1]
+  labels: ['6/8월','6/9화','6/10수','6/11목','6/12금','6/13토','6/14일','6/15월','6/16화','6/17수','6/18목','6/19금','6/20토','6/21일','6/22월','6/23화','6/24수'],
+  costs:  [1828,1830,1727,1779,1787,1814,1861,1936,1948,1799,1828,2016,2083,2042,2036,1931,2035],
+  roas:   [827,776,891,802,700,566,619,616,650,664,588,485,358,297,240,144,27],
+  isWe:   [0,0,0,0,0,1,1,0,0,0,0,0,1,1,0,0,0],
+  isOkr:  [0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1],
+  roasPartial: [0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1]
 };
 
-// d = Perf DLUV D1~D5 avg (airbridge), cpd = c3*10000/d (원/명) · c3/r3 = W1 D1~D6 avg (w25+w26)
+// d = Perf DLUV D1~D5 avg (airbridge), cpd = c3*10000/d (원/명) · c3/r3 = D1~D8 avg (6/17~6/24, w25+w26)
 const CH = [
-  {n:'페이스북',   cat:'DA',  c2:281,c3:335, r2:1224,r3:1140, d:3552, sig:'ok',  st:'ROAS 1,140% ✅ 유지'},
-  {n:'틱톡',       cat:'DA',  c2:464,c3:554, r2:942, r3:988,  d:5215, sig:'hold',st:'유지'},
-  {n:'구글AC',     cat:'DA',  c2:495,c3:481, r2:874, r3:629,  d:1937, sig:'chk', st:'ROAS 629% — -30% 삭감 검토'},
-  {n:'몰로코',     cat:'DA',  c2:136,c3:176, r2:875, r3:775,  d:1431, sig:'chk', st:'ROAS 775% — CPD 모니터링'},
-  {n:'웨어즈',     cat:'DA',  c2:50, c3:58,  r2:938, r3:951,  d:620,  sig:'hold',st:'유지'},
-  {n:'rtbhouse',   cat:'DA',  c2:91, c3:52,  r2:534, r3:882,  d:471,  sig:'hold',st:'ROAS 882% 개선 ✅'},
-  {n:'카카오',     cat:'DA',  c2:93, c3:91,  r2:747, r3:861,  d:471,  sig:'chk', st:'ROAS 861% 개선 · CPD 모니터링'},
-  {n:'네이버BSA',  cat:'BSA', c2:46, c3:46,  r2:1029,r3:379,  d:91,   sig:'chk', st:'원인불명 이상치 — 삭감 전 규명'},
-  {n:'네이버SA',   cat:'SA',  c2:149,c3:143, r2:210, r3:308,  d:188,  sig:'cut', st:'감액 미완료 · ROAS 308%'},
+  {n:'페이스북',   cat:'DA',  c2:281,c3:335, r2:1224,r3:1164, d:3552, sig:'ok',  st:'ROAS 1,164% ✅ 유지'},
+  {n:'틱톡',       cat:'DA',  c2:464,c3:557, r2:942, r3:1005, d:5215, sig:'hold',st:'ROAS 1,005% ↑ 1,000% 돌파'},
+  {n:'구글AC',     cat:'DA',  c2:495,c3:483, r2:874, r3:666,  d:1937, sig:'chk', st:'ROAS 666% — -30% 삭감 검토'},
+  {n:'몰로코',     cat:'DA',  c2:136,c3:175, r2:875, r3:805,  d:1431, sig:'hold',st:'ROAS 805% 800% 회복 ✅'},
+  {n:'웨어즈',     cat:'DA',  c2:50, c3:56,  r2:938, r3:961,  d:620,  sig:'hold',st:'유지'},
+  {n:'rtbhouse',   cat:'DA',  c2:91, c3:51,  r2:534, r3:948,  d:471,  sig:'hold',st:'ROAS 948% 개선 ✅'},
+  {n:'카카오',     cat:'DA',  c2:93, c3:91,  r2:747, r3:853,  d:471,  sig:'chk', st:'ROAS 853% · 모니터링 유지'},
+  {n:'네이버BSA',  cat:'BSA', c2:46, c3:46,  r2:1029,r3:383,  d:91,   sig:'chk', st:'원인불명 이상치 — 삭감 전 규명'},
+  {n:'네이버SA',   cat:'SA',  c2:149,c3:144, r2:210, r3:304,  d:188,  sig:'cut', st:'감액 미완료 · ROAS 304%'},
 ];
 
 // ── CHANNEL TABLE ──────────────────────────────────────
