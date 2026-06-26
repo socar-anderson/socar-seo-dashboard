@@ -43,6 +43,9 @@
     header h1 { font-size: 16px; font-weight: 700; }
     header h1 span { color: var(--primary); }
     .header-right { display: flex; gap: 8px; align-items: center; }
+    .nav-link { color: var(--text-muted); text-decoration: none; padding: 6px 12px; border-radius: 6px; font-size: 13px; transition: all 0.15s; }
+    .nav-link:hover { color: var(--text); background: var(--surface2); }
+    .nav-link.active { color: var(--text); background: var(--surface3); }
     .badge { background: var(--surface2); border: 1px solid var(--border2); border-radius: 6px; padding: 4px 10px; font-size: 12px; color: var(--text-muted); }
     .badge strong { color: var(--text); }
 
@@ -133,6 +136,8 @@
     <h1>쏘카 블로그 <span>SEO 대시보드</span></h1>
   </div>
   <div class="header-right">
+    <a class="nav-link active" href="./index.html">전체</a>
+    <a class="nav-link" href="./team.html">팀</a>
     <div class="badge" id="period-badge">기간 로딩 중...</div>
     <div class="badge">업데이트 <strong id="last-updated">-</strong></div>
     <a href="https://search.google.com/search-console" target="_blank" class="badge" style="text-decoration:none;color:var(--text-muted);">GSC ↗</a>
