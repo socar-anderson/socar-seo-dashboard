@@ -6,15 +6,17 @@
 
 import json
 import os
-import sys
 from datetime import date
 from google.cloud import bigquery
-from google.oauth2 import service_account
+from google.oauth2.credentials import Credentials
 
-# ── 인증 ─────────────────────────────────────────────────────────────
-sa_info = json.loads(os.environ["GCP_SA_KEY"])
-credentials = service_account.Credentials.from_service_account_info(
-    sa_info,
+# ── 인증 (OAuth User Credentials — GSC와 동일 방식) ───────────────────
+credentials = Credentials(
+    token=None,
+    refresh_token=os.environ["BQ_REFRESH_TOKEN"],
+    client_id=os.environ["GSC_CLIENT_ID"],
+    client_secret=os.environ["GSC_CLIENT_SECRET"],
+    token_uri="https://oauth2.googleapis.com/token",
     scopes=["https://www.googleapis.com/auth/bigquery.readonly"],
 )
 client = bigquery.Client(credentials=credentials, project="socar-data")
