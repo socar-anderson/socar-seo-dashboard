@@ -6,30 +6,23 @@ const SEO_DATA = {
     "lastUpdated": "2026-06-26",
     "period7d": "2026-06-19 ~ 2026-06-26",
     "period28d": "2026-05-29 ~ 2026-06-26",
-    "yesterdayDate": "2026-06-23",
+    "yesterdayDate": "2026-06-24",
     "totalBlogPages": 10
   },
   "performance": {
     "summary": {
-      "totalImpressions": 6838,
-      "totalClicks": 280,
-      "avgPosition": 5.5,
-      "avgCTR": 3.5
+      "totalImpressions": 5876,
+      "totalClicks": 273,
+      "avgPosition": 4.9,
+      "avgCTR": 4.8
     },
     "summaryRolling7d": {
-      "totalImpressions": 24266,
-      "totalClicks": 900,
+      "totalImpressions": 28652,
+      "totalClicks": 1104,
       "avgPosition": 5.2,
-      "avgCTR": 3.9
+      "avgCTR": 4.0
     },
     "dailyHistory": [
-      {
-        "date": "2026-06-17",
-        "impressions": 6832,
-        "clicks": 268,
-        "position": 5.7,
-        "ctr": 4.0
-      },
       {
         "date": "2026-06-18",
         "impressions": 6273,
@@ -71,16 +64,23 @@ const SEO_DATA = {
         "clicks": 280,
         "position": 5.5,
         "ctr": 3.5
+      },
+      {
+        "date": "2026-06-24",
+        "impressions": 5876,
+        "clicks": 273,
+        "position": 4.9,
+        "ctr": 4.8
       }
     ],
     "pages": [
       {
         "url": "https://www.socar.kr/blog/socar-fee-guide",
         "slug": "socar-fee-guide",
-        "position": 3.9,
-        "impressions": 6474,
-        "clicks": 272,
-        "ctr": 4.2,
+        "position": 4.0,
+        "impressions": 7580,
+        "clicks": 329,
+        "ctr": 4.3,
         "queries": [
           "쏘카",
           "쏘카 이용요금",
@@ -93,22 +93,37 @@ const SEO_DATA = {
         "url": "https://www.socar.kr/blog/socar-tip-2daysdriving",
         "slug": "socar-tip-2daysdriving",
         "position": 3.7,
-        "impressions": 5450,
-        "clicks": 205,
+        "impressions": 6469,
+        "clicks": 245,
         "ctr": 3.8,
         "queries": [
           "쏘카 이용요금",
           "쏘카 가격",
           "쏘카 1박 2일 비용",
           "쏘카 비용",
-          "쏘카 6시간 가격"
+          "쏘카 주행요금"
+        ]
+      },
+      {
+        "url": "https://www.socar.kr/blog/socar-tip-2026summer-campaign",
+        "slug": "socar-tip-2026summer-campaign",
+        "position": 6.0,
+        "impressions": 2603,
+        "clicks": 104,
+        "ctr": 4.0,
+        "queries": [
+          "쏘카 쿠폰",
+          "쏘카 프로모션 코드 2026",
+          "쏘카 할인",
+          "쏘카 전기차",
+          "쏘카 이벤트"
         ]
       },
       {
         "url": "https://www.socar.kr/blog/rainy-season-driving-guide-2026",
         "slug": "rainy-season-driving-guide-2026",
-        "position": 9.9,
-        "impressions": 2528,
+        "position": 9.8,
+        "impressions": 2574,
         "clicks": 2,
         "ctr": 0.1,
         "queries": [
@@ -120,32 +135,17 @@ const SEO_DATA = {
         ]
       },
       {
-        "url": "https://www.socar.kr/blog/socar-tip-2026summer-campaign",
-        "slug": "socar-tip-2026summer-campaign",
-        "position": 6.1,
-        "impressions": 2074,
-        "clicks": 81,
-        "ctr": 3.9,
-        "queries": [
-          "쏘카 쿠폰",
-          "쏘카 프로모션 코드 2026",
-          "쏘카 할인",
-          "쏘카 전기차",
-          "쏘카 이벤트"
-        ]
-      },
-      {
         "url": "https://www.socar.kr/blog/socar-driving-fee-complete-guide",
         "slug": "socar-driving-fee-complete-guide",
         "position": 4.5,
-        "impressions": 1743,
-        "clicks": 69,
-        "ctr": 4.0,
+        "impressions": 2095,
+        "clicks": 86,
+        "ctr": 4.1,
         "queries": [
-          "쏘카 기름값",
           "쏘카 주유",
+          "쏘카 기름값",
           "쏘카 주행요금",
-          "쏘카 주유비",
+          "쏘카 주행요금 계산기",
           "쏘카 기름"
         ]
       },
@@ -153,8 +153,8 @@ const SEO_DATA = {
         "url": "https://www.socar.kr/blog/socar-travel-maydrive",
         "slug": "socar-travel-maydrive",
         "position": 5.5,
-        "impressions": 1305,
-        "clicks": 26,
+        "impressions": 1574,
+        "clicks": 31,
         "ctr": 2.0,
         "queries": [
           "드라이브 추천",
@@ -165,12 +165,27 @@ const SEO_DATA = {
         ]
       },
       {
+        "url": "https://www.socar.kr/blog/socar-tip-rentacar-guide",
+        "slug": "socar-tip-rentacar-guide",
+        "position": 5.3,
+        "impressions": 1562,
+        "clicks": 21,
+        "ctr": 1.3,
+        "queries": [
+          "쏘카 렌트 조건",
+          "렌트카 조건",
+          "만 20세 쏘카",
+          "쏘카 대여 조건",
+          "렌터카 조건"
+        ]
+      },
+      {
         "url": "https://www.socar.kr/blog/socar-insurance-guide",
         "slug": "socar-insurance-guide",
         "position": 3.3,
-        "impressions": 1251,
-        "clicks": 100,
-        "ctr": 8.0,
+        "impressions": 1485,
+        "clicks": 120,
+        "ctr": 8.1,
         "queries": [
           "쏘카 보험",
           "쏘카 완전보장",
@@ -180,48 +195,33 @@ const SEO_DATA = {
         ]
       },
       {
-        "url": "https://www.socar.kr/blog/socar-tip-rentacar-guide",
-        "slug": "socar-tip-rentacar-guide",
-        "position": 5.2,
-        "impressions": 1203,
-        "clicks": 16,
-        "ctr": 1.3,
-        "queries": [
-          "쏘카",
-          "쏘카 렌트 조건",
-          "렌트카 조건",
-          "만 20세 쏘카",
-          "쏘카 대여 조건"
-        ]
-      },
-      {
         "url": "https://www.socar.kr/blog/socar-tip-beginner-complete-guide",
         "slug": "socar-tip-beginner-complete-guide",
-        "position": 5.0,
-        "impressions": 1163,
-        "clicks": 89,
+        "position": 4.9,
+        "impressions": 1433,
+        "clicks": 110,
         "ctr": 7.7,
         "queries": [
           "쏘카 운전연습",
           "쏘카 완전보장",
-          "쏘카 초보운전",
           "쏘카 나이",
-          "쏘카 면허"
+          "쏘카 초보운전",
+          "초보운전 쏘카"
         ]
       },
       {
         "url": "https://www.socar.kr/blog/socar-travel-jeju-rentacar",
         "slug": "socar-travel-jeju-rentacar",
-        "position": 5.2,
-        "impressions": 1075,
-        "clicks": 40,
-        "ctr": 3.7,
+        "position": 5.1,
+        "impressions": 1277,
+        "clicks": 56,
+        "ctr": 4.4,
         "queries": [
           "제주도 쏘카 vs 렌트카 디시",
           "제주도 쏘카 vs 렌트카",
-          "쏘카",
           "렌트카 쏘카 비교",
-          "쏘카 vs 렌트카"
+          "제주도 렌트카",
+          "socar jeju"
         ]
       }
     ],
@@ -229,10 +229,10 @@ const SEO_DATA = {
       {
         "url": "https://www.socar.kr/blog/socar-fee-guide",
         "slug": "socar-fee-guide",
-        "position": 3.9,
-        "impressions": 6474,
-        "clicks": 272,
-        "ctr": 4.2,
+        "position": 4.0,
+        "impressions": 7580,
+        "clicks": 329,
+        "ctr": 4.3,
         "queries": [
           "쏘카",
           "쏘카 이용요금",
@@ -245,22 +245,37 @@ const SEO_DATA = {
         "url": "https://www.socar.kr/blog/socar-tip-2daysdriving",
         "slug": "socar-tip-2daysdriving",
         "position": 3.7,
-        "impressions": 5450,
-        "clicks": 205,
+        "impressions": 6469,
+        "clicks": 245,
         "ctr": 3.8,
         "queries": [
           "쏘카 이용요금",
           "쏘카 가격",
           "쏘카 1박 2일 비용",
           "쏘카 비용",
-          "쏘카 6시간 가격"
+          "쏘카 주행요금"
+        ]
+      },
+      {
+        "url": "https://www.socar.kr/blog/socar-tip-2026summer-campaign",
+        "slug": "socar-tip-2026summer-campaign",
+        "position": 6.0,
+        "impressions": 2603,
+        "clicks": 104,
+        "ctr": 4.0,
+        "queries": [
+          "쏘카 쿠폰",
+          "쏘카 프로모션 코드 2026",
+          "쏘카 할인",
+          "쏘카 전기차",
+          "쏘카 이벤트"
         ]
       },
       {
         "url": "https://www.socar.kr/blog/rainy-season-driving-guide-2026",
         "slug": "rainy-season-driving-guide-2026",
-        "position": 9.9,
-        "impressions": 2528,
+        "position": 9.8,
+        "impressions": 2574,
         "clicks": 2,
         "ctr": 0.1,
         "queries": [
@@ -272,32 +287,17 @@ const SEO_DATA = {
         ]
       },
       {
-        "url": "https://www.socar.kr/blog/socar-tip-2026summer-campaign",
-        "slug": "socar-tip-2026summer-campaign",
-        "position": 6.1,
-        "impressions": 2074,
-        "clicks": 81,
-        "ctr": 3.9,
-        "queries": [
-          "쏘카 쿠폰",
-          "쏘카 프로모션 코드 2026",
-          "쏘카 할인",
-          "쏘카 전기차",
-          "쏘카 이벤트"
-        ]
-      },
-      {
         "url": "https://www.socar.kr/blog/socar-driving-fee-complete-guide",
         "slug": "socar-driving-fee-complete-guide",
         "position": 4.5,
-        "impressions": 1743,
-        "clicks": 69,
-        "ctr": 4.0,
+        "impressions": 2095,
+        "clicks": 86,
+        "ctr": 4.1,
         "queries": [
-          "쏘카 기름값",
           "쏘카 주유",
+          "쏘카 기름값",
           "쏘카 주행요금",
-          "쏘카 주유비",
+          "쏘카 주행요금 계산기",
           "쏘카 기름"
         ]
       },
@@ -305,8 +305,8 @@ const SEO_DATA = {
         "url": "https://www.socar.kr/blog/socar-travel-maydrive",
         "slug": "socar-travel-maydrive",
         "position": 5.5,
-        "impressions": 1305,
-        "clicks": 26,
+        "impressions": 1574,
+        "clicks": 31,
         "ctr": 2.0,
         "queries": [
           "드라이브 추천",
@@ -317,12 +317,27 @@ const SEO_DATA = {
         ]
       },
       {
+        "url": "https://www.socar.kr/blog/socar-tip-rentacar-guide",
+        "slug": "socar-tip-rentacar-guide",
+        "position": 5.3,
+        "impressions": 1562,
+        "clicks": 21,
+        "ctr": 1.3,
+        "queries": [
+          "쏘카 렌트 조건",
+          "렌트카 조건",
+          "만 20세 쏘카",
+          "쏘카 대여 조건",
+          "렌터카 조건"
+        ]
+      },
+      {
         "url": "https://www.socar.kr/blog/socar-insurance-guide",
         "slug": "socar-insurance-guide",
         "position": 3.3,
-        "impressions": 1251,
-        "clicks": 100,
-        "ctr": 8.0,
+        "impressions": 1485,
+        "clicks": 120,
+        "ctr": 8.1,
         "queries": [
           "쏘카 보험",
           "쏘카 완전보장",
@@ -332,48 +347,33 @@ const SEO_DATA = {
         ]
       },
       {
-        "url": "https://www.socar.kr/blog/socar-tip-rentacar-guide",
-        "slug": "socar-tip-rentacar-guide",
-        "position": 5.2,
-        "impressions": 1203,
-        "clicks": 16,
-        "ctr": 1.3,
-        "queries": [
-          "쏘카",
-          "쏘카 렌트 조건",
-          "렌트카 조건",
-          "만 20세 쏘카",
-          "쏘카 대여 조건"
-        ]
-      },
-      {
         "url": "https://www.socar.kr/blog/socar-tip-beginner-complete-guide",
         "slug": "socar-tip-beginner-complete-guide",
-        "position": 5.0,
-        "impressions": 1163,
-        "clicks": 89,
+        "position": 4.9,
+        "impressions": 1433,
+        "clicks": 110,
         "ctr": 7.7,
         "queries": [
           "쏘카 운전연습",
           "쏘카 완전보장",
-          "쏘카 초보운전",
           "쏘카 나이",
-          "쏘카 면허"
+          "쏘카 초보운전",
+          "초보운전 쏘카"
         ]
       },
       {
         "url": "https://www.socar.kr/blog/socar-travel-jeju-rentacar",
         "slug": "socar-travel-jeju-rentacar",
-        "position": 5.2,
-        "impressions": 1075,
-        "clicks": 40,
-        "ctr": 3.7,
+        "position": 5.1,
+        "impressions": 1277,
+        "clicks": 56,
+        "ctr": 4.4,
         "queries": [
           "제주도 쏘카 vs 렌트카 디시",
           "제주도 쏘카 vs 렌트카",
-          "쏘카",
           "렌트카 쏘카 비교",
-          "쏘카 vs 렌트카"
+          "제주도 렌트카",
+          "socar jeju"
         ]
       }
     ],
@@ -382,81 +382,81 @@ const SEO_DATA = {
         "url": "https://www.socar.kr/blog/socar-fee-guide",
         "slug": "socar-fee-guide",
         "position": 4.2,
-        "impressions": 1243,
-        "clicks": 56,
-        "ctr": 4.5
+        "impressions": 1106,
+        "clicks": 57,
+        "ctr": 5.2
       },
       {
         "url": "https://www.socar.kr/blog/socar-tip-2daysdriving",
         "slug": "socar-tip-2daysdriving",
-        "position": 3.7,
-        "impressions": 1107,
-        "clicks": 44,
-        "ctr": 4.0
+        "position": 3.6,
+        "impressions": 1019,
+        "clicks": 40,
+        "ctr": 3.9
       },
       {
         "url": "https://www.socar.kr/blog/socar-tip-2026summer-campaign",
         "slug": "socar-tip-2026summer-campaign",
-        "position": 5.9,
-        "impressions": 598,
-        "clicks": 15,
-        "ctr": 2.5
-      },
-      {
-        "url": "https://www.socar.kr/blog/socar-driving-fee-complete-guide",
-        "slug": "socar-driving-fee-complete-guide",
-        "position": 3.9,
-        "impressions": 393,
-        "clicks": 13,
-        "ctr": 3.3
-      },
-      {
-        "url": "https://www.socar.kr/blog/socar-tip-beginner-complete-guide",
-        "slug": "socar-tip-beginner-complete-guide",
-        "position": 5.1,
-        "impressions": 294,
+        "position": 5.5,
+        "impressions": 529,
         "clicks": 23,
-        "ctr": 7.8
-      },
-      {
-        "url": "https://www.socar.kr/blog/socar-tip-rentacar-guide",
-        "slug": "socar-tip-rentacar-guide",
-        "position": 5.7,
-        "impressions": 289,
-        "clicks": 3,
-        "ctr": 1.0
+        "ctr": 4.3
       },
       {
         "url": "https://www.socar.kr/blog/socar-tesla-fsd",
         "slug": "socar-tesla-fsd",
         "position": 5.6,
-        "impressions": 278,
-        "clicks": 22,
-        "ctr": 7.9
+        "impressions": 372,
+        "clicks": 17,
+        "ctr": 4.6
       },
       {
-        "url": "https://www.socar.kr/blog/socar-insurance-guide",
-        "slug": "socar-insurance-guide",
-        "position": 3.6,
-        "impressions": 252,
-        "clicks": 18,
-        "ctr": 7.1
+        "url": "https://www.socar.kr/blog/socar-tip-rentacar-guide",
+        "slug": "socar-tip-rentacar-guide",
+        "position": 5.6,
+        "impressions": 359,
+        "clicks": 5,
+        "ctr": 1.4
       },
       {
-        "url": "https://www.socar.kr/blog/socar-travel-jeju-rentacar",
-        "slug": "socar-travel-jeju-rentacar",
-        "position": 5.1,
-        "impressions": 235,
-        "clicks": 14,
-        "ctr": 6.0
+        "url": "https://www.socar.kr/blog/socar-driving-fee-complete-guide",
+        "slug": "socar-driving-fee-complete-guide",
+        "position": 4.2,
+        "impressions": 352,
+        "clicks": 17,
+        "ctr": 4.8
+      },
+      {
+        "url": "https://www.socar.kr/blog/socar-tip-beginner-complete-guide",
+        "slug": "socar-tip-beginner-complete-guide",
+        "position": 4.5,
+        "impressions": 270,
+        "clicks": 21,
+        "ctr": 7.8
       },
       {
         "url": "https://www.socar.kr/blog/socar-travel-maydrive",
         "slug": "socar-travel-maydrive",
-        "position": 5.2,
-        "impressions": 211,
-        "clicks": 3,
-        "ctr": 1.4
+        "position": 5.5,
+        "impressions": 269,
+        "clicks": 5,
+        "ctr": 1.9
+      },
+      {
+        "url": "https://www.socar.kr/blog/socar-insurance-guide",
+        "slug": "socar-insurance-guide",
+        "position": 3.0,
+        "impressions": 234,
+        "clicks": 20,
+        "ctr": 8.5
+      },
+      {
+        "url": "https://www.socar.kr/blog/socar-travel-jeju-rentacar",
+        "slug": "socar-travel-jeju-rentacar",
+        "position": 4.7,
+        "impressions": 202,
+        "clicks": 16,
+        "ctr": 7.9
       }
     ],
     "history": [
@@ -525,233 +525,678 @@ const SEO_DATA = {
   "refresh": [],
   "topics_brand": [
     {
-      "title": "쏘카 요금 절약 팁: 이용요금 계산법과 할인 혜택 총정리",
-      "slug_suggestion": "socar-fee-saving-tips",
+      "title": "쏘카 이용 요금 절약 팁: 1박2일 여행도 경제적으로!",
+      "slug_suggestion": "socar-cost-saving-tips-overnight-trip",
       "queries": [
         "쏘카 이용 요금",
-        "쏘카 이용요금",
-        "쏘카 1박 2일 비용"
+        "쏘카 1박 2일 비용",
+        "쏘카 이용방법"
       ],
-      "total_impressions": 1660,
-      "seasonal_index": 1.29,
+      "total_impressions": 1990,
+      "seasonal_index": 1.1,
       "is_trending": true,
-      "rationale": "이용요금에 대한 관심이 높고 시즈널 지수가 높아 트렌딩 주제"
+      "rationale": "비용 절감 팁은 항상 인기 있는 주제이며, 1박2일 여행은 카셰어링의 주요 용도"
     },
     {
-      "title": "쏘카 핸들러 되는 방법: 수익은 얼마? 장단점 분석",
-      "slug_suggestion": "how-to-become-socar-handler",
+      "title": "쏘카 핸들러가 알려주는 차량 이용 꿀팁",
+      "slug_suggestion": "socar-handler-insider-tips",
       "queries": [
         "쏘카 핸들러",
-        "쏘카 핸들러 디시"
-      ],
-      "total_impressions": 1200,
-      "seasonal_index": 1.4,
-      "is_trending": true,
-      "rationale": "핸들러에 대한 관심이 높고 시즈널 지수가 매우 높아 트렌딩 주제"
-    },
-    {
-      "title": "쏘카 초보 운전자 가이드: 이용 방법부터 주의사항까지",
-      "slug_suggestion": "socar-beginner-driver-guide",
-      "queries": [
         "쏘카 이용 방법",
-        "쏘카 고객센터",
-        "쏘카 고객 센터"
+        "쏘카 고객센터"
       ],
-      "total_impressions": 1900,
-      "seasonal_index": 0.93,
-      "is_trending": false,
-      "rationale": "초보 운전자들의 카셰어링 이용에 대한 수요가 지속적으로 존재"
+      "total_impressions": 2190,
+      "seasonal_index": 1.24,
+      "is_trending": true,
+      "rationale": "핸들러의 인사이트를 통해 실용적이고 독특한 팁을 제공할 수 있음"
     },
     {
-      "title": "쏘카로 즐기는 제주도 여행: 렌트카 vs 카셰어링 비교",
-      "slug_suggestion": "jeju-travel-with-socar",
+      "title": "쏘카로 제주도 여행하기: 현지인처럼 즐기는 방법",
+      "slug_suggestion": "socar-jeju-travel-guide",
       "queries": [
         "제주도 쏘카",
-        "쏘카 제주"
+        "쏘카 제주",
+        "쏘카 이용 방법"
       ],
-      "total_impressions": 980,
-      "seasonal_index": 0.82,
+      "total_impressions": 1700,
+      "seasonal_index": 0.88,
       "is_trending": false,
-      "rationale": "제주도 여행 시 카셰어링 이용에 대한 관심이 꾸준히 존재"
+      "rationale": "제주도는 렌터카 수요가 높은 지역으로, 쏘카 이용 가이드가 유용할 것"
     },
     {
-      "title": "쏘카 플랜 & 패스포트 활용법: 장기 이용자를 위한 팁",
-      "slug_suggestion": "socar-plan-passport-tips",
+      "title": "쏘카 하이패스 사용법 & 요금 안내",
+      "slug_suggestion": "socar-hipass-usage-guide",
       "queries": [
-        "쏘카 플랜",
-        "쏘카 패스포트"
+        "쏘카 하이 패스",
+        "쏘카 이용 요금",
+        "쏘카 이용방법"
       ],
-      "total_impressions": 800,
-      "seasonal_index": 0.79,
-      "is_trending": false,
-      "rationale": "장기 이용자를 위한 서비스에 대한 관심이 지속적으로 존재"
+      "total_impressions": 1590,
+      "seasonal_index": 1.44,
+      "is_trending": true,
+      "rationale": "하이패스는 장거리 운전 시 필수적이며, 요금 관련 정보는 항상 관심도가 높음"
     },
     {
-      "title": "쏘카 비즈니스 활용 가이드: 기업용 카셰어링의 모든 것",
-      "slug_suggestion": "socar-business-guide",
+      "title": "쏘카 장기렌트 vs 일반 렌트: 어떤 게 더 이득일까?",
+      "slug_suggestion": "socar-long-term-vs-short-term-rental",
+      "queries": [
+        "쏘카 장기렌트",
+        "쏘카 이용 요금",
+        "쏘카 플랜"
+      ],
+      "total_impressions": 1190,
+      "seasonal_index": 1.41,
+      "is_trending": true,
+      "rationale": "장기렌트에 대한 관심이 높아지고 있어, 비교 분석 정보가 유용할 것"
+    },
+    {
+      "title": "쏘카 비즈니스: 기업용 카셰어링 서비스 완벽 가이드",
+      "slug_suggestion": "socar-business-complete-guide",
       "queries": [
         "쏘카 비즈니스",
-        "쏘카 장기렌트",
-        "쏘카 장기 렌트"
+        "쏘카 이용 방법",
+        "쏘카 이용요금"
       ],
-      "total_impressions": 960,
-      "seasonal_index": 0.94,
+      "total_impressions": 1430,
+      "seasonal_index": 1.09,
       "is_trending": false,
-      "rationale": "기업용 카셰어링 서비스에 대한 관심이 꾸준히 존재"
+      "rationale": "기업 고객을 위한 특화된 정보로, B2B 시장 확대에 도움이 될 수 있음"
     },
     {
-      "title": "쏘카 하이패스 이용 가이드: 고속도로 통행료 절약 팁",
-      "slug_suggestion": "socar-hipass-guide",
+      "title": "쏘카 패스포트로 똑똑하게 여행하는 방법",
+      "slug_suggestion": "socar-passport-smart-travel-tips",
       "queries": [
-        "쏘카 하이 패스"
+        "쏘카 패스포트",
+        "쏘카 이용 요금",
+        "쏘카 플랜"
       ],
-      "total_impressions": 480,
-      "seasonal_index": 1.15,
+      "total_impressions": 1190,
+      "seasonal_index": 1.05,
       "is_trending": false,
-      "rationale": "하이패스 이용에 대한 관심이 높고 시즈널 지수가 높아 유용한 정보"
+      "rationale": "정기 이용 서비스인 패스포트에 대한 상세한 안내로 장기 고객 확보 가능"
     },
     {
-      "title": "쏘카 스포츠카 체험기: 아반떼N 시승 후기 및 이용 팁",
-      "slug_suggestion": "socar-avante-n-review",
+      "title": "쏘카 아반떼N 드라이브 팁: 스포츠 세단의 매력 즐기기",
+      "slug_suggestion": "socar-avante-n-driving-tips",
       "queries": [
         "쏘카 아반떼n",
-        "쏘카 아반떼 n"
+        "쏘카 이용 방법",
+        "쏘카 이용 요금"
       ],
-      "total_impressions": 640,
-      "seasonal_index": 0.97,
+      "total_impressions": 1430,
+      "seasonal_index": 1.19,
       "is_trending": false,
-      "rationale": "스포츠카 체험에 대한 관심이 꾸준히 존재하며 실용적인 정보 제공 가능"
+      "rationale": "성능차에 대한 관심층을 겨냥한 특화 콘텐츠로 차별화 가능"
     },
     {
-      "title": "쏘카 보험 완벽 가이드: 사고 시 대처법과 보험 적용 범위",
-      "slug_suggestion": "socar-insurance-guide",
+      "title": "쏘카 긁힘 미신고 패널티 피하는 법: 차량 점검 꿀팁",
+      "slug_suggestion": "socar-scratch-inspection-tips",
       "queries": [
-        "쏘카 보험 디시",
-        "쏘카 긁힘 미신고 디시"
+        "쏘카 긁힘 미신고 디시",
+        "쏘카 이용 방법",
+        "쏘카 고객센터"
       ],
-      "total_impressions": 640,
-      "seasonal_index": 0.89,
+      "total_impressions": 1630,
+      "seasonal_index": 0.9,
       "is_trending": false,
-      "rationale": "보험 관련 정보에 대한 수요가 지속적으로 존재하며 실용적인 정보 제공 가능"
+      "rationale": "사용자들의 실제 우려사항을 다루어 신뢰도를 높이고 불필요한 분쟁 예방 가능"
     }
   ],
   "topics_category": [
     {
-      "title": "제주도 자동차 여행 꿀팁: 여름 성수기 전 저렴하게 즐기기",
-      "slug_suggestion": "socar-tip-jeju-summer-travel",
+      "title": "제주도 여름 드라이브 코스 추천: 한여름 더위 피하는 쏘카 여행",
+      "slug_suggestion": "jeju-summer-drive-course",
       "queries": [
-        "제주도 렌트카",
-        "제주도 여행",
-        "제주도 카페"
+        "제주도 여름",
+        "제주도 드라이브 코스",
+        "제주도 여름 여행"
       ],
-      "total_impressions": 150000,
-      "seasonal_index": 1.4,
-      "is_trending": true,
-      "rationale": "여름 성수기 전 제주도 여행 수요 증가 대비 정보 제공"
-    },
-    {
-      "title": "부산 해운대 근처 숨은 맛집 드라이브 코스",
-      "slug_suggestion": "socar-tip-busan-haeundae-food-trip",
-      "queries": [
-        "부산 맛집",
-        "해운대 맛집",
-        "부산 드라이브"
-      ],
-      "total_impressions": 100000,
-      "seasonal_index": 1.2,
-      "is_trending": true,
-      "rationale": "여름 휴가철 부산 여행 수요 대비 차별화된 정보 제공"
-    },
-    {
-      "title": "강원도 동해안 드라이브 코스: 여름 해변 베스트 5",
-      "slug_suggestion": "socar-tip-gangwon-east-coast-drive",
-      "queries": [
-        "강원도 여행",
-        "동해 해수욕장",
-        "강원도 드라이브"
-      ],
-      "total_impressions": 80000,
-      "seasonal_index": 1.3,
-      "is_trending": true,
-      "rationale": "여름 휴가 시즌 강원도 해변 여행 수요 증가 예상"
-    },
-    {
-      "title": "경주 1박2일 여행: 역사와 힐링을 동시에",
-      "slug_suggestion": "socar-tip-gyeongju-weekend-trip",
-      "queries": [
-        "경주 여행",
-        "경주 숙소",
-        "경주 카페"
-      ],
-      "total_impressions": 70000,
-      "seasonal_index": 1.1,
-      "is_trending": false,
-      "rationale": "여름 휴가 대체 여행지로 경주 관심 증가 예상"
-    },
-    {
-      "title": "전주 한옥마을 근처 시원한 맥주 펍 투어",
-      "slug_suggestion": "socar-tip-jeonju-hanok-beer-tour",
-      "queries": [
-        "전주 여행",
-        "전주 맥주",
-        "전주 한옥마을"
-      ],
-      "total_impressions": 60000,
-      "seasonal_index": 1.2,
-      "is_trending": true,
-      "rationale": "여름철 시원한 맥주와 전통문화 결합한 여행 트렌드 반영"
-    },
-    {
-      "title": "서울 근교 1시간 이내 시원한 계곡 드라이브",
-      "slug_suggestion": "socar-tip-seoul-nearby-valley-drive",
-      "queries": [
-        "서울 근교 계곡",
-        "서울 근교 드라이브",
-        "여름 피서"
-      ],
-      "total_impressions": 90000,
+      "total_impressions": 15000,
       "seasonal_index": 1.5,
       "is_trending": true,
-      "rationale": "무더위 시작과 함께 서울 근교 시원한 여행지 수요 급증"
+      "rationale": "여름 휴가 시즌 제주도 여행 수요 증가에 맞춘 시의성 있는 주제"
     },
     {
-      "title": "차박 초보를 위한 준비물과 추천 장소 가이드",
-      "slug_suggestion": "socar-tip-car-camping-beginner-guide",
+      "title": "부산 해운대 근처 쏘카존 TOP5: 주차 걱정 없는 여름 바다 여행",
+      "slug_suggestion": "busan-haeundae-socar-zone",
       "queries": [
-        "차박",
-        "차박 준비물",
-        "차박 추천"
+        "부산 해운대",
+        "해운대 주차",
+        "부산 여름 여행"
       ],
-      "total_impressions": 120000,
-      "seasonal_index": 1.3,
-      "is_trending": true,
-      "rationale": "여름 시즌 차박 여행 인기 급상승 예상"
-    },
-    {
-      "title": "서울발 당일치기 드라이브: 시원한 강변 카페 코스",
-      "slug_suggestion": "socar-tip-seoul-day-trip-riverside-cafe",
-      "queries": [
-        "당일치기 드라이브",
-        "강변 카페",
-        "서울 근교 드라이브"
-      ],
-      "total_impressions": 85000,
-      "seasonal_index": 1.2,
-      "is_trending": true,
-      "rationale": "주말 당일 여행 수요 증가와 시원한 여름 카페 트렌드 반영"
-    },
-    {
-      "title": "제주도 여름 해변 드라이브: 숨은 명소 Best 5",
-      "slug_suggestion": "socar-tip-jeju-summer-beach-drive",
-      "queries": [
-        "제주도 드라이브",
-        "제주도 해변",
-        "제주도 여름"
-      ],
-      "total_impressions": 130000,
+      "total_impressions": 12000,
       "seasonal_index": 1.4,
       "is_trending": true,
-      "rationale": "여름 휴가철 제주도 여행 수요 급증 대비 차별화된 정보 제공"
+      "rationale": "여름 휴가철 부산 해운대 방문객 증가에 따른 주차 수요 해결"
+    },
+    {
+      "title": "강원도 계곡 드라이브 코스: 쏘카로 떠나는 시원한 여름 휴가",
+      "slug_suggestion": "gangwon-valley-drive-course",
+      "queries": [
+        "강원도 계곡",
+        "강원도 드라이브 코스",
+        "여름 휴가 추천"
+      ],
+      "total_impressions": 10000,
+      "seasonal_index": 1.3,
+      "is_trending": true,
+      "rationale": "무더위를 피해 강원도 계곡으로 떠나는 여름 휴가 수요 반영"
+    },
+    {
+      "title": "경주 야간 관광 명소: 쏘카로 즐기는 역사도시의 밤",
+      "slug_suggestion": "gyeongju-night-tour",
+      "queries": [
+        "경주 야간 관광",
+        "경주 밤 나들이",
+        "경주 야경"
+      ],
+      "total_impressions": 8000,
+      "seasonal_index": 1.2,
+      "is_trending": true,
+      "rationale": "여름철 더위를 피해 야간에 즐기는 경주 여행 트렌드 반영"
+    },
+    {
+      "title": "전주 한옥마을 근처 쏘카존: 주차 걱정 없는 맛집 투어",
+      "slug_suggestion": "jeonju-hanok-village-socar-zone",
+      "queries": [
+        "전주 한옥마을",
+        "전주 맛집",
+        "전주 주차"
+      ],
+      "total_impressions": 9000,
+      "seasonal_index": 1.1,
+      "is_trending": false,
+      "rationale": "연중 인기 있는 전주 여행의 주차 문제 해결책 제시"
+    },
+    {
+      "title": "서울 근교 워터파크 TOP5: 쏘카로 떠나는 1박 2일 물놀이",
+      "slug_suggestion": "seoul-nearby-waterpark",
+      "queries": [
+        "서울 근교 워터파크",
+        "수도권 물놀이",
+        "워터파크 추천"
+      ],
+      "total_impressions": 11000,
+      "seasonal_index": 1.6,
+      "is_trending": true,
+      "rationale": "여름 성수기 워터파크 방문 수요 증가에 맞춘 시의성 있는 주제"
+    },
+    {
+      "title": "여름 차박 명소 추천: 쏘카 SUV로 떠나는 시원한 밤",
+      "slug_suggestion": "summer-car-camping-spots",
+      "queries": [
+        "여름 차박",
+        "차박 명소",
+        "SUV 차박"
+      ],
+      "total_impressions": 7000,
+      "seasonal_index": 1.3,
+      "is_trending": true,
+      "rationale": "여름철 야외 활동 증가에 따른 차박 여행 수요 반영"
+    },
+    {
+      "title": "당일치기 드라이브 코스: 서울에서 2시간 이내 여름 나들이",
+      "slug_suggestion": "day-trip-drive-course-from-seoul",
+      "queries": [
+        "당일치기 드라이브",
+        "서울 근교 여행",
+        "주말 나들이"
+      ],
+      "total_impressions": 13000,
+      "seasonal_index": 1.2,
+      "is_trending": true,
+      "rationale": "여름철 주말 당일 여행 수요 증가에 맞춘 실용적인 정보 제공"
+    },
+    {
+      "title": "제주도 숨은 비치 TOP5: 쏘카로 떠나는 한적한 여름 해변",
+      "slug_suggestion": "jeju-hidden-beaches",
+      "queries": [
+        "제주도 숨은 비치",
+        "제주도 한적한 해변",
+        "제주도 여름 여행"
+      ],
+      "total_impressions": 6000,
+      "seasonal_index": 1.4,
+      "is_trending": true,
+      "rationale": "혼잡한 관광지를 피해 조용한 여행을 선호하는 트렌드 반영"
     }
-  ]
+  ],
+  "authors": {
+    "authors": [
+      {
+        "name": "anderson",
+        "totalPosts": 10,
+        "totalImpressions": 16437,
+        "totalClicks": 585,
+        "avgPosition": 4.8,
+        "avgCTR": 3.2,
+        "dailyHistory": [
+          {
+            "date": "2026-06-18",
+            "impressions": 2067,
+            "clicks": 79
+          },
+          {
+            "date": "2026-06-19",
+            "impressions": 1975,
+            "clicks": 62
+          },
+          {
+            "date": "2026-06-20",
+            "impressions": 2176,
+            "clicks": 79
+          },
+          {
+            "date": "2026-06-21",
+            "impressions": 2506,
+            "clicks": 91
+          },
+          {
+            "date": "2026-06-22",
+            "impressions": 2617,
+            "clicks": 88
+          },
+          {
+            "date": "2026-06-23",
+            "impressions": 2602,
+            "clicks": 90
+          },
+          {
+            "date": "2026-06-24",
+            "impressions": 2494,
+            "clicks": 96
+          }
+        ],
+        "pages": [
+          {
+            "url": "https://www.socar.kr/blog/socar-tip-2daysdriving",
+            "slug": "socar-tip-2daysdriving",
+            "impressions": 11882,
+            "clicks": 428,
+            "position": 3.9,
+            "ctr": 3.6
+          },
+          {
+            "url": "https://www.socar.kr/blog/socar-tip-2026summer-campaign",
+            "slug": "socar-tip-2026summer-campaign",
+            "impressions": 3037,
+            "clicks": 126,
+            "position": 6.6,
+            "ctr": 4.5
+          },
+          {
+            "url": "https://www.socar.kr/blog/socar-tip-rentacar-guide",
+            "slug": "socar-tip-rentacar-guide",
+            "impressions": 2798,
+            "clicks": 41,
+            "position": 5.1,
+            "ctr": 1.4
+          },
+          {
+            "url": "https://www.socar.kr/blog/socar-travel-maydrive",
+            "slug": "socar-travel-maydrive",
+            "impressions": 2641,
+            "clicks": 51,
+            "position": 5.4,
+            "ctr": 1.9
+          },
+          {
+            "url": "https://www.socar.kr/blog/socar-travel-jeju-rentacar",
+            "slug": "socar-travel-jeju-rentacar",
+            "impressions": 2192,
+            "clicks": 95,
+            "position": 5.6,
+            "ctr": 4.3
+          },
+          {
+            "url": "https://www.socar.kr/blog/socar-tip-premium-car",
+            "slug": "socar-tip-premium-car",
+            "impressions": 688,
+            "clicks": 48,
+            "position": 4.5,
+            "ctr": 6.9
+          },
+          {
+            "url": "https://www.socar.kr/blog/socar-travel-beach",
+            "slug": "socar-travel-beach",
+            "impressions": 646,
+            "clicks": 2,
+            "position": 5.0,
+            "ctr": 0.6
+          },
+          {
+            "url": "https://www.socar.kr/blog/socar-travel-camper",
+            "slug": "socar-travel-camper",
+            "impressions": 489,
+            "clicks": 42,
+            "position": 4.5,
+            "ctr": 9.1
+          },
+          {
+            "url": "https://www.socar.kr/blog/socar-travel-temple-drive",
+            "slug": "socar-travel-temple-drive",
+            "impressions": 55,
+            "clicks": 0,
+            "position": 6.4,
+            "ctr": 0.0
+          },
+          {
+            "url": "https://www.socar.kr/blog/socar-tip-insuranceguide",
+            "slug": "socar-tip-insuranceguide",
+            "impressions": 8,
+            "clicks": 0,
+            "position": 1.2,
+            "ctr": 0.0
+          }
+        ]
+      },
+      {
+        "name": "win",
+        "totalPosts": 3,
+        "totalImpressions": 1993,
+        "totalClicks": 126,
+        "avgPosition": 6.2,
+        "avgCTR": 3.8,
+        "dailyHistory": [
+          {
+            "date": "2026-06-18",
+            "impressions": 245,
+            "clicks": 14
+          },
+          {
+            "date": "2026-06-19",
+            "impressions": 246,
+            "clicks": 6
+          },
+          {
+            "date": "2026-06-20",
+            "impressions": 255,
+            "clicks": 15
+          },
+          {
+            "date": "2026-06-21",
+            "impressions": 253,
+            "clicks": 20
+          },
+          {
+            "date": "2026-06-22",
+            "impressions": 376,
+            "clicks": 27
+          },
+          {
+            "date": "2026-06-23",
+            "impressions": 348,
+            "clicks": 23
+          },
+          {
+            "date": "2026-06-24",
+            "impressions": 270,
+            "clicks": 21
+          }
+        ],
+        "pages": [
+          {
+            "url": "https://www.socar.kr/blog/socar-tip-beginner-complete-guide",
+            "slug": "socar-tip-beginner-complete-guide",
+            "impressions": 2465,
+            "clicks": 185,
+            "position": 5.0,
+            "ctr": 7.4
+          },
+          {
+            "url": "https://www.socar.kr/blog/socar-travel-pohang-mart-attack-course",
+            "slug": "socar-travel-pohang-mart-attack-course",
+            "impressions": 310,
+            "clicks": 1,
+            "position": 7.0,
+            "ctr": 0.3
+          },
+          {
+            "url": "https://www.socar.kr/blog/socar-travel-summer-mountain-trekking",
+            "slug": "socar-travel-summer-mountain-trekking",
+            "impressions": 306,
+            "clicks": 11,
+            "position": 6.5,
+            "ctr": 3.6
+          }
+        ]
+      },
+      {
+        "name": "sanghi",
+        "totalPosts": 6,
+        "totalImpressions": 1808,
+        "totalClicks": 29,
+        "avgPosition": 6.1,
+        "avgCTR": 2.5,
+        "dailyHistory": [
+          {
+            "date": "2026-06-18",
+            "impressions": 313,
+            "clicks": 6
+          },
+          {
+            "date": "2026-06-19",
+            "impressions": 271,
+            "clicks": 1
+          },
+          {
+            "date": "2026-06-20",
+            "impressions": 329,
+            "clicks": 1
+          },
+          {
+            "date": "2026-06-21",
+            "impressions": 259,
+            "clicks": 6
+          },
+          {
+            "date": "2026-06-22",
+            "impressions": 259,
+            "clicks": 6
+          },
+          {
+            "date": "2026-06-23",
+            "impressions": 283,
+            "clicks": 5
+          },
+          {
+            "date": "2026-06-24",
+            "impressions": 94,
+            "clicks": 4
+          }
+        ],
+        "pages": [
+          {
+            "url": "https://www.socar.kr/blog/socar-travel-domestic-blacklabel",
+            "slug": "socar-travel-domestic-blacklabel",
+            "impressions": 746,
+            "clicks": 9,
+            "position": 6.9,
+            "ctr": 1.7
+          },
+          {
+            "url": "https://www.socar.kr/blog/socar-tip-blacklabel-wedding-car",
+            "slug": "socar-tip-blacklabel-wedding-car",
+            "impressions": 659,
+            "clicks": 17,
+            "position": 6.2,
+            "ctr": 2.7
+          },
+          {
+            "url": "https://www.socar.kr/blog/socar-tip-golf-blacklabel",
+            "slug": "socar-tip-golf-blacklabel",
+            "impressions": 526,
+            "clicks": 17,
+            "position": 4.9,
+            "ctr": 3.3
+          },
+          {
+            "url": "https://www.socar.kr/blog/socar-travel-jeju-car",
+            "slug": "socar-travel-jeju-car",
+            "impressions": 495,
+            "clicks": 7,
+            "position": 5.2,
+            "ctr": 1.4
+          },
+          {
+            "url": "https://www.socar.kr/blog/socar-tip-blacklabel-care",
+            "slug": "socar-tip-blacklabel-care",
+            "impressions": 278,
+            "clicks": 10,
+            "position": 7.0,
+            "ctr": 3.2
+          },
+          {
+            "url": "https://www.socar.kr/blog/socar-travel-jeju-rental-car-black-label",
+            "slug": "socar-travel-jeju-rental-car-black-label",
+            "impressions": 130,
+            "clicks": 4,
+            "position": 6.3,
+            "ctr": 2.7
+          }
+        ]
+      },
+      {
+        "name": "호도",
+        "totalPosts": 2,
+        "totalImpressions": 3654,
+        "totalClicks": 3,
+        "avgPosition": 9.2,
+        "avgCTR": 0.1,
+        "dailyHistory": [
+          {
+            "date": "2026-06-17",
+            "impressions": 761,
+            "clicks": 1
+          },
+          {
+            "date": "2026-06-18",
+            "impressions": 365,
+            "clicks": 0
+          },
+          {
+            "date": "2026-06-19",
+            "impressions": 562,
+            "clicks": 1
+          },
+          {
+            "date": "2026-06-20",
+            "impressions": 482,
+            "clicks": 0
+          },
+          {
+            "date": "2026-06-21",
+            "impressions": 652,
+            "clicks": 0
+          },
+          {
+            "date": "2026-06-22",
+            "impressions": 589,
+            "clicks": 1
+          },
+          {
+            "date": "2026-06-23",
+            "impressions": 243,
+            "clicks": 0
+          }
+        ],
+        "pages": [
+          {
+            "url": "https://www.socar.kr/blog/rainy-season-driving-guide-2026",
+            "slug": "rainy-season-driving-guide-2026",
+            "impressions": 6741,
+            "clicks": 6,
+            "position": 9.2,
+            "ctr": 0.1
+          }
+        ]
+      },
+      {
+        "name": "olive",
+        "totalPosts": 2,
+        "totalImpressions": 1356,
+        "totalClicks": 30,
+        "avgPosition": 5.9,
+        "avgCTR": 2.1,
+        "dailyHistory": [
+          {
+            "date": "2026-06-18",
+            "impressions": 248,
+            "clicks": 5
+          },
+          {
+            "date": "2026-06-19",
+            "impressions": 163,
+            "clicks": 3
+          },
+          {
+            "date": "2026-06-20",
+            "impressions": 168,
+            "clicks": 3
+          },
+          {
+            "date": "2026-06-21",
+            "impressions": 171,
+            "clicks": 5
+          },
+          {
+            "date": "2026-06-22",
+            "impressions": 207,
+            "clicks": 5
+          },
+          {
+            "date": "2026-06-23",
+            "impressions": 185,
+            "clicks": 5
+          },
+          {
+            "date": "2026-06-24",
+            "impressions": 214,
+            "clicks": 4
+          }
+        ],
+        "pages": [
+          {
+            "url": "https://www.socar.kr/blog/socar-travel-busan-beach-blacklabel-2026",
+            "slug": "socar-travel-busan-beach-blacklabel-2026",
+            "impressions": 1677,
+            "clicks": 29,
+            "position": 5.5,
+            "ctr": 1.8
+          },
+          {
+            "url": "https://www.socar.kr/blog/socar-tips-busan-carseat-blacklabel",
+            "slug": "socar-tips-busan-carseat-blacklabel",
+            "impressions": 699,
+            "clicks": 15,
+            "position": 6.3,
+            "ctr": 2.4
+          }
+        ]
+      },
+      {
+        "name": "rico",
+        "totalPosts": 6,
+        "totalImpressions": 0,
+        "totalClicks": 0,
+        "avgPosition": 0,
+        "avgCTR": 0,
+        "dailyHistory": [],
+        "pages": []
+      },
+      {
+        "name": "didi",
+        "totalPosts": 0,
+        "totalImpressions": 0,
+        "totalClicks": 0,
+        "avgPosition": 0,
+        "avgCTR": 0,
+        "dailyHistory": [],
+        "pages": []
+      }
+    ],
+    "missingAuthors": [
+      "didi"
+    ]
+  }
 };
