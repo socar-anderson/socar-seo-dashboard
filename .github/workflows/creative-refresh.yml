@@ -25,9 +25,7 @@ jobs:
 
       - name: BQ 쿼리 실행 및 데이터 갱신
         env:
-          BQ_REFRESH_TOKEN: ${{ secrets.BQ_REFRESH_TOKEN }}
-          GSC_CLIENT_ID: ${{ secrets.GSC_CLIENT_ID }}
-          GSC_CLIENT_SECRET: ${{ secrets.GSC_CLIENT_SECRET }}
+          GCP_SA_KEY: ${{ secrets.GCP_SA_KEY }}
         run: python .github/scripts/creative_refresh.py
 
       - name: 변경사항 커밋 및 푸시
