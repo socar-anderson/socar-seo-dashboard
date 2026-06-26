@@ -1,0 +1,37 @@
+name: 컨텐츠 특공대 소재 성과 갱신
+
+on:
+  schedule:
+    - cron: '3 1 * * *'   # 매일 01:03 UTC = 10:03 KST
+  workflow_dispatch:        # GitHub UI에서 수동 실행 가능
+
+jobs:
+  creative-refresh:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write       # creative-data.js 커밋용
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Python 설정
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: 의존성 설치
+        run: pip install google-cloud-bigquery google-auth
+
+      - name: BQ 쿼리 실행 및 데이터 갱신
+        env:
+          GCP_SA_KEY: ${{ secrets.GCP_SA_KEY }}
+        run: python .github/scripts/creative_refresh.py
+
+      - name: 변경사항 커밋 및 푸시
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Actions"
+          git add dashboard/creative-data.js
+          git diff --staged --quiet || git commit -m "auto: creative refresh $(date +%Y-%m-%d)"
+          git push
