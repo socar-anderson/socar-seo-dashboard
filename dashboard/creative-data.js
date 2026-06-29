@@ -8,7 +8,7 @@ const CREATIVE_DATA = {
     "queryEnd": "2026-06-29"
   },
   "summary": {
-    "totalCostMan": 5277,
+    "totalCostMan": 5276.7,
     "totalRevenueMan": 71308,
     "blendRoas": 1351,
     "totalCnt": 10691
