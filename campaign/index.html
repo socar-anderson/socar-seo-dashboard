@@ -774,7 +774,7 @@ canvas{display:block;width:100%}
   </div>
 
   <!-- CHANNEL TABLE -->
-  <div class="sec-label">채널별 성과 — P2(6/8~14) vs D1~D8(6/17~24) 비교</div>
+  <div class="sec-label">채널별 성과 — P2(6/8~14) vs W1(D1~D8) vs W2 D9(6/25) 비교 · <span style="font-weight:400;color:var(--muted)">*D9 ROAS = d7 윈도우 4/7 완성 (부분값)</span></div>
   <div class="tbl-card">
     <table>
       <thead>
@@ -783,9 +783,11 @@ canvas{display:block;width:100%}
           <th>구분</th>
           <th>P2 비용/일</th>
           <th>W1 비용/일</th>
+          <th>W2 D9 비용/일</th>
           <th>P2 ROAS</th>
           <th>W1 ROAS</th>
-          <th>추이</th>
+          <th>W2 D9 ROAS <span style="font-weight:400;font-size:9px">*부분</span></th>
+          <th>추이 W1→D9</th>
           <th>CPD <span style="font-weight:400;font-size:9px">(원/DLUV)</span></th>
           <th>W2 신호</th>
         </tr>
@@ -822,15 +824,15 @@ const D = {
 
 // d = Perf DLUV D1~D5 avg (airbridge), cpd = c3*10000/d (원/명) · c3/r3 = D1~D8 avg (6/17~6/24, w25+w26)
 const CH = [
-  {n:'페이스북',   cat:'DA',  c2:281,c3:335, r2:1224,r3:1164, d:3552, sig:'ok',  st:'ROAS 1,164% ✅ 유지'},
-  {n:'틱톡',       cat:'DA',  c2:464,c3:557, r2:942, r3:1005, d:5215, sig:'hold',st:'ROAS 1,005% ↑ 1,000% 돌파'},
-  {n:'구글AC',     cat:'DA',  c2:495,c3:483, r2:874, r3:666,  d:1937, sig:'chk', st:'ROAS 666% — -30% 삭감 검토'},
-  {n:'몰로코',     cat:'DA',  c2:136,c3:175, r2:875, r3:805,  d:1431, sig:'hold',st:'ROAS 805% 800% 회복 ✅'},
-  {n:'웨어즈',     cat:'DA',  c2:50, c3:56,  r2:938, r3:961,  d:620,  sig:'hold',st:'유지'},
-  {n:'rtbhouse',   cat:'DA',  c2:91, c3:51,  r2:534, r3:948,  d:471,  sig:'hold',st:'ROAS 948% 개선 ✅'},
-  {n:'카카오',     cat:'DA',  c2:93, c3:91,  r2:747, r3:853,  d:471,  sig:'chk', st:'ROAS 853% · 모니터링 유지'},
-  {n:'네이버BSA',  cat:'BSA', c2:46, c3:46,  r2:1029,r3:383,  d:91,   sig:'chk', st:'원인불명 이상치 — 삭감 전 규명'},
-  {n:'네이버SA',   cat:'SA',  c2:149,c3:144, r2:210, r3:304,  d:188,  sig:'cut', st:'감액 미완료 · ROAS 304%'},
+  {n:'페이스북',   cat:'DA',  c2:281,c3:335, c4:357, r2:1224,r3:1164, r4:419,  d:3552, sig:'ok',  st:'ROAS 1,164% ✅ 유지'},
+  {n:'틱톡',       cat:'DA',  c2:464,c3:557, c4:567, r2:942, r3:1005, r4:223,  d:5215, sig:'hold',st:'ROAS 1,005% ↑ 1,000% 돌파'},
+  {n:'구글AC',     cat:'DA',  c2:495,c3:483, c4:514, r2:874, r3:666,  r4:220,  d:1937, sig:'chk', st:'ROAS 666% — -30% 삭감 검토'},
+  {n:'몰로코',     cat:'DA',  c2:136,c3:175, c4:188, r2:875, r3:805,  r4:248,  d:1431, sig:'hold',st:'ROAS 805% 800% 회복 ✅'},
+  {n:'웨어즈',     cat:'DA',  c2:50, c3:56,  c4:70,  r2:938, r3:961,  r4:231,  d:620,  sig:'hold',st:'유지'},
+  {n:'rtbhouse',   cat:'DA',  c2:91, c3:51,  c4:52,  r2:534, r3:948,  r4:184,  d:471,  sig:'hold',st:'ROAS 948% 개선 ✅'},
+  {n:'카카오',     cat:'DA',  c2:93, c3:91,  c4:91,  r2:747, r3:853,  r4:176,  d:471,  sig:'chk', st:'ROAS 853% · 모니터링 유지'},
+  {n:'네이버BSA',  cat:'BSA', c2:46, c3:46,  c4:46,  r2:1029,r3:383,  r4:89,   d:91,   sig:'chk', st:'원인불명 이상치 — 삭감 전 규명'},
+  {n:'네이버SA',   cat:'SA',  c2:149,c3:144, c4:146, r2:210, r3:304,  r4:83,   d:188,  sig:'cut', st:'감액 미완료 · ROAS 304%'},
 ];
 
 // ── CHANNEL TABLE ──────────────────────────────────────
@@ -866,9 +868,11 @@ CH.forEach(c=>{
     <td style="color:var(--sub)">${c.cat}</td>
     <td>${c.c2}만</td>
     <td>${c.c3}만</td>
+    <td>${c.c4}만</td>
     <td>${roasBadge(c.r2)}</td>
     <td>${roasBadge(c.r3)}</td>
-    <td>${trendArrow(c.r2,c.r3)}</td>
+    <td>${roasBadge(c.r4)}<sup style="font-size:8px;color:#aaa;font-weight:400">*</sup></td>
+    <td>${trendArrow(c.r3,c.r4)}</td>
     <td>${cpdBadge(cpd)}</td>
     <td>${sigBadge(c.sig,c.st)}</td>`;
   tbody.appendChild(tr);
