@@ -8,12 +8,12 @@ const CREATIVE_DATA = {
     "queryEnd": "2026-07-01"
   },
   "summary": {
-    "totalCostMan": 5721.3,
-    "totalRevenueMan": 74363,
-    "blendRoas": 1300,
-    "totalCnt": 11024
+    "totalCostMan": 6454.2,
+    "totalRevenueMan": 85214,
+    "blendRoas": 1320,
+    "totalCnt": 12499
   },
-  "groups": ["diorama-2605", "blacklabel-2605", "stressfree-2605"],
+  "groups": ["diorama-2605", "blacklabel-2605", "stressfree-2605", "tf-2606"],
   "creatives": [
     {
       "id": "diorama-jejuterminal",
@@ -177,6 +177,40 @@ const CREATIVE_DATA = {
         { "name": "TikTok", "cls": "tt", "pct": 33 }
       ],
       "mediaNote": "(TT 5/27 중단)"
+    },
+    {
+      "id": "tf-blacklabel-kv",
+      "name": "blacklabel_kv",
+      "group": "tf-2606",
+      "badge": "양호",
+      "roas": 1789,
+      "revenueMan": 8925,
+      "costMan": 498.9,
+      "cnt": 1226,
+      "valuePerCnt": 72800,
+      "firstDate": "2026-06-16",
+      "lastDate": "2026-06-30",
+      "days": 15,
+      "media": [
+        { "name": "TikTok", "cls": "tt", "pct": 100 }
+      ]
+    },
+    {
+      "id": "tf-car-olive",
+      "name": "car_olive",
+      "group": "tf-2606",
+      "badge": "모니터링",
+      "roas": 823,
+      "revenueMan": 1926,
+      "costMan": 234.0,
+      "cnt": 249,
+      "valuePerCnt": 77355,
+      "firstDate": "2026-06-23",
+      "lastDate": "2026-06-30",
+      "days": 8,
+      "media": [
+        { "name": "TikTok", "cls": "tt", "pct": 100 }
+      ]
     }
   ]
 };
