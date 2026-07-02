@@ -165,7 +165,7 @@
       </div>
       <div class="kpi">
         <div class="kpi-label">총 발생 매출</div>
-        <div class="kpi-value">${fmt(s.totalRevenueMan)}<span class="kpi-unit">만원</span></div>
+        <div class="kpi-value">${s.totalRevenueMan>=10000?`${fmt(Math.floor(s.totalRevenueMan/10000))}억 ${fmt(s.totalRevenueMan%10000)}<span class="kpi-unit">만원</span>`:`${fmt(s.totalRevenueMan)}<span class="kpi-unit">만원</span>`}</div>
         <div class="kpi-sub">mmp_value 합산 (Airbridge 귀인)</div>
       </div>
       <div class="kpi">
