@@ -92,7 +92,19 @@ canvas{display:block;width:100%}
 /* FOOTER NOTE */
 .fnote{font-size:10px;color:var(--muted);background:#fff;border-radius:8px;padding:10px 14px;border:1px solid var(--border);line-height:1.7}
 
-@media(max-width:700px){.kr-grid{grid-template-columns:repeat(2,1fr)}.two-col{grid-template-columns:1fr}.sg-grid{grid-template-columns:1fr}}
+/* ACTIONPLAN LAYER */
+.ap-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.ap-strip{display:flex;gap:8px;flex-wrap:wrap;align-items:center;padding:10px 12px;background:#F0FFF4;border-radius:8px;border:1px solid #9AE6B4;margin-bottom:14px}
+.ap-bar-row{display:flex;align-items:center;gap:6px;margin-bottom:5px}
+.ap-bar-label{font-size:11px;width:110px;flex-shrink:0;color:var(--text)}
+.ap-bar-track{flex:1;height:9px;background:#EFF2F5;border-radius:5px;overflow:hidden}
+.ap-bar-fill{height:100%;border-radius:5px}
+.ap-callout{margin-top:10px;padding:8px 10px;background:#FFF5F5;border-left:3px solid var(--red);border-radius:0 6px 6px 0;font-size:11px;color:#7B341E;line-height:1.6}
+.ap-verdict{padding:8px 10px;background:#F0F8FF;border-radius:6px;font-size:11px;line-height:1.8;color:var(--text)}
+.ap-note{font-size:10px;color:var(--muted);margin-top:8px}
+.ap-pending{font-size:10px;color:var(--muted);padding:9px 12px;background:#F8F9FA;border-radius:7px;border:1px solid var(--border);line-height:1.8;margin-bottom:4px}
+
+@media(max-width:700px){.kr-grid{grid-template-columns:repeat(2,1fr)}.two-col{grid-template-columns:1fr}.sg-grid{grid-template-columns:1fr}.ap-grid{grid-template-columns:1fr}}
 </style>
 
 <!-- HEADER -->
@@ -159,14 +171,14 @@ canvas{display:block;width:100%}
   </div>
 
   <!-- TREND CHART + W2 ACTIONS -->
-  <div class="sec-label">일별 광고비 · ROAS 추이 (6/8~6/25) · d7_return 기준 · D9 이후 ROAS 집계 중</div>
+  <div class="sec-label">일별 광고비 · D0 ROAS 추이 (6/8~6/25) · 예약생성기준 (mmp_value)</div>
   <div class="two-col">
     <div class="ccard">
       <div class="ccard-title">
-        광고비 (막대) + ROAS (선, d7_return 기준) <span>회색=P2 / 파랑=P3 OKR기간 / 어두운=주말</span>
+        광고비 (막대) + D0 ROAS (선, 예약생성기준) <span>회색=P2 / 파랑=P3 OKR기간 / 어두운=주말</span>
       </div>
       <canvas id="trendChart" height="200"></canvas>
-      <div style="font-size:10px;color:#E67E22;margin-top:4px;padding:0 4px">⚠️ 6/19(D3)~ ROAS 점선 = d7 윈도우 부분 완성 · D1(664%)·D2(588%) 솔리드: 7일 윈도우 완성 · D9(6/25) 이후 ROAS 집계 중 | 🎉 D10(6/26) DLUV 122,667명 — OKR 목표 첫 달성</div>
+      <div style="font-size:10px;color:var(--sub);margin-top:4px;padding:0 4px">D0 ROAS = 예약 생성 즉시 mmp_value 귀인 · D7 지연 없음 · 전 기간 확정값 | 🎉 D10(6/26) DLUV 122,667명 — OKR 목표 첫 달성</div>
       <div style="display:flex;gap:16px;margin-top:6px;font-size:10px;color:var(--sub)">
         <span>■ <span style="color:rgba(46,134,222,0.5)">■</span> 광고비 (OKR기간)</span>
         <span style="color:var(--red)">— ROAS(%)</span>
@@ -206,7 +218,7 @@ canvas{display:block;width:100%}
   </div>
 
   <!-- ATTRIBUTION SOURCE -->
-  <div class="sec-label">KR1 DLUV 소스별 Attribution v7 완료 (airbridge × Braze 기준) · D1~D12</div>
+  <div class="sec-label">KR1 DLUV 소스별 Attribution v7 완료 (airbridge × Braze 기준) · D1~D15</div>
   <div class="tbl-card" style="margin-bottom:4px">
     <table>
       <thead>
@@ -341,25 +353,65 @@ canvas{display:block;width:100%}
         <tr>
           <td><b>6/28 D12 일</b></td>
           <td>117,351명</td>
-          <td colspan="5" style="color:var(--muted);font-size:10px">집계 중</td>
+          <td><b>42,497명</b></td>
+          <td><span class="rb y">36.2%</span></td>
+          <td>3,256명 <span style="font-size:9px;color:var(--muted)">알림톡+LMS</span></td>
+          <td><span class="rb g">2.8%</span></td>
+          <td>71,598명</td>
+        </tr>
+        <tr style="border-top:2px solid #E2E8F0">
+          <td><b>6/29 D13 월</b></td>
+          <td>121,813명</td>
+          <td><b>40,963명</b></td>
+          <td><span class="rb y">33.6%</span></td>
+          <td>4,049명 <span style="font-size:9px;color:var(--muted)">알림톡+LMS</span></td>
+          <td><span class="rb g">3.3%</span></td>
+          <td>76,801명</td>
+        </tr>
+        <tr>
+          <td><b>6/30 D14 화</b></td>
+          <td>117,540명</td>
+          <td><b>38,524명</b></td>
+          <td><span class="rb y">32.8%</span></td>
+          <td>5,483명 <span style="font-size:9px;color:var(--muted)">알림톡+LMS</span></td>
+          <td><span class="rb y">4.7%</span></td>
+          <td>73,533명</td>
+        </tr>
+        <tr style="background:#F0FFF4">
+          <td><b>7/1 D15 수</b></td>
+          <td><b style="color:#27AE60">137,273명</b> <span style="font-size:10px;color:#27AE60;font-weight:700">🎉 최고치</span></td>
+          <td><b>43,406명</b></td>
+          <td><span class="rb y">31.6%</span></td>
+          <td>12,752명 <span style="font-size:9px;color:var(--muted)">알림톡+LMS</span></td>
+          <td><span class="rb g">9.3%</span></td>
+          <td>81,115명</td>
         </tr>
         <tr style="background:#EBF8FF;font-weight:600;border-top:2px solid #90CDF4">
           <td><b>D8~D12 평균</b></td>
           <td><b style="color:#27AE60">118,001명</b></td>
-          <td><b style="color:#27AE60">36,674명</b></td>
-          <td><span class="rb y">31.0%</span></td>
-          <td>15,852명</td>
-          <td><span class="rb g">13.4%</span></td>
-          <td style="font-size:10px;color:var(--muted)">D8~D11 avg · D12 집계 중</td>
+          <td><b style="color:#27AE60">37,838명</b></td>
+          <td><span class="rb y">32.0%</span></td>
+          <td>13,333명</td>
+          <td><span class="rb g">11.3%</span></td>
+          <td style="font-size:10px;color:var(--muted)">D8~D11 Braze / D12 알림톡+LMS 혼재</td>
+        </tr>
+        <tr style="background:#EBF8FF;font-weight:600">
+          <td><b>D13~D15 평균</b></td>
+          <td><b style="color:#27AE60">125,542명</b></td>
+          <td><b style="color:#27AE60">40,964명</b></td>
+          <td><span class="rb y">32.7%</span></td>
+          <td>7,428명</td>
+          <td><span class="rb g">5.9%</span></td>
+          <td style="font-size:10px;color:var(--muted)">알림톡+LMS avg · Braze push 별도</td>
         </tr>
         <tr style="background:#F8F9FA;font-weight:600">
-          <td><b>D1~D12 평균</b></td>
-          <td><b style="color:#E67E22">113,968명</b></td>
-          <td><b style="color:#E67E22">34,109명</b></td>
-          <td><span class="rb y">30.0%</span></td>
-          <td>14,577명</td>
-          <td><span class="rb g">12.8%</span></td>
-          <td style="font-size:10px;color:var(--muted)">D1~D11 avg · D12 집계 중</td>
+          <td><b>D1~D15 평균</b></td>
+          <td><b style="color:#E67E22">116,282명</b></td>
+          <td><b style="color:#E67E22">36,028명</b></td>
+          <td><span class="rb y">31.0%</span></td>
+          <td>12,383명</td>
+          <td><span class="rb g">10.6%</span></td>
+          <td style="font-size:10px;color:var(--muted)">CRM: D1~D11 Braze / D12~D15 알림톡+LMS</td>
         </tr>
       </tbody>
     </table>
@@ -810,7 +862,7 @@ canvas{display:block;width:100%}
   </div>
 
   <!-- CHANNEL TABLE -->
-  <div class="sec-label">채널별 성과 — P2(6/8~14) vs W1(D1~D8) vs W2 D9(6/25) 비교 · <span style="font-weight:400;color:var(--muted)">*D9 ROAS = d7 윈도우 4/7 완성 (부분값)</span></div>
+  <div class="sec-label">채널별 성과 — P2(6/8~14) vs W1(D1~D8) vs W2 D9(6/25) 비교 · <span style="font-weight:400;color:var(--muted)">D0 ROAS (예약생성기준 · mmp_value)</span></div>
   <div class="tbl-card">
     <table>
       <thead>
@@ -820,9 +872,9 @@ canvas{display:block;width:100%}
           <th>P2 비용/일</th>
           <th>W1 비용/일</th>
           <th>W2 D9 비용/일</th>
-          <th>P2 ROAS</th>
-          <th>W1 ROAS</th>
-          <th>W2 D9 ROAS <span style="font-weight:400;font-size:9px">*부분</span></th>
+          <th>P2 D0 ROAS</th>
+          <th>W1 D0 ROAS</th>
+          <th>W2 D9 D0 ROAS</th>
           <th>추이 W1→D9</th>
           <th>CPD <span style="font-weight:400;font-size:9px">(원/DLUV)</span></th>
           <th>W2 신호</th>
@@ -831,6 +883,303 @@ canvas{display:block;width:100%}
       <tbody id="chTbody"></tbody>
     </table>
   </div>
+
+  <!-- ACTIONPLAN START -->
+  <div class="sec-label">액션플랜 달성 분해 — 소재·CRM·채널 실행 레이어 · D14 (6/30) 기준</div>
+
+  <!-- [A] 소구점 강약 신호 -->
+  <div class="ccard" style="margin-bottom:12px">
+    <div class="ccard-title">소구점 강약 신호 <span>소재 CTR · CRM CTR · 전환 결과</span></div>
+
+    <!-- 전환신호 strip -->
+    <div class="ap-strip">
+      <span style="font-size:11px;font-weight:700;color:#276749;flex-shrink:0">후행 전환</span>
+      <span class="rb g">✅ 신규 D7 CVR 15.3% — 목표 15%+ 달성</span>
+      <span class="rb g">✅ 11+ 이탈 복귀율 14.3% — 목표 5% · 286%</span>
+      <span class="rb y">⚠️ 강릉·양양 WoW +2.0% — 목표 +20% 미달</span>
+    </div>
+
+    <!-- 소재 CTR + CRM CTR -->
+    <div class="ap-grid">
+
+      <!-- 소재 CTR -->
+      <div>
+        <div style="font-size:11px;font-weight:700;color:var(--sub);margin-bottom:8px;text-transform:uppercase;letter-spacing:.04em">DA 소재 CTR — 테마별 (vs 일반 1.85%)</div>
+        <div class="ap-bar-row">
+          <div class="ap-bar-label">소구점1 EV주행무료</div>
+          <div class="ap-bar-track"><div class="ap-bar-fill" style="width:100%;background:var(--green)"></div></div>
+          <div style="font-size:11px;font-weight:700;width:34px;text-align:right;flex-shrink:0">5.01%</div>
+          <span class="rb g" style="flex-shrink:0">+171%</span>
+        </div>
+        <div class="ap-bar-row">
+          <div class="ap-bar-label">소구점1 블랙라벨</div>
+          <div class="ap-bar-track"><div class="ap-bar-fill" style="width:76%;background:var(--green)"></div></div>
+          <div style="font-size:11px;font-weight:700;width:34px;text-align:right;flex-shrink:0">3.80%</div>
+          <span class="rb g" style="flex-shrink:0">+105%</span>
+        </div>
+        <div class="ap-bar-row">
+          <div class="ap-bar-label">소구점1 KV 블랙라벨</div>
+          <div class="ap-bar-track"><div class="ap-bar-fill" style="width:70%;background:var(--green)"></div></div>
+          <div style="font-size:11px;font-weight:700;width:34px;text-align:right;flex-shrink:0">3.53%</div>
+          <span class="rb g" style="flex-shrink:0">+91%</span>
+        </div>
+        <div class="ap-bar-row">
+          <div class="ap-bar-label">소구점3 쿠폰·래플</div>
+          <div class="ap-bar-track"><div class="ap-bar-fill" style="width:55%;background:var(--green)"></div></div>
+          <div style="font-size:11px;font-weight:700;width:34px;text-align:right;flex-shrink:0">2.74%</div>
+          <span class="rb g" style="flex-shrink:0">+48%</span>
+        </div>
+        <div class="ap-bar-row">
+          <div class="ap-bar-label">소구점2 균일가</div>
+          <div class="ap-bar-track"><div class="ap-bar-fill" style="width:45%;background:#F39C12"></div></div>
+          <div style="font-size:11px;font-weight:700;width:34px;text-align:right;flex-shrink:0">2.27%</div>
+          <span class="rb y" style="flex-shrink:0">+23%</span>
+        </div>
+        <div class="ap-bar-row">
+          <div class="ap-bar-label" style="color:var(--muted)">일반/default</div>
+          <div class="ap-bar-track"><div class="ap-bar-fill" style="width:37%;background:#BDC3C7"></div></div>
+          <div style="font-size:11px;color:var(--muted);width:34px;text-align:right;flex-shrink:0">1.85%</div>
+          <span style="font-size:11px;color:var(--muted);width:40px;flex-shrink:0">기준</span>
+        </div>
+        <div class="ap-bar-row">
+          <div class="ap-bar-label">소구점2 편도</div>
+          <div class="ap-bar-track"><div class="ap-bar-fill" style="width:27%;background:var(--red)"></div></div>
+          <div style="font-size:11px;font-weight:700;color:var(--red);width:34px;text-align:right;flex-shrink:0">1.37%</div>
+          <span class="rb r" style="flex-shrink:0">−26% ⚠️</span>
+        </div>
+        <div class="ap-bar-row" style="margin-bottom:0">
+          <div class="ap-bar-label">소구점1 KV 전국</div>
+          <div class="ap-bar-track"><div class="ap-bar-fill" style="width:22%;background:var(--red)"></div></div>
+          <div style="font-size:11px;font-weight:700;color:var(--red);width:34px;text-align:right;flex-shrink:0">1.11%</div>
+          <span class="rb r" style="flex-shrink:0">−40% ⚠️</span>
+        </div>
+        <div class="ap-note">paid_da_raw 6/16~6/30 · 노출(임프레션) 기준 · KV = 키비주얼 영상소재 (6/16~ 집행)</div>
+      </div>
+
+      <!-- CRM 인앱 CTR -->
+      <div>
+        <div style="font-size:11px;font-weight:700;color:var(--sub);margin-bottom:8px;text-transform:uppercase;letter-spacing:.04em">CRM 인앱 CTR — 소구점별 (6/17~6/30)</div>
+        <div class="ap-bar-row">
+          <div class="ap-bar-label" style="width:95px">소구점3 래플</div>
+          <div class="ap-bar-track"><div class="ap-bar-fill" style="width:100%;background:var(--green)"></div></div>
+          <div style="font-size:11px;font-weight:700;width:38px;text-align:right;flex-shrink:0">62.9%</div>
+          <div style="font-size:10px;color:var(--muted);flex-shrink:0">3.3K</div>
+        </div>
+        <div class="ap-bar-row">
+          <div class="ap-bar-label" style="width:95px">소구점2 균일가</div>
+          <div class="ap-bar-track"><div class="ap-bar-fill" style="width:87%;background:var(--green)"></div></div>
+          <div style="font-size:11px;font-weight:700;width:38px;text-align:right;flex-shrink:0">54.6%</div>
+          <div style="font-size:10px;color:var(--muted);flex-shrink:0">14K</div>
+        </div>
+        <div class="ap-bar-row">
+          <div class="ap-bar-label" style="width:95px">소구점1 블랙라벨</div>
+          <div class="ap-bar-track"><div class="ap-bar-fill" style="width:74%;background:var(--green)"></div></div>
+          <div style="font-size:11px;font-weight:700;width:38px;text-align:right;flex-shrink:0">46.6%</div>
+          <div style="font-size:10px;color:var(--muted);flex-shrink:0">5K</div>
+        </div>
+        <div class="ap-bar-row">
+          <div class="ap-bar-label" style="width:95px">소구점2 편도</div>
+          <div class="ap-bar-track"><div class="ap-bar-fill" style="width:15%;background:var(--red)"></div></div>
+          <div style="font-size:11px;font-weight:700;color:var(--red);width:38px;text-align:right;flex-shrink:0">9.2%</div>
+          <div style="font-size:10px;color:var(--red);font-weight:600;flex-shrink:0">16K · 최저 ⚠️</div>
+        </div>
+        <div class="ap-bar-row" style="margin-bottom:0">
+          <div class="ap-bar-label" style="width:95px;color:var(--muted)">소구점3 당첨쿠폰</div>
+          <div class="ap-bar-track"><div class="ap-bar-fill" style="width:7%;background:#BDC3C7"></div></div>
+          <div style="font-size:11px;color:var(--muted);width:38px;text-align:right;flex-shrink:0">4.5%</div>
+          <div style="font-size:10px;color:var(--muted);flex-shrink:0">534 · 소모수</div>
+        </div>
+        <div class="ap-note">braze_currents · crm_trip2606_ctr · 노출→클릭 기준</div>
+        <div class="ap-callout">
+          <b>편도 축 3박자 약세</b><br>
+          소재 CTR −27% · CRM CTR 9.2%(노출 최다·CTR 최저) · 브랜드검색 정체<br>
+          <span style="font-size:10px;color:var(--red)">→ 소재·CRM 메시지 리뉴얼 필요 (최우선 개선점)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- [B] 버티컬 경고 -->
+  <div class="ccard" style="margin-bottom:12px">
+    <div class="ccard-title">버티컬 매체 전환 <span>6/17~7/2 · 클릭→유입→가입→예약 퍼널 · 즉각 판단 필요</span></div>
+    <div class="tbl-card" style="box-shadow:none;border:none;margin:0">
+      <table>
+        <thead>
+          <tr>
+            <th>매체</th>
+            <th>비용</th>
+            <th>클릭</th>
+            <th>앱유입</th>
+            <th>가입</th>
+            <th>예약</th>
+            <th>예약 CPA</th>
+            <th>판정</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><b>카카오페이</b></td>
+            <td>554만원</td>
+            <td style="font-variant-numeric:tabular-nums">9,818</td>
+            <td style="font-variant-numeric:tabular-nums">1,437</td>
+            <td><span class="rb r">0명 🔴</span></td>
+            <td>26건</td>
+            <td><span class="rb r">~21만원</span></td>
+            <td><span class="sig cut">❌ 즉각 재점검</span></td>
+          </tr>
+          <tr>
+            <td><b>마이리얼트립</b></td>
+            <td style="color:var(--muted)">CPA기반</td>
+            <td style="color:var(--muted)">—</td>
+            <td>968</td>
+            <td>1명</td>
+            <td>9건</td>
+            <td style="color:var(--muted)">—</td>
+            <td><span class="sig chk">⚠️ 모니터링</span></td>
+          </tr>
+          <tr>
+            <td><b>고속버스</b></td>
+            <td style="color:var(--muted)">CPA기반</td>
+            <td style="color:var(--muted)">—</td>
+            <td>680</td>
+            <td>1명</td>
+            <td>16건</td>
+            <td style="color:var(--muted)">—</td>
+            <td><span class="sig chk">⚠️ 모니터링</span></td>
+          </tr>
+          <tr>
+            <td><b>트리플</b></td>
+            <td style="color:var(--muted)">CPA기반</td>
+            <td style="color:var(--muted)">—</td>
+            <td>221</td>
+            <td>2명</td>
+            <td>5건</td>
+            <td style="color:var(--muted)">—</td>
+            <td><span class="sig chk">⚠️ 모니터링</span></td>
+          </tr>
+          <tr style="background:#FFFBF0">
+            <td><b style="color:var(--muted)">블라인드·원티드</b></td>
+            <td style="color:var(--muted)">7/1~ 시작</td>
+            <td style="color:var(--muted)">—</td>
+            <td style="color:var(--muted)">—</td>
+            <td style="color:var(--muted)">—</td>
+            <td style="color:var(--muted)">—</td>
+            <td style="color:var(--muted)">—</td>
+            <td><span class="sig hold">🔶 BQ 미집계</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="ap-note" style="padding:0 4px">클릭→앱유입 단계 전환 끊김 공통. 카카오페이는 554만원에 가입 0·예약 26건(CPA ~21만)으로 비효율 최심. 블라인드·원티드는 paid_da_raw 미집계 — 파트너명 확인 후 재추적 필요.</div>
+  </div>
+
+  <!-- [C] 오프라인·브랜드 효과 -->
+  <div class="ccard" style="margin-bottom:12px">
+    <div class="ccard-title">오프라인·브랜드 효과 <span>OOH 집행 거점별 존클릭 · 브랜드검색 WoW</span></div>
+    <div class="ap-grid">
+
+      <!-- OOH 존클릭 -->
+      <div>
+        <div style="font-size:11px;font-weight:700;color:var(--sub);margin-bottom:8px;text-transform:uppercase;letter-spacing:.04em">OOH 거점별 존클릭 UV (W23→W26)</div>
+        <div class="ap-bar-row">
+          <div class="ap-bar-label" style="width:90px">부산역 KTX LED</div>
+          <div class="ap-bar-track"><div class="ap-bar-fill" style="width:100%;background:var(--blue)"></div></div>
+          <span class="rb g" style="flex-shrink:0">+97%</span>
+        </div>
+        <div class="ap-bar-row">
+          <div class="ap-bar-label" style="width:90px">서울역 KTX</div>
+          <div class="ap-bar-track"><div class="ap-bar-fill" style="width:92%;background:var(--blue)"></div></div>
+          <span class="rb g" style="flex-shrink:0">+89%</span>
+        </div>
+        <div class="ap-bar-row">
+          <div class="ap-bar-label" style="width:90px">대구반월당</div>
+          <div class="ap-bar-track"><div class="ap-bar-fill" style="width:46%;background:var(--blue)"></div></div>
+          <span class="rb g" style="flex-shrink:0">+45%</span>
+        </div>
+        <div class="ap-bar-row">
+          <div class="ap-bar-label" style="width:90px">제주공항</div>
+          <div class="ap-bar-track"><div class="ap-bar-fill" style="width:32%;background:var(--blue)"></div></div>
+          <span class="rb g" style="flex-shrink:0">+31%</span>
+        </div>
+        <div class="ap-bar-row">
+          <div class="ap-bar-label" style="width:90px">부산지하철</div>
+          <div class="ap-bar-track"><div class="ap-bar-fill" style="width:32%;background:var(--blue)"></div></div>
+          <span class="rb g" style="flex-shrink:0">+31%</span>
+        </div>
+        <div class="ap-bar-row">
+          <div class="ap-bar-label" style="width:90px">고속버스터미널</div>
+          <div class="ap-bar-track"><div class="ap-bar-fill" style="width:23%;background:var(--blue)"></div></div>
+          <span class="rb y" style="flex-shrink:0">+22%</span>
+        </div>
+        <div class="ap-bar-row">
+          <div class="ap-bar-label" style="width:90px">동대구역</div>
+          <div class="ap-bar-track"><div class="ap-bar-fill" style="width:18%;background:var(--blue)"></div></div>
+          <span class="rb y" style="flex-shrink:0">+17%</span>
+        </div>
+        <div class="ap-bar-row">
+          <div class="ap-bar-label" style="width:90px">용산</div>
+          <div class="ap-bar-track"><div class="ap-bar-fill" style="width:11%;background:var(--blue)"></div></div>
+          <span class="rb y" style="flex-shrink:0">+11%</span>
+        </div>
+        <div class="ap-bar-row" style="margin-bottom:0">
+          <div class="ap-bar-label" style="width:90px">김포공항</div>
+          <div class="ap-bar-track"><div class="ap-bar-fill" style="width:7%;background:var(--blue)"></div></div>
+          <span class="rb y" style="flex-shrink:0">+7%</span>
+        </div>
+        <div class="ap-note">socar_server_2.get_car_classes · W23(6/2~8) 대비 W26(6/23~29) distinct member UV · KTX LED(부산역·서울역) 게시 6/23~24부터</div>
+      </div>
+
+      <!-- 브랜드검색 WoW -->
+      <div>
+        <div style="font-size:11px;font-weight:700;color:var(--sub);margin-bottom:8px;text-transform:uppercase;letter-spacing:.04em">브랜드검색 WoW (데이터랩 상대지수)</div>
+        <div class="tbl-card" style="box-shadow:none;margin-bottom:10px">
+          <table>
+            <thead>
+              <tr>
+                <th>키워드</th><th>6/1</th><th>6/8</th><th>6/15~</th><th>6/22</th><th>누적 추이</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>쏘카블랙라벨</td>
+                <td>0.50</td><td>0.54</td><td>0.55</td><td><b>0.57</b></td>
+                <td><span class="arr up">↑↑</span> <span class="rb g">+68%</span></td>
+              </tr>
+              <tr>
+                <td>쏘카제주</td>
+                <td>2.4</td><td>2.7</td><td>2.7</td><td><b>2.8</b></td>
+                <td><span class="arr up">↑</span> 완만 상승</td>
+              </tr>
+              <tr>
+                <td>쏘카 (전체)</td>
+                <td>61.9</td><td>63.7</td><td>64.0</td><td><b>63.4</b></td>
+                <td><span class="arr fl">→</span> <span style="color:var(--muted)">±1% 정체</span></td>
+              </tr>
+              <tr>
+                <td>쏘카편도</td>
+                <td>0.6</td><td>0.6</td><td>0.6</td><td><b>0.6</b></td>
+                <td><span class="arr fl">→</span> <span style="color:var(--muted)">정체</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="ap-verdict">
+          ✅ <b>블랙라벨</b> — 소재·CRM·브랜드검색 3박자 강 (6/1→6/22 +68%)<br>
+          ✅ <b>제주</b> — OOH 제주공항 집행과 방향 일치 (완만 상승)<br>
+          ⚠️ <b>전체 쏘카</b> — OOH 브랜드검색 증분 미미 (±1%)<br>
+          ⚠️ <b>편도</b> — 정체 지속, 소재·CRM 약세와 동일 신호
+        </div>
+        <div class="ap-note">상대지수(최대=100 정규화). WoW 증감률만 유효, 절대량 아님. 소스: naver_brand_trend (GAS fetchNaverDatalabBrand)<br>SEO SOV: 65~77% 유지 (naver_serp_snapshot · 6/22주)</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 미완성 각주 -->
+  <div class="ap-pending">
+    <b>추적 중</b>: D30 첫예약 CVR (7/17 윈도우 완성) · 서울·부산 균일가 WoW (7/1~ 시작) · 제주 균일가 (7/9~ 시작) · 블라인드·원티드 버티컬 전환 (BQ 파트너명 확인 필요)<br>
+    <b>외부·수동 미포함</b>: 인스타 UGC · 트위터 RT · 토스·카카오페이 쿠폰수령 수 · PPL 설문 (7월 오픈)
+  </div>
+  <!-- ACTIONPLAN END -->
 
   <!-- FOOTER NOTE -->
   <div class="fnote">
@@ -842,7 +1191,7 @@ canvas{display:block;width:100%}
     <b>회차 정의</b>: 0회차=첫 예약(acc=1) / 1-3회차(acc 2~4) / 4-10회차(acc 5~11) / 11+회차(acc≥12)<br>
     <b>KR4 매출</b>: socar-data.socar_biz_profit.profit_socar_reservation · created_at_kst 기준 · 건당 avg 65,201원<br>
     <b>소구점 CVR</b>: socar_app.app_logs D1~D5 avg DLUV 실측 (0회차 25,137 / 1-3회차 26,629 / 4-10회차 20,839 / 11+회차 37,056명) · reservation_v2 accumulate_used_count 기준 회차 분류 (OKR 목표 설정과 동일 방법론)<br>
-    <b>ROAS 기준</b>: ≥1,000% ✅ 우수 / 800~999% 🟡 정상 / 600~799% 🟠 주의 / &lt;600% 🔴 비효율 · 주말 ROAS 구조적 700~790%
+    <b>ROAS 기준</b>: D0 ROAS (mmp_value÷cost×100, 예약생성기준) · ≥1,000% ✅ 우수 / 800~999% 🟡 정상 / 600~799% 🟠 주의 / &lt;600% 🔴 비효율 · 주말 ROAS 구조적 700~790%
   </div>
 
 </div><!-- /wrap -->
@@ -852,23 +1201,23 @@ canvas{display:block;width:100%}
 const D = {
   labels: ['6/8월','6/9화','6/10수','6/11목','6/12금','6/13토','6/14일','6/15월','6/16화','6/17수','6/18목','6/19금','6/20토','6/21일','6/22월','6/23화','6/24수','6/25목'],
   costs:  [1828,1830,1727,1779,1787,1814,1861,1936,1948,1799,1828,2016,2083,2042,2036,1931,2035,2087],
-  roas:   [827,776,891,802,700,566,619,616,650,664,588,485,358,297,240,144,27,0],
+  roas:   [901,855,948,940,978,786,714,897,785,874,842,903,722,707,853,879,929,902],
   isWe:   [0,0,0,0,0,1,1,0,0,0,0,0,1,1,0,0,0,0],
   isOkr:  [0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1],
-  roasPartial: [0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1]
+  roasPartial: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
 };
 
 // d = Perf DLUV D1~D5 avg (airbridge), cpd = c3*10000/d (원/명) · c3/r3 = D1~D8 avg (6/17~6/24, w25+w26)
 const CH = [
-  {n:'페이스북',   cat:'DA',  c2:281,c3:335, c4:357, r2:1224,r3:1164, r4:419,  d:3552, sig:'ok',  st:'ROAS 1,164% ✅ 유지'},
-  {n:'틱톡',       cat:'DA',  c2:464,c3:557, c4:567, r2:942, r3:1005, r4:223,  d:5215, sig:'hold',st:'ROAS 1,005% ↑ 1,000% 돌파'},
-  {n:'구글AC',     cat:'DA',  c2:495,c3:483, c4:514, r2:874, r3:666,  r4:220,  d:1937, sig:'chk', st:'ROAS 666% — -30% 삭감 검토'},
-  {n:'몰로코',     cat:'DA',  c2:136,c3:175, c4:188, r2:875, r3:805,  r4:248,  d:1431, sig:'hold',st:'ROAS 805% 800% 회복 ✅'},
-  {n:'웨어즈',     cat:'DA',  c2:50, c3:56,  c4:70,  r2:938, r3:961,  r4:231,  d:620,  sig:'hold',st:'유지'},
-  {n:'rtbhouse',   cat:'DA',  c2:91, c3:51,  c4:52,  r2:534, r3:948,  r4:184,  d:471,  sig:'hold',st:'ROAS 948% 개선 ✅'},
-  {n:'카카오',     cat:'DA',  c2:93, c3:91,  c4:91,  r2:747, r3:853,  r4:176,  d:471,  sig:'chk', st:'ROAS 853% · 모니터링 유지'},
-  {n:'네이버BSA',  cat:'BSA', c2:46, c3:46,  c4:46,  r2:1029,r3:383,  r4:89,   d:91,   sig:'chk', st:'원인불명 이상치 — 삭감 전 규명'},
-  {n:'네이버SA',   cat:'SA',  c2:149,c3:144, c4:146, r2:210, r3:304,  r4:83,   d:188,  sig:'cut', st:'감액 미완료 · ROAS 304%'},
+  {n:'페이스북',   cat:'DA',  c2:281,c3:335, c4:357, r2:1224,r3:1164, r4:1432, d:3552, sig:'ok',  st:'ROAS 1,164% ✅ 유지'},
+  {n:'틱톡',       cat:'DA',  c2:464,c3:557, c4:567, r2:942, r3:1005, r4:981,  d:5215, sig:'hold',st:'ROAS 1,005% ↑ 1,000% 돌파'},
+  {n:'구글AC',     cat:'DA',  c2:495,c3:483, c4:514, r2:874, r3:666,  r4:776,  d:1937, sig:'chk', st:'ROAS 666% — -30% 삭감 검토'},
+  {n:'몰로코',     cat:'DA',  c2:136,c3:175, c4:188, r2:875, r3:805,  r4:915,  d:1431, sig:'hold',st:'ROAS 805% 800% 회복 ✅'},
+  {n:'웨어즈',     cat:'DA',  c2:50, c3:56,  c4:70,  r2:938, r3:961,  r4:966,  d:620,  sig:'hold',st:'유지'},
+  {n:'rtbhouse',   cat:'DA',  c2:91, c3:51,  c4:52,  r2:534, r3:948,  r4:1383, d:471,  sig:'hold',st:'ROAS 948% 개선 ✅'},
+  {n:'카카오',     cat:'DA',  c2:93, c3:91,  c4:91,  r2:747, r3:853,  r4:869,  d:471,  sig:'chk', st:'ROAS 853% · 모니터링 유지'},
+  {n:'네이버BSA',  cat:'BSA', c2:46, c3:46,  c4:46,  r2:1029,r3:383,  r4:259,  d:91,   sig:'chk', st:'원인불명 이상치 — 삭감 전 규명'},
+  {n:'네이버SA',   cat:'SA',  c2:149,c3:144, c4:146, r2:210, r3:304,  r4:350,  d:188,  sig:'cut', st:'감액 미완료 · ROAS 304%'},
 ];
 
 // ── CHANNEL TABLE ──────────────────────────────────────
@@ -907,7 +1256,7 @@ CH.forEach(c=>{
     <td>${c.c4}만</td>
     <td>${roasBadge(c.r2)}</td>
     <td>${roasBadge(c.r3)}</td>
-    <td>${roasBadge(c.r4)}<sup style="font-size:8px;color:#aaa;font-weight:400">*</sup></td>
+    <td>${roasBadge(c.r4)}</td>
     <td>${trendArrow(c.r3,c.r4)}</td>
     <td>${cpdBadge(cpd)}</td>
     <td>${sigBadge(c.sig,c.st)}</td>`;
@@ -980,25 +1329,26 @@ function drawChart(){
     ctx.fillRect(x-barW/2,pT+cH-bh,barW,bh);
   });
 
-  // ROAS line — solid for complete, dashed for partial
+  // ROAS line — solid (D0 ROAS: no partial window)
   const splitIdx = D.roasPartial.indexOf(1);
-  // solid segment
   ctx.beginPath();
   ctx.strokeStyle='#E74C3C'; ctx.lineWidth=2.5; ctx.lineJoin='round';
   ctx.setLineDash([]);
-  D.roas.slice(0, splitIdx+1).forEach((r,i)=>{
+  const solidEnd = splitIdx === -1 ? D.roas.length : splitIdx+1;
+  D.roas.slice(0, solidEnd).forEach((r,i)=>{
     const x=getX(i), y=getY(r);
     i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);
   });
   ctx.stroke();
-  // dashed segment (partial window)
-  ctx.beginPath();
-  ctx.strokeStyle='#E74C3C'; ctx.lineWidth=2; ctx.setLineDash([4,4]);
-  D.roas.slice(splitIdx).forEach((r,i)=>{
-    const x=getX(splitIdx+i), y=getY(r);
-    i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);
-  });
-  ctx.stroke();
+  if (splitIdx !== -1) {
+    ctx.beginPath();
+    ctx.strokeStyle='#E74C3C'; ctx.lineWidth=2; ctx.setLineDash([4,4]);
+    D.roas.slice(splitIdx).forEach((r,i)=>{
+      const x=getX(splitIdx+i), y=getY(r);
+      i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);
+    });
+    ctx.stroke();
+  }
   ctx.setLineDash([]);
 
   // ROAS dots
