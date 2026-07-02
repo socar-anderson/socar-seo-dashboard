@@ -27,11 +27,15 @@ WITH daily_cost AS (
       WHEN REGEXP_CONTAINS(name, r'blacklabel-2605') AND REGEXP_CONTAINS(name, r'parkinglot') THEN 'blacklabel-parkinglot'
       WHEN REGEXP_CONTAINS(name, r'blacklabel-2605') AND REGEXP_CONTAINS(name, r'pinlight') THEN 'blacklabel-pinlight'
       WHEN REGEXP_CONTAINS(name, r'blacklabel-2605') AND REGEXP_CONTAINS(name, r'drive') THEN 'blacklabel-drive'
+      WHEN REGEXP_CONTAINS(name, r'sharing_al_blacklabel-2606_z2z_keyvisual_video_TF-carseat') THEN 'tf-blacklabel-kv'
+      WHEN REGEXP_CONTAINS(name, r'sharing_al_nationwide-2606_z2z_car_video_TF-car') THEN 'tf-car-olive'
+      WHEN REGEXP_CONTAINS(name, r'sharing_al_blacklabel-2606_z2z_car_video_TF-blacklabel') THEN 'tf-blacklabel-car'
+      WHEN REGEXP_CONTAINS(name, r'sharing_al_delivery-2606_d2d_car_video_TF-delivery') THEN 'tf-delivery'
     END AS creative,
     SUM(cost) AS cost
   FROM `socar-data.temp_team_smkt.paid_da_raw`
   WHERE date BETWEEN '2026-05-01' AND 'TODAY'
-    AND REGEXP_CONTAINS(name, r'stressfree-2605|diorama-2605_z2z_car|blacklabel-2605.*(palace|parkinglot|pinlight|drive)')
+    AND REGEXP_CONTAINS(name, r'stressfree-2605|diorama-2605_z2z_car|blacklabel-2605.*(palace|parkinglot|pinlight|drive)|sharing_al_blacklabel-2606_z2z_keyvisual_video_TF-carseat|sharing_al_nationwide-2606_z2z_car_video_TF-car|sharing_al_blacklabel-2606_z2z_car_video_TF-blacklabel|sharing_al_delivery-2606_d2d_car_video_TF-delivery')
   GROUP BY date, creative
 ),
 daily_rev AS (
@@ -46,12 +50,16 @@ daily_rev AS (
       WHEN REGEXP_CONTAINS(Ad_Creative, r'blacklabel-2605') AND REGEXP_CONTAINS(Ad_Creative, r'parkinglot') THEN 'blacklabel-parkinglot'
       WHEN REGEXP_CONTAINS(Ad_Creative, r'blacklabel-2605') AND REGEXP_CONTAINS(Ad_Creative, r'pinlight') THEN 'blacklabel-pinlight'
       WHEN REGEXP_CONTAINS(Ad_Creative, r'blacklabel-2605') AND REGEXP_CONTAINS(Ad_Creative, r'drive') THEN 'blacklabel-drive'
+      WHEN REGEXP_CONTAINS(Ad_Creative, r'sharing_al_blacklabel-2606_z2z_keyvisual_video_TF-carseat') THEN 'tf-blacklabel-kv'
+      WHEN REGEXP_CONTAINS(Ad_Creative, r'sharing_al_nationwide-2606_z2z_car_video_TF-car') THEN 'tf-car-olive'
+      WHEN REGEXP_CONTAINS(Ad_Creative, r'sharing_al_blacklabel-2606_z2z_car_video_TF-blacklabel') THEN 'tf-blacklabel-car'
+      WHEN REGEXP_CONTAINS(Ad_Creative, r'sharing_al_delivery-2606_d2d_car_video_TF-delivery') THEN 'tf-delivery'
     END AS creative,
     SUM(Event_Value) AS mmp_value,
     COUNT(*) AS mmp_cnt
   FROM `socar-data.airbridge.app`
   WHERE Date BETWEEN '2026-05-01' AND 'TODAY'
-    AND REGEXP_CONTAINS(Ad_Creative, r'stressfree-2605|diorama-2605_z2z_car|blacklabel-2605.*(palace|parkinglot|pinlight|drive)')
+    AND REGEXP_CONTAINS(Ad_Creative, r'stressfree-2605|diorama-2605_z2z_car|blacklabel-2605.*(palace|parkinglot|pinlight|drive)|sharing_al_blacklabel-2606_z2z_keyvisual_video_TF-carseat|sharing_al_nationwide-2606_z2z_car_video_TF-car|sharing_al_blacklabel-2606_z2z_car_video_TF-blacklabel|sharing_al_delivery-2606_d2d_car_video_TF-delivery')
     AND REGEXP_CONTAINS(Event_Name, r'completed_.+reservation_s')
     AND Event_Value IS NOT NULL
   GROUP BY date, creative
@@ -87,6 +95,10 @@ SELECT
     WHEN REGEXP_CONTAINS(name, r'blacklabel-2605') AND REGEXP_CONTAINS(name, r'parkinglot') THEN 'blacklabel-parkinglot'
     WHEN REGEXP_CONTAINS(name, r'blacklabel-2605') AND REGEXP_CONTAINS(name, r'pinlight') THEN 'blacklabel-pinlight'
     WHEN REGEXP_CONTAINS(name, r'blacklabel-2605') AND REGEXP_CONTAINS(name, r'drive') THEN 'blacklabel-drive'
+    WHEN REGEXP_CONTAINS(name, r'sharing_al_blacklabel-2606_z2z_keyvisual_video_TF-carseat') THEN 'tf-blacklabel-kv'
+    WHEN REGEXP_CONTAINS(name, r'sharing_al_nationwide-2606_z2z_car_video_TF-car') THEN 'tf-car-olive'
+    WHEN REGEXP_CONTAINS(name, r'sharing_al_blacklabel-2606_z2z_car_video_TF-blacklabel') THEN 'tf-blacklabel-car'
+    WHEN REGEXP_CONTAINS(name, r'sharing_al_delivery-2606_d2d_car_video_TF-delivery') THEN 'tf-delivery'
   END AS creative,
   ad_partner,
   ROUND(SUM(cost) / SUM(SUM(cost)) OVER (PARTITION BY
@@ -100,11 +112,15 @@ SELECT
       WHEN REGEXP_CONTAINS(name, r'blacklabel-2605') AND REGEXP_CONTAINS(name, r'parkinglot') THEN 'blacklabel-parkinglot'
       WHEN REGEXP_CONTAINS(name, r'blacklabel-2605') AND REGEXP_CONTAINS(name, r'pinlight') THEN 'blacklabel-pinlight'
       WHEN REGEXP_CONTAINS(name, r'blacklabel-2605') AND REGEXP_CONTAINS(name, r'drive') THEN 'blacklabel-drive'
+      WHEN REGEXP_CONTAINS(name, r'sharing_al_blacklabel-2606_z2z_keyvisual_video_TF-carseat') THEN 'tf-blacklabel-kv'
+      WHEN REGEXP_CONTAINS(name, r'sharing_al_nationwide-2606_z2z_car_video_TF-car') THEN 'tf-car-olive'
+      WHEN REGEXP_CONTAINS(name, r'sharing_al_blacklabel-2606_z2z_car_video_TF-blacklabel') THEN 'tf-blacklabel-car'
+      WHEN REGEXP_CONTAINS(name, r'sharing_al_delivery-2606_d2d_car_video_TF-delivery') THEN 'tf-delivery'
     END
   ) * 100, 0) AS cost_pct
 FROM `socar-data.temp_team_smkt.paid_da_raw`
 WHERE date BETWEEN '2026-05-01' AND 'TODAY'
-  AND REGEXP_CONTAINS(name, r'stressfree-2605|diorama-2605_z2z_car|blacklabel-2605.*(palace|parkinglot|pinlight|drive)')
+  AND REGEXP_CONTAINS(name, r'stressfree-2605|diorama-2605_z2z_car|blacklabel-2605.*(palace|parkinglot|pinlight|drive)|sharing_al_blacklabel-2606_z2z_keyvisual_video_TF-carseat|sharing_al_nationwide-2606_z2z_car_video_TF-car|sharing_al_blacklabel-2606_z2z_car_video_TF-blacklabel|sharing_al_delivery-2606_d2d_car_video_TF-delivery')
 GROUP BY creative, ad_partner
 HAVING creative IS NOT NULL
 ORDER BY creative, cost_pct DESC
@@ -126,7 +142,16 @@ ORDER BY creative, cost_pct DESC
 
 badge는 기존 값 유지 (수정 금지).
 mediaNote는 기존 값 유지.
-groups 배열 순서 유지: `["diorama-2605", "blacklabel-2605", "stressfree-2605"]`.
+groups 배열 순서 유지: `["diorama-2605", "blacklabel-2605", "stressfree-2605", "tf-2606"]`.
+
+소재 ID → creative-data.js 매핑:
+- `diorama-jejuterminal`, `diorama-mart`, `diorama-season`, `diorama-camping` → group: diorama-2605
+- `blacklabel-palace`, `blacklabel-drive`, `blacklabel-pinlight`, `blacklabel-parkinglot` → group: blacklabel-2605
+- `stressfree` → group: stressfree-2605
+- `tf-blacklabel-kv` (name: blacklabel_kv) → group: tf-2606, 집계 시작: 2026-06-16
+- `tf-car-olive` (name: car_olive) → group: tf-2606, 집계 시작: 2026-06-23
+- `tf-blacklabel-car` (name: blacklabel_car) → group: tf-2606, 집계 시작: 2026-07-01
+- `tf-delivery` (name: delivery) → group: tf-2606, 집계 시작: 2026-07-01
 
 ---
 

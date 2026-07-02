@@ -8,9 +8,9 @@ const CREATIVE_DATA = {
     "queryEnd": "2026-07-02"
   },
   "summary": {
-    "totalCostMan": 6454.2,
+    "totalCostMan": 6465.0,
     "totalRevenueMan": 85214,
-    "blendRoas": 1320,
+    "blendRoas": 1318,
     "totalCnt": 12499
   },
   "groups": ["diorama-2605", "blacklabel-2605", "stressfree-2605", "tf-2606"],
@@ -211,6 +211,42 @@ const CREATIVE_DATA = {
       "days": 8,
       "media": [
         { "name": "TikTok", "cls": "tt", "pct": 100 }
+      ]
+    },
+    {
+      "id": "tf-blacklabel-car",
+      "name": "blacklabel_car",
+      "group": "tf-2606",
+      "badge": "신규",
+      "roas": 0,
+      "revenueMan": 0,
+      "costMan": 5.3,
+      "cnt": 0,
+      "valuePerCnt": 0,
+      "firstDate": "2026-07-01",
+      "lastDate": "2026-07-01",
+      "days": 1,
+      "media": [
+        { "name": "Moloco", "cls": "", "pct": 77 },
+        { "name": "TikTok", "cls": "tt", "pct": 23 }
+      ]
+    },
+    {
+      "id": "tf-delivery",
+      "name": "delivery",
+      "group": "tf-2606",
+      "badge": "신규",
+      "roas": 0,
+      "revenueMan": 0,
+      "costMan": 5.5,
+      "cnt": 0,
+      "valuePerCnt": 0,
+      "firstDate": "2026-07-01",
+      "lastDate": "2026-07-01",
+      "days": 1,
+      "media": [
+        { "name": "Moloco", "cls": "", "pct": 80 },
+        { "name": "TikTok", "cls": "tt", "pct": 20 }
       ]
     }
   ]
