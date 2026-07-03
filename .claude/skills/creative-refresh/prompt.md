@@ -31,11 +31,16 @@ WITH daily_cost AS (
       WHEN REGEXP_CONTAINS(name, r'sharing_al_nationwide-2606_z2z_car_video_TF-car') THEN 'tf-car-olive'
       WHEN REGEXP_CONTAINS(name, r'sharing_al_blacklabel-2606_z2z_car_video_TF-blacklabel') THEN 'tf-blacklabel-car'
       WHEN REGEXP_CONTAINS(name, r'sharing_al_delivery-2606_d2d_car_video_TF-delivery') THEN 'tf-delivery'
+      WHEN REGEXP_CONTAINS(name, r'sharing_al_blacklabel-2606-movie_z2z_car_TF-Sketch') THEN 'tf-movie-sketch'
+      WHEN REGEXP_CONTAINS(name, r'sharing_al_blacklabel-2606-movie_z2z_car_TF-Toy') THEN 'tf-movie-toy'
+      WHEN REGEXP_CONTAINS(name, r'sharing_al_blacklabel-2606-movie_z2z_car_TF-bladerunner') THEN 'tf-movie-bladerunner'
+      WHEN REGEXP_CONTAINS(name, r'sharing_al_blacklabel-2606-movie_z2z_car_TF-Minor') THEN 'tf-movie-minor'
+      WHEN REGEXP_CONTAINS(name, r'sharing_al_blacklabel-2606-movie_z2z_car_TF-Gatsby') THEN 'tf-movie-gatsby'
     END AS creative,
     SUM(cost) AS cost
   FROM `socar-data.temp_team_smkt.paid_da_raw`
   WHERE date BETWEEN '2026-05-01' AND 'TODAY'
-    AND REGEXP_CONTAINS(name, r'stressfree-2605|diorama-2605_z2z_car|blacklabel-2605.*(palace|parkinglot|pinlight|drive)|sharing_al_blacklabel-2606_z2z_keyvisual_video_TF-carseat|sharing_al_nationwide-2606_z2z_car_video_TF-car|sharing_al_blacklabel-2606_z2z_car_video_TF-blacklabel|sharing_al_delivery-2606_d2d_car_video_TF-delivery')
+    AND REGEXP_CONTAINS(name, r'stressfree-2605|diorama-2605_z2z_car|blacklabel-2605.*(palace|parkinglot|pinlight|drive)|sharing_al_blacklabel-2606_z2z_keyvisual_video_TF-carseat|sharing_al_nationwide-2606_z2z_car_video_TF-car|sharing_al_blacklabel-2606_z2z_car_video_TF-blacklabel|sharing_al_delivery-2606_d2d_car_video_TF-delivery|sharing_al_blacklabel-2606-movie_z2z_car_TF-(Sketch|Toy|bladerunner|Minor|Gatsby)')
   GROUP BY date, creative
 ),
 daily_rev AS (
@@ -54,12 +59,17 @@ daily_rev AS (
       WHEN REGEXP_CONTAINS(Ad_Creative, r'sharing_al_nationwide-2606_z2z_car_video_TF-car') THEN 'tf-car-olive'
       WHEN REGEXP_CONTAINS(Ad_Creative, r'sharing_al_blacklabel-2606_z2z_car_video_TF-blacklabel') THEN 'tf-blacklabel-car'
       WHEN REGEXP_CONTAINS(Ad_Creative, r'sharing_al_delivery-2606_d2d_car_video_TF-delivery') THEN 'tf-delivery'
+      WHEN REGEXP_CONTAINS(Ad_Creative, r'sharing_al_blacklabel-2606-movie_z2z_car_TF-Sketch') THEN 'tf-movie-sketch'
+      WHEN REGEXP_CONTAINS(Ad_Creative, r'sharing_al_blacklabel-2606-movie_z2z_car_TF-Toy') THEN 'tf-movie-toy'
+      WHEN REGEXP_CONTAINS(Ad_Creative, r'sharing_al_blacklabel-2606-movie_z2z_car_TF-bladerunner') THEN 'tf-movie-bladerunner'
+      WHEN REGEXP_CONTAINS(Ad_Creative, r'sharing_al_blacklabel-2606-movie_z2z_car_TF-Minor') THEN 'tf-movie-minor'
+      WHEN REGEXP_CONTAINS(Ad_Creative, r'sharing_al_blacklabel-2606-movie_z2z_car_TF-Gatsby') THEN 'tf-movie-gatsby'
     END AS creative,
     SUM(Event_Value) AS mmp_value,
     COUNT(*) AS mmp_cnt
   FROM `socar-data.airbridge.app`
   WHERE Date BETWEEN '2026-05-01' AND 'TODAY'
-    AND REGEXP_CONTAINS(Ad_Creative, r'stressfree-2605|diorama-2605_z2z_car|blacklabel-2605.*(palace|parkinglot|pinlight|drive)|sharing_al_blacklabel-2606_z2z_keyvisual_video_TF-carseat|sharing_al_nationwide-2606_z2z_car_video_TF-car|sharing_al_blacklabel-2606_z2z_car_video_TF-blacklabel|sharing_al_delivery-2606_d2d_car_video_TF-delivery')
+    AND REGEXP_CONTAINS(Ad_Creative, r'stressfree-2605|diorama-2605_z2z_car|blacklabel-2605.*(palace|parkinglot|pinlight|drive)|sharing_al_blacklabel-2606_z2z_keyvisual_video_TF-carseat|sharing_al_nationwide-2606_z2z_car_video_TF-car|sharing_al_blacklabel-2606_z2z_car_video_TF-blacklabel|sharing_al_delivery-2606_d2d_car_video_TF-delivery|sharing_al_blacklabel-2606-movie_z2z_car_TF-(Sketch|Toy|bladerunner|Minor|Gatsby)')
     AND REGEXP_CONTAINS(Event_Name, r'completed_.+reservation_s')
     AND Event_Value IS NOT NULL
   GROUP BY date, creative
@@ -99,6 +109,11 @@ SELECT
     WHEN REGEXP_CONTAINS(name, r'sharing_al_nationwide-2606_z2z_car_video_TF-car') THEN 'tf-car-olive'
     WHEN REGEXP_CONTAINS(name, r'sharing_al_blacklabel-2606_z2z_car_video_TF-blacklabel') THEN 'tf-blacklabel-car'
     WHEN REGEXP_CONTAINS(name, r'sharing_al_delivery-2606_d2d_car_video_TF-delivery') THEN 'tf-delivery'
+    WHEN REGEXP_CONTAINS(name, r'sharing_al_blacklabel-2606-movie_z2z_car_TF-Sketch') THEN 'tf-movie-sketch'
+    WHEN REGEXP_CONTAINS(name, r'sharing_al_blacklabel-2606-movie_z2z_car_TF-Toy') THEN 'tf-movie-toy'
+    WHEN REGEXP_CONTAINS(name, r'sharing_al_blacklabel-2606-movie_z2z_car_TF-bladerunner') THEN 'tf-movie-bladerunner'
+    WHEN REGEXP_CONTAINS(name, r'sharing_al_blacklabel-2606-movie_z2z_car_TF-Minor') THEN 'tf-movie-minor'
+    WHEN REGEXP_CONTAINS(name, r'sharing_al_blacklabel-2606-movie_z2z_car_TF-Gatsby') THEN 'tf-movie-gatsby'
   END AS creative,
   ad_partner,
   ROUND(SUM(cost) / SUM(SUM(cost)) OVER (PARTITION BY
@@ -116,11 +131,16 @@ SELECT
       WHEN REGEXP_CONTAINS(name, r'sharing_al_nationwide-2606_z2z_car_video_TF-car') THEN 'tf-car-olive'
       WHEN REGEXP_CONTAINS(name, r'sharing_al_blacklabel-2606_z2z_car_video_TF-blacklabel') THEN 'tf-blacklabel-car'
       WHEN REGEXP_CONTAINS(name, r'sharing_al_delivery-2606_d2d_car_video_TF-delivery') THEN 'tf-delivery'
+      WHEN REGEXP_CONTAINS(name, r'sharing_al_blacklabel-2606-movie_z2z_car_TF-Sketch') THEN 'tf-movie-sketch'
+      WHEN REGEXP_CONTAINS(name, r'sharing_al_blacklabel-2606-movie_z2z_car_TF-Toy') THEN 'tf-movie-toy'
+      WHEN REGEXP_CONTAINS(name, r'sharing_al_blacklabel-2606-movie_z2z_car_TF-bladerunner') THEN 'tf-movie-bladerunner'
+      WHEN REGEXP_CONTAINS(name, r'sharing_al_blacklabel-2606-movie_z2z_car_TF-Minor') THEN 'tf-movie-minor'
+      WHEN REGEXP_CONTAINS(name, r'sharing_al_blacklabel-2606-movie_z2z_car_TF-Gatsby') THEN 'tf-movie-gatsby'
     END
   ) * 100, 0) AS cost_pct
 FROM `socar-data.temp_team_smkt.paid_da_raw`
 WHERE date BETWEEN '2026-05-01' AND 'TODAY'
-  AND REGEXP_CONTAINS(name, r'stressfree-2605|diorama-2605_z2z_car|blacklabel-2605.*(palace|parkinglot|pinlight|drive)|sharing_al_blacklabel-2606_z2z_keyvisual_video_TF-carseat|sharing_al_nationwide-2606_z2z_car_video_TF-car|sharing_al_blacklabel-2606_z2z_car_video_TF-blacklabel|sharing_al_delivery-2606_d2d_car_video_TF-delivery')
+  AND REGEXP_CONTAINS(name, r'stressfree-2605|diorama-2605_z2z_car|blacklabel-2605.*(palace|parkinglot|pinlight|drive)|sharing_al_blacklabel-2606_z2z_keyvisual_video_TF-carseat|sharing_al_nationwide-2606_z2z_car_video_TF-car|sharing_al_blacklabel-2606_z2z_car_video_TF-blacklabel|sharing_al_delivery-2606_d2d_car_video_TF-delivery|sharing_al_blacklabel-2606-movie_z2z_car_TF-(Sketch|Toy|bladerunner|Minor|Gatsby)')
 GROUP BY creative, ad_partner
 HAVING creative IS NOT NULL
 ORDER BY creative, cost_pct DESC
@@ -152,6 +172,11 @@ groups 배열 순서 유지: `["diorama-2605", "blacklabel-2605", "stressfree-26
 - `tf-car-olive` (name: car_olive) → group: tf-2606, 집계 시작: 2026-06-23
 - `tf-blacklabel-car` (name: blacklabel_car) → group: tf-2606, 집계 시작: 2026-07-01
 - `tf-delivery` (name: delivery) → group: tf-2606, 집계 시작: 2026-07-01
+- `tf-movie-sketch` (name: movie_sketch) → group: tf-2606, 집계 시작: 2026-07-02
+- `tf-movie-toy` (name: movie_toy) → group: tf-2606, 집계 시작: 2026-07-02
+- `tf-movie-bladerunner` (name: movie_bladerunner) → group: tf-2606, 집계 시작: 2026-07-02
+- `tf-movie-minor` (name: movie_minor) → group: tf-2606, 집계 시작: 2026-07-02
+- `tf-movie-gatsby` (name: movie_gatsby) → group: tf-2606, 집계 시작: 2026-07-02
 
 ---
 

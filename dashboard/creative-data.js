@@ -8,9 +8,9 @@ const CREATIVE_DATA = {
     "queryEnd": "2026-07-03"
   },
   "summary": {
-    "totalCostMan": 6556.6,
+    "totalCostMan": 6570.6,
     "totalRevenueMan": 86251,
-    "blendRoas": 1316,
+    "blendRoas": 1313,
     "totalCnt": 12664
   },
   "groups": ["diorama-2605", "blacklabel-2605", "stressfree-2605", "tf-2606"],
@@ -247,6 +247,96 @@ const CREATIVE_DATA = {
       "media": [
         { "name": "Moloco", "cls": "", "pct": 80 },
         { "name": "TikTok", "cls": "tt", "pct": 20 }
+      ]
+    },
+    {
+      "id": "tf-movie-gatsby",
+      "name": "movie_gatsby",
+      "group": "tf-2606",
+      "badge": "신규",
+      "roas": 0,
+      "revenueMan": 0,
+      "costMan": 5.7,
+      "cnt": 0,
+      "valuePerCnt": 0,
+      "firstDate": "2026-07-02",
+      "lastDate": "2026-07-02",
+      "days": 1,
+      "media": [
+        { "name": "Facebook", "cls": "fb", "pct": 98 },
+        { "name": "TikTok", "cls": "tt", "pct": 2 }
+      ]
+    },
+    {
+      "id": "tf-movie-toy",
+      "name": "movie_toy",
+      "group": "tf-2606",
+      "badge": "신규",
+      "roas": 0,
+      "revenueMan": 0,
+      "costMan": 2.6,
+      "cnt": 0,
+      "valuePerCnt": 0,
+      "firstDate": "2026-07-02",
+      "lastDate": "2026-07-02",
+      "days": 1,
+      "media": [
+        { "name": "Facebook", "cls": "fb", "pct": 93 },
+        { "name": "TikTok", "cls": "tt", "pct": 7 }
+      ]
+    },
+    {
+      "id": "tf-movie-sketch",
+      "name": "movie_sketch",
+      "group": "tf-2606",
+      "badge": "신규",
+      "roas": 0,
+      "revenueMan": 0,
+      "costMan": 1.6,
+      "cnt": 0,
+      "valuePerCnt": 0,
+      "firstDate": "2026-07-02",
+      "lastDate": "2026-07-02",
+      "days": 1,
+      "media": [
+        { "name": "Facebook", "cls": "fb", "pct": 93 },
+        { "name": "TikTok", "cls": "tt", "pct": 7 }
+      ]
+    },
+    {
+      "id": "tf-movie-bladerunner",
+      "name": "movie_bladerunner",
+      "group": "tf-2606",
+      "badge": "신규",
+      "roas": 0,
+      "revenueMan": 0,
+      "costMan": 2.2,
+      "cnt": 0,
+      "valuePerCnt": 0,
+      "firstDate": "2026-07-02",
+      "lastDate": "2026-07-02",
+      "days": 1,
+      "media": [
+        { "name": "Facebook", "cls": "fb", "pct": 82 },
+        { "name": "TikTok", "cls": "tt", "pct": 18 }
+      ]
+    },
+    {
+      "id": "tf-movie-minor",
+      "name": "movie_minor",
+      "group": "tf-2606",
+      "badge": "신규",
+      "roas": 0,
+      "revenueMan": 0,
+      "costMan": 1.9,
+      "cnt": 0,
+      "valuePerCnt": 0,
+      "firstDate": "2026-07-02",
+      "lastDate": "2026-07-02",
+      "days": 1,
+      "media": [
+        { "name": "Facebook", "cls": "fb", "pct": 92 },
+        { "name": "TikTok", "cls": "tt", "pct": 8 }
       ]
     }
   ]
