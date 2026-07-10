@@ -23,7 +23,7 @@ QUERY_START = "2026-05-01"
 
 print(f"[creative-refresh] 기준일: {TODAY}")
 
-# ── CASE WHEN 공통 템플릿 ─────────────────────────────────────────────
+# ── CASE WHEN: paid_da_raw (name 컬럼) ───────────────────────────────
 CASE_COST = """
     CASE
       WHEN REGEXP_CONTAINS(name, r'stressfree-2605') THEN 'stressfree'
@@ -35,13 +35,44 @@ CASE_COST = """
       WHEN REGEXP_CONTAINS(name, r'blacklabel-2605') AND REGEXP_CONTAINS(name, r'parkinglot') THEN 'blacklabel-parkinglot'
       WHEN REGEXP_CONTAINS(name, r'blacklabel-2605') AND REGEXP_CONTAINS(name, r'pinlight') THEN 'blacklabel-pinlight'
       WHEN REGEXP_CONTAINS(name, r'blacklabel-2605') AND REGEXP_CONTAINS(name, r'drive') THEN 'blacklabel-drive'
+      WHEN REGEXP_CONTAINS(name, r'sharing_al_blacklabel-2606_z2z_keyvisual_video_TF-carseat') THEN 'tf-blacklabel-kv'
+      WHEN REGEXP_CONTAINS(name, r'sharing_al_nationwide-2606_z2z_car_video_TF-car') THEN 'tf-car-olive'
+      WHEN REGEXP_CONTAINS(name, r'sharing_al_blacklabel-2606_z2z_car_video_TF-blacklabel') THEN 'tf-blacklabel-car'
+      WHEN REGEXP_CONTAINS(name, r'sharing_al_delivery-2606_d2d_car_video_TF-delivery') THEN 'tf-delivery'
+      WHEN REGEXP_CONTAINS(name, r'sharing_al_blacklabel-2606-movie_z2z_car_TF-Sketch') THEN 'tf-movie-sketch'
+      WHEN REGEXP_CONTAINS(name, r'sharing_al_blacklabel-2606-movie_z2z_car_TF-Toy') THEN 'tf-movie-toy'
+      WHEN REGEXP_CONTAINS(name, r'sharing_al_blacklabel-2606-movie_z2z_car_TF-bladerunner') THEN 'tf-movie-bladerunner'
+      WHEN REGEXP_CONTAINS(name, r'sharing_al_blacklabel-2606-movie_z2z_car_TF-Minor') THEN 'tf-movie-minor'
+      WHEN REGEXP_CONTAINS(name, r'sharing_al_blacklabel-2606-movie_z2z_car_TF-Gatsby') THEN 'tf-movie-gatsby'
     END
 """
 
-CASE_REV = CASE_COST.replace("name,", "Ad_Creative,").replace("name,", "Ad_Creative,")
+# ── CASE WHEN: airbridge.app (Ad_Creative 컬럼) ───────────────────────
+CASE_REV = """
+    CASE
+      WHEN REGEXP_CONTAINS(Ad_Creative, r'stressfree-2605') THEN 'stressfree'
+      WHEN REGEXP_CONTAINS(Ad_Creative, r'diorama-2605_z2z_car_camping') THEN 'diorama-camping'
+      WHEN REGEXP_CONTAINS(Ad_Creative, r'diorama-2605_z2z_car_jejuterminal') THEN 'diorama-jejuterminal'
+      WHEN REGEXP_CONTAINS(Ad_Creative, r'diorama-2605_z2z_car_mart') THEN 'diorama-mart'
+      WHEN REGEXP_CONTAINS(Ad_Creative, r'diorama-2605_z2z_car_season') THEN 'diorama-season'
+      WHEN REGEXP_CONTAINS(Ad_Creative, r'blacklabel-2605') AND REGEXP_CONTAINS(Ad_Creative, r'palace') THEN 'blacklabel-palace'
+      WHEN REGEXP_CONTAINS(Ad_Creative, r'blacklabel-2605') AND REGEXP_CONTAINS(Ad_Creative, r'parkinglot') THEN 'blacklabel-parkinglot'
+      WHEN REGEXP_CONTAINS(Ad_Creative, r'blacklabel-2605') AND REGEXP_CONTAINS(Ad_Creative, r'pinlight') THEN 'blacklabel-pinlight'
+      WHEN REGEXP_CONTAINS(Ad_Creative, r'blacklabel-2605') AND REGEXP_CONTAINS(Ad_Creative, r'drive') THEN 'blacklabel-drive'
+      WHEN REGEXP_CONTAINS(Ad_Creative, r'sharing_al_blacklabel-2606_z2z_keyvisual_video_TF-carseat') THEN 'tf-blacklabel-kv'
+      WHEN REGEXP_CONTAINS(Ad_Creative, r'sharing_al_nationwide-2606_z2z_car_video_TF-car') THEN 'tf-car-olive'
+      WHEN REGEXP_CONTAINS(Ad_Creative, r'sharing_al_blacklabel-2606_z2z_car_video_TF-blacklabel') THEN 'tf-blacklabel-car'
+      WHEN REGEXP_CONTAINS(Ad_Creative, r'sharing_al_delivery-2606_d2d_car_video_TF-delivery') THEN 'tf-delivery'
+      WHEN REGEXP_CONTAINS(Ad_Creative, r'sharing_al_blacklabel-2606-movie_z2z_car_TF-Sketch') THEN 'tf-movie-sketch'
+      WHEN REGEXP_CONTAINS(Ad_Creative, r'sharing_al_blacklabel-2606-movie_z2z_car_TF-Toy') THEN 'tf-movie-toy'
+      WHEN REGEXP_CONTAINS(Ad_Creative, r'sharing_al_blacklabel-2606-movie_z2z_car_TF-bladerunner') THEN 'tf-movie-bladerunner'
+      WHEN REGEXP_CONTAINS(Ad_Creative, r'sharing_al_blacklabel-2606-movie_z2z_car_TF-Minor') THEN 'tf-movie-minor'
+      WHEN REGEXP_CONTAINS(Ad_Creative, r'sharing_al_blacklabel-2606-movie_z2z_car_TF-Gatsby') THEN 'tf-movie-gatsby'
+    END
+"""
 
-FILTER_COST = "REGEXP_CONTAINS(name, r'stressfree-2605|diorama-2605_z2z_car|blacklabel-2605.*(palace|parkinglot|pinlight|drive)')"
-FILTER_REV  = "REGEXP_CONTAINS(Ad_Creative, r'stressfree-2605|diorama-2605_z2z_car|blacklabel-2605.*(palace|parkinglot|pinlight|drive)')"
+FILTER_COST = r"REGEXP_CONTAINS(name, r'stressfree-2605|diorama-2605_z2z_car|blacklabel-2605.*(palace|parkinglot|pinlight|drive)|sharing_al_blacklabel-2606_z2z_keyvisual_video_TF-carseat|sharing_al_nationwide-2606_z2z_car_video_TF-car|sharing_al_blacklabel-2606_z2z_car_video_TF-blacklabel|sharing_al_delivery-2606_d2d_car_video_TF-delivery|sharing_al_blacklabel-2606-movie_z2z_car_TF-(Sketch|Toy|bladerunner|Minor|Gatsby)')"
+FILTER_REV  = r"REGEXP_CONTAINS(Ad_Creative, r'stressfree-2605|diorama-2605_z2z_car|blacklabel-2605.*(palace|parkinglot|pinlight|drive)|sharing_al_blacklabel-2606_z2z_keyvisual_video_TF-carseat|sharing_al_nationwide-2606_z2z_car_video_TF-car|sharing_al_blacklabel-2606_z2z_car_video_TF-blacklabel|sharing_al_delivery-2606_d2d_car_video_TF-delivery|sharing_al_blacklabel-2606-movie_z2z_car_TF-(Sketch|Toy|bladerunner|Minor|Gatsby)')"
 
 # ── Query A: 소재별 ROAS·매출·비용·건수 ────────────────────────────────
 QUERY_A = f"""
@@ -56,17 +87,7 @@ WITH daily_cost AS (
 ),
 daily_rev AS (
   SELECT Date AS date,
-    CASE
-      WHEN REGEXP_CONTAINS(Ad_Creative, r'stressfree-2605') THEN 'stressfree'
-      WHEN REGEXP_CONTAINS(Ad_Creative, r'diorama-2605_z2z_car_camping') THEN 'diorama-camping'
-      WHEN REGEXP_CONTAINS(Ad_Creative, r'diorama-2605_z2z_car_jejuterminal') THEN 'diorama-jejuterminal'
-      WHEN REGEXP_CONTAINS(Ad_Creative, r'diorama-2605_z2z_car_mart') THEN 'diorama-mart'
-      WHEN REGEXP_CONTAINS(Ad_Creative, r'diorama-2605_z2z_car_season') THEN 'diorama-season'
-      WHEN REGEXP_CONTAINS(Ad_Creative, r'blacklabel-2605') AND REGEXP_CONTAINS(Ad_Creative, r'palace') THEN 'blacklabel-palace'
-      WHEN REGEXP_CONTAINS(Ad_Creative, r'blacklabel-2605') AND REGEXP_CONTAINS(Ad_Creative, r'parkinglot') THEN 'blacklabel-parkinglot'
-      WHEN REGEXP_CONTAINS(Ad_Creative, r'blacklabel-2605') AND REGEXP_CONTAINS(Ad_Creative, r'pinlight') THEN 'blacklabel-pinlight'
-      WHEN REGEXP_CONTAINS(Ad_Creative, r'blacklabel-2605') AND REGEXP_CONTAINS(Ad_Creative, r'drive') THEN 'blacklabel-drive'
-    END AS creative,
+    {CASE_REV} AS creative,
     SUM(Event_Value) AS mmp_value,
     COUNT(*) AS mmp_cnt
   FROM `socar-data.airbridge.app`
@@ -93,21 +114,24 @@ GROUP BY c.creative
 ORDER BY roas_pct DESC
 """
 
-# ── Query B: 소재별 매체 비중 ─────────────────────────────────────────
+# ── Query B: 소재별 매체 비중 (CTE로 윈도우 함수 오류 방지) ──────────────
 QUERY_B = f"""
+WITH base AS (
+  SELECT
+    {CASE_COST} AS creative,
+    ad_partner,
+    SUM(cost) AS cost
+  FROM `socar-data.temp_team_smkt.paid_da_raw`
+  WHERE date BETWEEN '{QUERY_START}' AND '{TODAY}'
+    AND {FILTER_COST}
+  GROUP BY creative, ad_partner
+  HAVING creative IS NOT NULL
+)
 SELECT
-  {CASE_COST} AS creative,
+  creative,
   ad_partner,
-  ROUND(
-    SUM(cost) / SUM(SUM(cost)) OVER (
-      PARTITION BY {CASE_COST}
-    ) * 100, 0
-  ) AS cost_pct
-FROM `socar-data.temp_team_smkt.paid_da_raw`
-WHERE date BETWEEN '{QUERY_START}' AND '{TODAY}'
-  AND {FILTER_COST}
-GROUP BY creative, ad_partner
-HAVING creative IS NOT NULL
+  ROUND(cost / SUM(cost) OVER (PARTITION BY creative) * 100, 0) AS cost_pct
+FROM base
 ORDER BY creative, cost_pct DESC
 """
 
@@ -121,16 +145,13 @@ rows_b = list(client.query(QUERY_B).result())
 print(f"  → {len(rows_b)}개 행")
 
 # ── 결과 파싱 ─────────────────────────────────────────────────────────
-# A: creative_id → metrics dict
 metrics = {r.creative: dict(r) for r in rows_a}
 
-# B: creative_id → media list [{name, cls, pct}]
 PARTNER_MAP = {
-    "틱톡": ("TikTok", "tt"),
     "tiktok": ("TikTok", "tt"),
-    "페이스북": ("Facebook", "fb"),
     "facebook": ("Facebook", "fb"),
     "meta": ("Facebook", "fb"),
+    "moloco": ("Moloco", ""),
 }
 media_map = {}
 for r in rows_b:
@@ -142,33 +163,21 @@ for r in rows_b:
         ((n, c) for k, (n, c) in PARTNER_MAP.items() if k in partner_lower),
         (r.ad_partner, ""),
     )
-    media_map[cid].append({"name": name, "cls": cls, "pct": int(r.cost_pct or 0)})
+    pct = int(r.cost_pct or 0)
+    if pct > 0:
+        media_map[cid].append({"name": name, "cls": cls, "pct": pct})
 
-# ── 기존 creative-data.js에서 badge·mediaNote·groups 유지 ──────────────
-script_dir = os.path.dirname(os.path.abspath(__file__))
-data_js_path = os.path.join(script_dir, "..", "..", "dashboard", "creative-data.js")
-data_js_path = os.path.normpath(data_js_path)
+# ── 소재 메타 정의 ────────────────────────────────────────────────────
+GROUPS_ORDER = ["diorama-2605", "blacklabel-2605", "stressfree-2605", "tf-2606"]
 
-# badge, mediaNote는 BQ로 자동 갱신 불가 → 기존 값 유지
-BADGE_DEFAULTS = {
-    "diorama-jejuterminal": "최고 효율",
-    "diorama-mart": "양호",
-    "diorama-season": "양호",
-    "diorama-camping": "모니터링",
-    "blacklabel-palace": "양호",
-    "blacklabel-drive": "볼륨 1위",
-    "blacklabel-pinlight": "모니터링",
-    "blacklabel-parkinglot": "중단 · 참고용",
-    "stressfree": "양호",
-}
-MEDIA_NOTES = {"stressfree": "(TT 5/27 중단)"}
-
-GROUPS_ORDER = ["diorama-2605", "blacklabel-2605", "stressfree-2605"]
 CREATIVE_ORDER = [
     "diorama-jejuterminal", "diorama-mart", "diorama-season", "diorama-camping",
     "blacklabel-palace", "blacklabel-drive", "blacklabel-pinlight", "blacklabel-parkinglot",
     "stressfree",
+    "tf-blacklabel-kv", "tf-car-olive", "tf-blacklabel-car", "tf-delivery",
+    "tf-movie-gatsby", "tf-movie-toy", "tf-movie-sketch", "tf-movie-bladerunner", "tf-movie-minor",
 ]
+
 GROUP_OF = {
     "diorama-jejuterminal": "diorama-2605",
     "diorama-mart": "diorama-2605",
@@ -179,38 +188,85 @@ GROUP_OF = {
     "blacklabel-pinlight": "blacklabel-2605",
     "blacklabel-parkinglot": "blacklabel-2605",
     "stressfree": "stressfree-2605",
+    "tf-blacklabel-kv": "tf-2606",
+    "tf-car-olive": "tf-2606",
+    "tf-blacklabel-car": "tf-2606",
+    "tf-delivery": "tf-2606",
+    "tf-movie-gatsby": "tf-2606",
+    "tf-movie-toy": "tf-2606",
+    "tf-movie-sketch": "tf-2606",
+    "tf-movie-bladerunner": "tf-2606",
+    "tf-movie-minor": "tf-2606",
 }
-NAME_OF = {cid: cid.split("-", 1)[-1] if "-" in cid else cid for cid in CREATIVE_ORDER}
-NAME_OF["stressfree"] = "stressfree"
+
+NAME_OF = {
+    "diorama-jejuterminal": "jejuterminal",
+    "diorama-mart": "mart",
+    "diorama-season": "season",
+    "diorama-camping": "camping",
+    "blacklabel-palace": "palace",
+    "blacklabel-drive": "drive",
+    "blacklabel-pinlight": "pinlight",
+    "blacklabel-parkinglot": "parkinglot",
+    "stressfree": "stressfree",
+    "tf-blacklabel-kv": "blacklabel_kv",
+    "tf-car-olive": "car_olive",
+    "tf-blacklabel-car": "blacklabel_car",
+    "tf-delivery": "delivery",
+    "tf-movie-gatsby": "movie_gatsby",
+    "tf-movie-toy": "movie_toy",
+    "tf-movie-sketch": "movie_sketch",
+    "tf-movie-bladerunner": "movie_bladerunner",
+    "tf-movie-minor": "movie_minor",
+}
+
+BADGE_DEFAULTS = {
+    "diorama-jejuterminal": "최고 효율",
+    "diorama-mart": "양호",
+    "diorama-season": "양호",
+    "diorama-camping": "모니터링",
+    "blacklabel-palace": "모니터링",
+    "blacklabel-drive": "볼륨 1위",
+    "blacklabel-pinlight": "모니터링",
+    "blacklabel-parkinglot": "중단 · 참고용",
+    "stressfree": "양호",
+    "tf-blacklabel-kv": "양호",
+    "tf-car-olive": "모니터링",
+    "tf-blacklabel-car": "모니터링",
+    "tf-delivery": "모니터링",
+    "tf-movie-gatsby": "양호",
+    "tf-movie-toy": "양호",
+    "tf-movie-sketch": "모니터링",
+    "tf-movie-bladerunner": "모니터링",
+    "tf-movie-minor": "양호",
+}
+
+MEDIA_NOTES = {"stressfree": "(TT 5/27 중단)"}
 
 # ── summary 계산 ──────────────────────────────────────────────────────
-total_cost   = sum(v.get("cost_man", 0) for v in metrics.values())
-total_rev    = sum(v.get("mmp_value_man", 0) for v in metrics.values())
-total_cnt    = sum(v.get("mmp_cnt", 0) for v in metrics.values())
-blend_roas   = round(total_rev / total_cost * 100) if total_cost else 0
+total_cost = sum(v.get("cost_man", 0) for v in metrics.values())
+total_rev  = sum(v.get("mmp_value_man", 0) for v in metrics.values())
+total_cnt  = sum(v.get("mmp_cnt", 0) for v in metrics.values())
+blend_roas = round(total_rev / total_cost * 100) if total_cost else 0
 
 # ── creative-data.js 생성 ──────────────────────────────────────────────
-def js_str(v):
-    return json.dumps(v, ensure_ascii=False)
-
 creatives_js = []
 for cid in CREATIVE_ORDER:
     m = metrics.get(cid, {})
-    media_list = media_map.get(cid, [])
     entry = {
         "id": cid,
         "name": NAME_OF.get(cid, cid),
         "group": GROUP_OF.get(cid, ""),
         "badge": BADGE_DEFAULTS.get(cid, ""),
-        "roas": int(m.get("roas_pct", 0)),
-        "revenueMan": int(m.get("mmp_value_man", 0)),
-        "costMan": float(m.get("cost_man", 0)),
-        "cnt": int(m.get("mmp_cnt", 0)),
-        "valuePerCnt": int(m.get("value_per_cnt", 0)),
+        "roas": int(m.get("roas_pct") or 0),
+        "revenueMan": int(m.get("mmp_value_man") or 0),
+        "costMan": float(m.get("cost_man") or 0),
+        "cnt": int(m.get("mmp_cnt") or 0),
+        "valuePerCnt": int(m.get("value_per_cnt") or 0),
         "firstDate": m.get("first_date", ""),
         "lastDate": m.get("last_date", ""),
-        "days": int(m.get("days", 0)),
-        "media": media_list,
+        "days": int(m.get("days") or 0),
+        "media": media_map.get(cid, []),
     }
     if cid in MEDIA_NOTES:
         entry["mediaNote"] = MEDIA_NOTES[cid]
@@ -231,6 +287,9 @@ data = {
     "groups": GROUPS_ORDER,
     "creatives": creatives_js,
 }
+
+script_dir = os.path.dirname(os.path.abspath(__file__))
+data_js_path = os.path.normpath(os.path.join(script_dir, "..", "..", "dashboard", "creative-data.js"))
 
 js_content = (
     f"// auto-generated by creative refresh\n"
