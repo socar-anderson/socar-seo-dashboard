@@ -149,10 +149,10 @@ canvas{display:block;width:100%}
     </div>
     <div class="kr">
       <div class="kr-name">KR2 · 전환율 CVR</div>
-      <div class="kr-val" style="color:#E67E22">10.0<span style="font-size:13px;font-weight:500;color:var(--sub)">%</span></div>
-      <div class="kr-tgt">목표 10.1% · <b style="color:#E67E22">99.0% 달성</b></div>
-      <div class="kr-prog"><div class="kr-prog-fill fill-y" style="width:99%"></div></div>
-      <div class="kr-sub">생성 11.5% × 완료율 87% = <b style="color:#E67E22">완료추산 10.0%</b> · 기준 9.08% 대비 +0.92%p<br><span style="color:var(--muted)">반납 완료 기준 단독 시 8.3% (시차 효과) — 생성×87% 이 OKR 측정 기준에 부합</span></div>
+      <div class="kr-val" style="color:#27AE60">10.1<span style="font-size:13px;font-weight:500;color:var(--sub)">%</span></div>
+      <div class="kr-tgt">목표 10.1% · <b style="color:#27AE60">100.0% 달성 🎉</b></div>
+      <div class="kr-prog"><div class="kr-prog-fill fill-g" style="width:100%"></div></div>
+      <div class="kr-sub">생성 11.6% × 완료율 87% = <b style="color:#27AE60">완료추산 10.1%</b> · 기준 9.08% 대비 +1.02%p<br><span style="color:var(--muted)">12,292건 / 122,045명 = 10.073% → 반납 완료 기준 단독 시 8.3% (시차 효과)</span></div>
     </div>
     <div class="kr">
       <div class="kr-name">KR3 · 일 평균 예약</div>
@@ -1367,7 +1367,7 @@ canvas{display:block;width:100%}
   </div>
 
   <!-- CHANNEL TABLE -->
-  <div class="sec-label">채널별 성과 — P2(6/8~14) vs W1(D1~D8) vs W2 avg(6/24~7/2) vs W3 avg(7/1~7/5) · <span style="font-weight:400;color:var(--muted)">D0 ROAS (예약생성기준 · mmp_value)</span></div>
+  <div class="sec-label">채널별 성과 — P2(6/8~14) vs W1(D1~D8) vs W2 avg(6/24~7/2) vs W3 avg(7/1~7/5) vs W4 avg(7/6~7/7 · D20~D21) · <span style="font-weight:400;color:var(--muted)">D0 ROAS (예약생성기준 · mmp_value) · W4 native_w28 2일 avg</span></div>
   <div class="tbl-card">
     <table>
       <thead>
@@ -1378,11 +1378,13 @@ canvas{display:block;width:100%}
           <th>W1 비용/일</th>
           <th>W2 비용/일</th>
           <th>W3 비용/일</th>
+          <th>W4 비용/일</th>
           <th>P2 ROAS</th>
           <th>W1 ROAS</th>
           <th>W2 ROAS</th>
           <th>W3 ROAS</th>
-          <th>W2→W3</th>
+          <th>W4 ROAS</th>
+          <th>W3→W4</th>
           <th>CPD <span style="font-weight:400;font-size:9px">(원/DLUV)</span></th>
           <th>최종 신호</th>
         </tr>
@@ -1723,16 +1725,17 @@ const D = {
 };
 
 // d = Perf DLUV D1~D5 avg (airbridge), cpd = c3*10000/d (원/명) · c3/r3 = D1~D8 avg (6/17~6/24, w25+w26)
+// c6/r6 = W4 avg (7/6~7/7 · D20~D21 · native_w28 2일 avg) · D22~D31 집계 대기
 const CH = [
-  {n:'페이스북',   cat:'DA',  c2:280,c3:335, c4:373, c5:382, r2:1224,r3:1164, r4:1308, r5:1439, d:3552, sig:'ok',  st:'ROAS W3 1,439% ✅ 캠페인 최강 유지'},
-  {n:'틱톡',       cat:'DA',  c2:464,c3:557, c4:573, c5:591, r2:942, r3:1005, r4:891,  r5:728,  d:5215, sig:'chk', st:'ROAS W3 728% ↓ 3주 연속 하락'},
-  {n:'구글AC',     cat:'DA',  c2:495,c3:483, c4:541, c5:565, r2:874, r3:666,  r4:727,  r5:768,  d:1937, sig:'chk', st:'ROAS 768% — 800% 미달 지속'},
-  {n:'몰로코',     cat:'DA',  c2:136,c3:175, c4:207, c5:249, r2:875, r3:805,  r4:910,  r5:836,  d:1431, sig:'hold',st:'ROAS 836% 유지'},
-  {n:'웨어즈',     cat:'DA',  c2:50, c3:56,  c4:55,  c5:50,  r2:938, r3:960,  r4:1015, r5:947,  d:620,  sig:'hold', st:'ROAS 947% — W3 1,000% 이탈'},
-  {n:'rtbhouse',   cat:'DA',  c2:90, c3:51,  c4:51,  c5:63,  r2:534, r3:947,  r4:1094, r5:1192, d:471,  sig:'ok',  st:'ROAS W3 1,192% ✅ 최고점 경신'},
-  {n:'카카오',     cat:'DA',  c2:93, c3:91,  c4:94,  c5:102, r2:747, r3:853,  r4:773,  r5:834,  d:471,  sig:'hold',st:'ROAS 834% · 800%대 회복'},
-  {n:'네이버BSA',  cat:'BSA', c2:52, c3:52,  c4:52,  c5:52,  r2:910, r3:339,  r4:344,  r5:443,  d:91,   sig:'chk', st:'ROAS 443% · W3 급반등 원인 확인 필요'},
-  {n:'네이버SA',   cat:'SA',  c2:149,c3:144, c4:161, c5:209, r2:210, r3:304,  r4:344,  r5:335,  d:188,  sig:'cut', st:'ROAS 335% — 비용 +31% 증액에도 하락'},
+  {n:'페이스북',   cat:'DA',  c2:280,c3:335, c4:373, c5:382, c6:389, r2:1224,r3:1164, r4:1308, r5:1439, r6:1450, d:3552, sig:'ok',  st:'ROAS W4 1,450% ✅ 캠페인 최강 · 종료 최고점'},
+  {n:'틱톡',       cat:'DA',  c2:464,c3:557, c4:573, c5:591, c6:592, r2:942, r3:1005, r4:891,  r5:728,  r6:627,  d:5215, sig:'cut', st:'ROAS W4 627% ↓↓ 4주 연속 하락 · 캠페인 최종'},
+  {n:'구글AC',     cat:'DA',  c2:495,c3:483, c4:541, c5:565, c6:575, r2:874, r3:666,  r4:727,  r5:768,  r6:820,  d:1937, sig:'hold',st:'ROAS W4 820% → 800% 회복 · 캠페인 종료'},
+  {n:'몰로코',     cat:'DA',  c2:136,c3:175, c4:207, c5:249, c6:226, r2:875, r3:805,  r4:910,  r5:836,  r6:1085, d:1431, sig:'ok',  st:'ROAS W4 1,085% ✅ 급반등 · W3 대비 +249%p'},
+  {n:'웨어즈',     cat:'DA',  c2:50, c3:56,  c4:55,  c5:50,  c6:61,  r2:938, r3:960,  r4:1015, r5:947,  r6:926,  d:620,  sig:'hold',st:'ROAS W4 926% → 안정 · 1,000% 미달 유지'},
+  {n:'rtbhouse',   cat:'DA',  c2:90, c3:51,  c4:51,  c5:63,  c6:63,  r2:534, r3:947,  r4:1094, r5:1192, r6:1500, d:471,  sig:'ok',  st:'ROAS W4 1,500% ✅ 캠페인 최고점 · 종료'},
+  {n:'카카오',     cat:'DA',  c2:93, c3:91,  c4:94,  c5:102, c6:92,  r2:747, r3:853,  r4:773,  r5:834,  r6:909,  d:471,  sig:'ok',  st:'ROAS W4 909% ✅ 900%대 달성 · 캠페인 종료'},
+  {n:'네이버BSA',  cat:'BSA', c2:52, c3:52,  c4:52,  c5:52,  c6:52,  r2:910, r3:339,  r4:344,  r5:443,  r6:857,  d:91,   sig:'ok',  st:'ROAS W4 857% ✅ 급반등 · W3 443%→W4 857%'},
+  {n:'네이버SA',   cat:'SA',  c2:149,c3:144, c4:161, c5:209, c6:208, r2:210, r3:304,  r4:344,  r5:335,  r6:322,  d:188,  sig:'cut', st:'ROAS W4 322% ❌ 캠페인 내내 비효율'},
 ];
 
 // ── CHANNEL TABLE ──────────────────────────────────────
@@ -1770,11 +1773,13 @@ CH.forEach(c=>{
     <td>${c.c3}만</td>
     <td>${c.c4}만</td>
     <td>${c.c5}만</td>
+    <td>${c.c6}만</td>
     <td>${roasBadge(c.r2)}</td>
     <td>${roasBadge(c.r3)}</td>
     <td>${roasBadge(c.r4)}</td>
     <td>${roasBadge(c.r5)}</td>
-    <td>${trendArrow(c.r4,c.r5)}</td>
+    <td>${roasBadge(c.r6)}</td>
+    <td>${trendArrow(c.r5,c.r6)}</td>
     <td>${cpdBadge(cpd)}</td>
     <td>${sigBadge(c.sig,c.st)}</td>`;
   tbody.appendChild(tr);
