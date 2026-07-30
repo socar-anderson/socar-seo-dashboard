@@ -1122,7 +1122,7 @@ const SEO_DATA = {
       },
       {
         "name": "olive",
-        "totalPosts": 3,
+        "totalPosts": 4,
         "totalImpressions": 1205,
         "totalClicks": 23,
         "avgPosition": 5.8,
@@ -1188,6 +1188,14 @@ const SEO_DATA = {
             "clicks": 1,
             "position": 6.4,
             "ctr": 0.3
+          },
+          {
+            "url": "https://www.socar.kr/blog/socar-travel-tongyeong-summer-activity",
+            "slug": "socar-travel-tongyeong-summer-activity",
+            "impressions": 0,
+            "clicks": 0,
+            "position": 0,
+            "ctr": 0
           }
         ]
       },
